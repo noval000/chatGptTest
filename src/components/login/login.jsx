@@ -31,7 +31,7 @@ const Login = (props) => {
         try {
 
             // Отправка данных на сервер
-            const response = await axios.post('http://192.168.21.89:5000/api/login', data, {
+            const response = await axios.post('/api/login', data, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
