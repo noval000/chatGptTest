@@ -16,8 +16,8 @@ const Sidebar = (props) => {
 
     const [open, setOpen] = useState(false);
 
-    const [lim_session_title, setLimSessionTitle] = useState('');   //   название сессии
-    const [lim_session_id, setLimSessionId] = useState('');   //  id session
+    const [llm_session_title, setLimSessionTitle] = useState('');   //   название сессии
+    const [llm_session_id, setLimSessionId] = useState('');   //  id session
     const closeModal = () => setOpen(false);
 
     const submitSession = async (e) => {
@@ -27,8 +27,8 @@ const Sidebar = (props) => {
         // данные для отправки на сервер
 
         const data = {
-            lim_session_title,
-            lim_session_id
+            llm_session_title,
+            llm_session_id
         };
 
         try {
@@ -58,8 +58,8 @@ const Sidebar = (props) => {
         // данные для отправки на сервер
 
         const data = {
-            lim_session_title,
-            lim_session_id
+            llm_session_title,
+            llm_session_id
         };
 
         try {
@@ -89,8 +89,8 @@ const Sidebar = (props) => {
                        setLimSessionTitle('none');
                        setLimSessionId('none');
                        submitSessionNew(e)
-                       console.log(lim_session_title)
-                       console.log(lim_session_id)
+                       console.log(llm_session_title)
+                       console.log(llm_session_id)
                    }}
                 >
                     Помощник ТРИЗ
@@ -116,9 +116,9 @@ const Sidebar = (props) => {
                                        onClick={(e) => {
                                            setLimSessionTitle(el.title)
                                            setLimSessionId(el.id)
+                                           console.log(llm_session_title)
+                                           console.log(llm_session_id)
                                            submitSession(e)
-                                           console.log(lim_session_title)
-                                           console.log(lim_session_id)
                                        }}
                                     >{el.title}</a>
                                     <button type="button" className="changeNameLink" onClick={(e) => {
