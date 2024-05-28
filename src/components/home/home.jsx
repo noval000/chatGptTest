@@ -19,6 +19,10 @@ const Home = (props) => {
                 session={props.session}   // все сессии
             />
             <MainSectionForm
+                llm_session_title={llm_session_title} //   название сессии
+                setLimSessionTitle={setLimSessionTitle}
+                llm_session_id={llm_session_id}   //  id session
+                setLimSessionId={setLimSessionId}
                 firstname={props.firstname}  //   имя для приветствия
                 session={props.session}    // все сессии
                 setSession={props.setSession}    // изменение сессий
