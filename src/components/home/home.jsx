@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import Sidebar from "../sidebar/sidebar";
 import MainSectionForm from "../mainSectionForm/mainSectionForm";
-import axios from "axios";
 
 const Home = (props) => {
 
@@ -14,45 +13,28 @@ const Home = (props) => {
     const [sessionChatGpt, setSessionChatGpt] = useState([])  //  все запросы в чат gpt
 
 
-
-    const submitSession = async (e) => {
-        e.preventDefault();
-
-
-        // данные для отправки на сервер
-
-        const data = {
-            llm_session_title,
-            llm_session_id
-        };
-
-        try {
-
-            // Отправка данных на сервер
-            const response = await axios.post('/api/llm_session', data, {
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                credentials: "include",
-                withCredentials: true,
-            });
-            setSessionChatGpt(response.data.llm_session_responses.filter(el => el[8] === 'chatgpt'))
-            console.log(sessionChatGpt)
-            console.log('server responce' , response.data);
-
-        } catch (error) {
-            console.error('error' , error)
-        }
+    const [valueChatClaude, setValueChatClaude] = useState('')  //  запрос в чат Claude
+    const [sessionChatClaude, setSessionChatClaude] = useState([])  //  все запросы в чат Claude
 
 
-    }    //   отправка запроса при нажатии на название сессии
+
+    const [valueChatGigachat, setValueChatGigachat] = useState('')  //  запрос в чат Gigachat
+    const [sessionChatGigachat, setSessionChatGigachat] = useState([])  //  все запросы в чат Gigachat
+
 
 
 
     return (
         <div>
             <Sidebar
-                submitSession={submitSession}  //   отправка запроса при нажатии на название сессии
+                sessionChatGigachat={sessionChatGigachat}  //  все запросы в чат Gigachat
+                setSessionChatGigachat={setSessionChatGigachat}
+                valueChatGigachat={valueChatGigachat}    //  запрос в чат Gigachat
+                setValueChatGigachat={setValueChatGigachat}
+                valueChatClaude={valueChatClaude}      //  запрос в чат Claude
+                setValueChatClaude={setValueChatClaude}
+                sessionChatClaude={sessionChatClaude}      //  все запросы в чат Claude
+                setSessionChatClaude={setSessionChatClaude}
                 valueChatGpt={valueChatGpt}    //  запрос в чат гпт
                 setValueChatGpt={setValueChatGpt}
                 sessionChatGpt={sessionChatGpt}    //  все запросы в чат gpt
@@ -64,7 +46,18 @@ const Home = (props) => {
                 setLimSessionId={setLimSessionId}
             />
             <MainSectionForm
+                sessionChatGigachat={sessionChatGigachat}  //  все запросы в чат Gigachat
+                setSessionChatGigachat={setSessionChatGigachat}
+                valueChatGigachat={valueChatGigachat}    //  запрос в чат Gigachat
+                setValueChatGigachat={setValueChatGigachat}
+                valueChatClaude={valueChatClaude}      //  запрос в чат Claude
+                setValueChatClaude={setValueChatClaude}
+                sessionChatClaude={sessionChatClaude}      //  все запросы в чат Claude
+                setSessionChatClaude={setSessionChatClaude}
+                valueChatGpt={valueChatGpt}    //  запрос в чат гпт
+                setValueChatGpt={setValueChatGpt}
                 sessionChatGpt={sessionChatGpt}    //  все запросы в чат gpt
+                setSessionChatGpt={setSessionChatGpt}
                 llm_session_title={llm_session_title}  //   название сессии
                 setLimSessionTitle={setLimSessionTitle}
                 llm_session_id={llm_session_id}  //  id session

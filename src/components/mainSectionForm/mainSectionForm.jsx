@@ -14,12 +14,9 @@ const MainSectionForm = (props) => {
     const [inpGetValue, setValue] = useState('')   //   значение после первого запроса
 
 
-    const [valueChatClaude, setValueChatClaude] = useState('')  //  запрос в чат Claude
-    const [sessionChatClaude, setSessionChatClaude] = useState([])  //  все запросы в чат Claude
 
 
-    const [valueChatGigachat, setValueChatGigachat] = useState('')  //  запрос в чат Gigachat
-    const [sessionChatGigachat, setSessionChatGigachat] = useState([])  //  все запросы в чат Gigachat
+
 
 
     const submitFirstChat = (e) => {
@@ -101,19 +98,19 @@ const MainSectionForm = (props) => {
                     <ColChatsClaude
                         submitChatClaude={submitChatClaude}
                         session={props.session} // все сессии
-                        sessionChatClaude={sessionChatClaude} //  все сессии чата Claude
-                        setSessionChatClaude={setSessionChatClaude}
-                        valueChatClaude={valueChatClaude} //  запрос в чат Claude
-                        setValueChatClaude={setValueChatClaude}
+                        sessionChatClaude={props.sessionChatClaude} //  все сессии чата Claude
+                        setSessionChatClaude={props.setSessionChatClaude}
+                        valueChatClaude={props.valueChatClaude} //  запрос в чат Claude
+                        setValueChatClaude={props.setValueChatClaude}
                         inpGetValue={inpGetValue}  //   значение после первого запроса
                         setValue={setValue}
                     />
                     <ColChatsGigachat
                         session={props.session} // все сессии
-                        sessionChatGigachat={sessionChatGigachat}   //  все сессии чата Gigachat
-                        setSessionChatGigachat={setSessionChatGigachat}
-                        valueChatGigachat={valueChatGigachat} //  запрос в чат Gigachat
-                        setValueChatGigachat={setValueChatGigachat}
+                        sessionChatGigachat={props.sessionChatGigachat}   //  все сессии чата Gigachat
+                        setSessionChatGigachat={props.setSessionChatGigachat}
+                        valueChatGigachat={props.valueChatGigachat} //  запрос в чат Gigachat
+                        setValueChatGigachat={props.setValueChatGigachat}
                         inpGetValue={inpGetValue}  //   значение после первого запроса
                         setValue={setValue}
                     />

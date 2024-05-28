@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './sidebar.css';
 import Popup from "reactjs-popup";
 import 'reactjs-popup/dist/index.css';
@@ -19,6 +19,39 @@ const Sidebar = (props) => {
 
     const closeModal = () => setOpen(false);
 
+
+    const submitSession = async (e) => {
+            e.preventDefault();
+
+
+            // данные для отправки на сервер
+
+            const data = {
+                llm_session_title,
+                llm_session_id
+            };
+
+            try {
+
+                // Отправка данных на сервер
+                const response = await axios.post('/api/llm_session', data, {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    credentials: "include",
+                    withCredentials: true,
+                });
+                props.setSessionChatGpt(response.data.llm_session_responses.filter(el => el[8] === 'chatgpt'))
+                props.setSessionChatClaude(response.data.llm_session_responses.filter(el => el[8] === 'claude'))
+                props.setSessionChatGigachat(response.data.llm_session_responses.filter(el => el[8] === 'gigachat'))
+                console.log(props.sessionChatGpt)
+                console.log('server responce' , response.data);
+
+            } catch (error) {
+                console.error('error' , error)
+            }
+
+        }        //   отправка запроса при нажатии на название сессии
 
 
 
@@ -89,7 +122,7 @@ const Sidebar = (props) => {
                                            props.setLimSessionId(() => el.id)
                                            console.log(llm_session_title)
                                            console.log(llm_session_id)
-                                           props.submitSession(e)
+                                           submitSession(e)
                                        }}
                                     >{el.title}</a>
                                     <button type="button" className="changeNameLink" onClick={(e) => {
