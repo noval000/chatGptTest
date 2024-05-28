@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './sidebar.css';
 import Popup from "reactjs-popup";
 import 'reactjs-popup/dist/index.css';
@@ -20,9 +20,7 @@ const Sidebar = (props) => {
     const closeModal = () => setOpen(false);
 
 
-    React.useEffect(() => {
-        console.log(`state is `, llm_session_title);
-    }, [llm_session_title]);
+
     const submitSession = async (e) => {
             e.preventDefault();
 
@@ -55,6 +53,10 @@ const Sidebar = (props) => {
             }
 
         }        //   отправка запроса при нажатии на название сессии
+
+    useEffect(() => {
+        console.log(`state is `, llm_session_title);
+    }, [llm_session_title, llm_session_id]);
 
 
 
