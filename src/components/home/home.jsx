@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Sidebar from "../sidebar/sidebar";
 import MainSectionForm from "../mainSectionForm/mainSectionForm";
+import axios from "axios";
 
 const Home = (props) => {
 
@@ -13,10 +14,44 @@ const Home = (props) => {
     const [sessionChatGpt, setSessionChatGpt] = useState([])  //  все запросы в чат gpt
 
 
+    const submitSession = async (e) => {
+        e.preventDefault();
+
+
+        // данные для отправки на сервер
+
+        const data = {
+            llm_session_title,
+            llm_session_id
+        };
+
+        try {
+
+            // Отправка данных на сервер
+            const response = await axios.post('/api/llm_session', data, {
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                credentials: "include",
+                withCredentials: true,
+            });
+            setSessionChatGpt(response.data.llm_session_responses.filter(el => el[8] === 'chatgpt'))
+            console.log(sessionChatGpt)
+            console.log('server responce' , response.data);
+
+        } catch (error) {
+            console.error('error' , error)
+        }
+
+
+    }    //   отправка запроса при нажатии на название сессии
+
+
 
     return (
         <div>
             <Sidebar
+                submitSession={submitSession}  //   отправка запроса при нажатии на название сессии
                 valueChatGpt={valueChatGpt}    //  запрос в чат гпт
                 setValueChatGpt={setValueChatGpt}
                 sessionChatGpt={sessionChatGpt}    //  все запросы в чат gpt

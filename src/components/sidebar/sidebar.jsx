@@ -19,37 +19,7 @@ const Sidebar = (props) => {
 
     const closeModal = () => setOpen(false);
 
-    const submitSession = async (e) => {
-        e.preventDefault();
 
-
-        // данные для отправки на сервер
-
-        const data = {
-            llm_session_title,
-            llm_session_id
-        };
-
-        try {
-
-            // Отправка данных на сервер
-            const response = await axios.post('/api/llm_session', data, {
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                credentials: "include",
-                withCredentials: true,
-            });
-            props.setSessionChatGpt(response.data.llm_session_responses.filter(el => el[8] === 'chatgpt'))
-            console.log(props.sessionChatGpt)
-            console.log('server responce' , response.data);
-
-        } catch (error) {
-            console.error('error' , error)
-        }
-
-
-    }    //   отправка запроса при нажатии на название сессии
 
 
     const submitSessionNew = async (e) => {
@@ -119,7 +89,7 @@ const Sidebar = (props) => {
                                            props.setLimSessionId(el.id)
                                            console.log(llm_session_title)
                                            console.log(llm_session_id)
-                                           submitSession(e)
+                                           props.submitSession(e)
                                        }}
                                     >{el.title}</a>
                                     <button type="button" className="changeNameLink" onClick={(e) => {

@@ -92,7 +92,7 @@ const ColChatsGpt = (props) => {
                                         </div>
                                     </div>
                                     <div className="zapros">
-                                        <p>{el}</p>
+                                        <p>{el[2]}</p>
                                     </div>
                                 </div>
                                 <div className="answer">
@@ -105,7 +105,7 @@ const ColChatsGpt = (props) => {
                                         </div>
                                     </div>
                                     <div className="zapros">
-                                        <p>Рендер ответа сюда</p>
+                                        <p>{el[3]}</p>
                                     </div>
                                     <div className="allBtn d-flex align-items-start">
                                         <a href="#!" type="button" className="btnLike like btn btn-sm">
