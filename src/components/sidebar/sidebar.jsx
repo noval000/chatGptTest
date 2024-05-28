@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import './sidebar.css';
 import Popup from "reactjs-popup";
 import 'reactjs-popup/dist/index.css';
@@ -21,7 +21,8 @@ const Sidebar = (props) => {
 
 
 
-    const submitSession = async (e) => {
+    const submitSession = useCallback(
+        async (e) => {
             e.preventDefault();
 
 
@@ -52,43 +53,44 @@ const Sidebar = (props) => {
                 console.error('error' , error)
             }
 
-        }        //   отправка запроса при нажатии на название сессии
-
-    useEffect(() => {
-        console.log(`state is `, props.llm_session_title);
-    }, [props.llm_session_title, props.llm_session_id]);
+        },  [llm_session_title, llm_session_id]       //   отправка запроса при нажатии на название сессии
+    )
 
 
 
-    const submitSessionNew = async (e) => {
-        e.preventDefault();
 
 
-        // данные для отправки на сервер
-
-        const data = {
-            llm_session_title,
-            llm_session_id
-        };
-
-        try {
-
-            // Отправка данных на сервер
-            const response = await axios.post('/api/llm_session', data, {
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                credentials: "include",
-                withCredentials: true,
-            });
-            console.log('server responce' , response.data);
-
-        } catch (error) {
-            console.error('error' , error)
-        }
+    const submitSessionNew = useCallback(
+        async (e) => {
+            e.preventDefault();
 
 
-    }    //   отправка запроса при нажатии на новую сессии
+            // данные для отправки на сервер
+
+            const data = {
+                llm_session_title,
+                llm_session_id
+            };
+
+            try {
+
+                // Отправка данных на сервер
+                const response = await axios.post('/api/llm_session', data, {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    credentials: "include",
+                    withCredentials: true,
+                });
+                console.log('server responce' , response.data);
+
+            } catch (error) {
+                console.error('error' , error)
+            }
+
+
+        }, [props.llm_session_title]
+    )  //   отправка запроса при нажатии на новую сессии
 
     return (
         <div className="flexAndCenter">
