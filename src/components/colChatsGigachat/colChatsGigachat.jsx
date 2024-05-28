@@ -95,7 +95,7 @@ const ColChatsGigachat = (props) => {
                                             <img src={iconTriz} alt=""/>
                                         </div>
                                         <div className="name">
-                                            <h5>Ответ ChatGPT:</h5>
+                                            <h5>Ответ Gigachat:</h5>
                                         </div>
                                     </div>
                                     <div className="zapros">
