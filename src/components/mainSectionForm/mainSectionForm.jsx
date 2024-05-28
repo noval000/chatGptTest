@@ -69,6 +69,9 @@ const MainSectionForm = (props) => {
 
     return (
         <>
+            {
+                props.llm_session_title === '' &&
+                props.llm_session_id === '' &&
 
                 <FirstChat
                     firstname={props.firstname}   //   имя для приветствия
@@ -79,8 +82,11 @@ const MainSectionForm = (props) => {
                     submitFirstChat={submitFirstChat}
                     handleSendMessage={handleSendMessage}
                 />
+            }
+
             {
-                props.session.length > 0 &&
+                props.llm_session_title !== '' &&
+                props.llm_session_id !== '' &&
                 <div className="chat-container">
                     <ColChatsGpt
                         submitChatGpt={submitChatGpt}
