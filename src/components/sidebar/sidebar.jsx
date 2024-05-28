@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import './sidebar.css';
 import Popup from "reactjs-popup";
 import 'reactjs-popup/dist/index.css';
@@ -20,7 +20,9 @@ const Sidebar = (props) => {
     const closeModal = () => setOpen(false);
 
 
+
     const submitSession = async (e) => {
+
             e.preventDefault();
 
 
@@ -117,7 +119,7 @@ const Sidebar = (props) => {
                         props.session.map(el => (
                                 <div key={el.id} className="linkSession">
                                     <a href="#!"
-                                       onClick={(e) => {
+                                       onClick={async (e) => {
                                            props.setLimSessionTitle(() => el.title)
                                            props.setLimSessionId(() => el.id)
                                            console.log(llm_session_title)
