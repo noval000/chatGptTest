@@ -9,15 +9,14 @@ import axios from "axios";
 const Sidebar = (props) => {
 
 
-
+    let llm_session_title = props.llm_session_title;
+    let llm_session_id = props.llm_session_id;
 
 
 
 
     const [open, setOpen] = useState(false);
 
-    const [llm_session_title, setLimSessionTitle] = useState('');   //   название сессии
-    const [llm_session_id, setLimSessionId] = useState('');   //  id session
     const closeModal = () => setOpen(false);
 
     const submitSession = async (e) => {
@@ -86,8 +85,8 @@ const Sidebar = (props) => {
             <section className="side">
                 <a href='#!' className="nameSidebar"
                    onClick={(e) => {
-                       setLimSessionTitle('none');
-                       setLimSessionId('none');
+                       props.setLimSessionTitle('none');
+                       props.setLimSessionId('none');
                        submitSessionNew(e)
                        console.log(llm_session_title)
                        console.log(llm_session_id)
@@ -114,8 +113,8 @@ const Sidebar = (props) => {
                                 <div key={el.id} className="linkSession">
                                     <a href="#!"
                                        onClick={(e) => {
-                                           setLimSessionTitle(el.title)
-                                           setLimSessionId(el.id)
+                                           props.setLimSessionTitle(el.title)
+                                           props.setLimSessionId(el.id)
                                            console.log(llm_session_title)
                                            console.log(llm_session_id)
                                            submitSession(e)
