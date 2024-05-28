@@ -79,41 +79,41 @@ const MainSectionForm = (props) => {
                     submitFirstChat={submitFirstChat}
                     handleSendMessage={handleSendMessage}
                 />
-            {/*{*/}
-            {/*    props.session.length > 0 &&*/}
-            {/*    <div className="chat-container">*/}
-            {/*        <ColChatsGpt*/}
-            {/*            submitChatGpt={submitChatGpt}*/}
-            {/*            session={props.session}    // все сессии*/}
-            {/*            setSession={props.setSession}    // изменение сессий*/}
-            {/*            sessionChatGpt={sessionChatGpt}   //  все сессии чата gpt*/}
-            {/*            setSessionChatGpt={setSessionChatGpt}*/}
-            {/*            valueChatGpt={valueChatGpt} //  запрос в чат гпт*/}
-            {/*            setValueChatGpt={setValueChatGpt}*/}
-            {/*            inpGetValue={inpGetValue}  //   значение после первого запроса*/}
-            {/*            setValue={setValue}*/}
-            {/*        />*/}
-            {/*        <ColChatsClaude*/}
-            {/*            submitChatClaude={submitChatClaude}*/}
-            {/*            session={props.session} // все сессии*/}
-            {/*            sessionChatClaude={sessionChatClaude} //  все сессии чата Claude*/}
-            {/*            setSessionChatClaude={setSessionChatClaude}*/}
-            {/*            valueChatClaude={valueChatClaude} //  запрос в чат Claude*/}
-            {/*            setValueChatClaude={setValueChatClaude}*/}
-            {/*            inpGetValue={inpGetValue}  //   значение после первого запроса*/}
-            {/*            setValue={setValue}*/}
-            {/*        />*/}
-            {/*        <ColChatsGigachat*/}
-            {/*            session={props.session} // все сессии*/}
-            {/*            sessionChatGigachat={sessionChatGigachat}   //  все сессии чата Gigachat*/}
-            {/*            setSessionChatGigachat={setSessionChatGigachat}*/}
-            {/*            valueChatGigachat={valueChatGigachat} //  запрос в чат Gigachat*/}
-            {/*            setValueChatGigachat={setValueChatGigachat}*/}
-            {/*            inpGetValue={inpGetValue}  //   значение после первого запроса*/}
-            {/*            setValue={setValue}*/}
-            {/*        />*/}
-            {/*    </div>*/}
-            {/*}*/}
+            {
+                props.session.length > 0 &&
+                <div className="chat-container">
+                    <ColChatsGpt
+                        submitChatGpt={submitChatGpt}
+                        session={props.session}    // все сессии
+                        setSession={props.setSession}    // изменение сессий
+                        sessionChatGpt={sessionChatGpt}   //  все сессии чата gpt
+                        setSessionChatGpt={setSessionChatGpt}
+                        valueChatGpt={valueChatGpt} //  запрос в чат гпт
+                        setValueChatGpt={setValueChatGpt}
+                        inpGetValue={inpGetValue}  //   значение после первого запроса
+                        setValue={setValue}
+                    />
+                    <ColChatsClaude
+                        submitChatClaude={submitChatClaude}
+                        session={props.session} // все сессии
+                        sessionChatClaude={sessionChatClaude} //  все сессии чата Claude
+                        setSessionChatClaude={setSessionChatClaude}
+                        valueChatClaude={valueChatClaude} //  запрос в чат Claude
+                        setValueChatClaude={setValueChatClaude}
+                        inpGetValue={inpGetValue}  //   значение после первого запроса
+                        setValue={setValue}
+                    />
+                    <ColChatsGigachat
+                        session={props.session} // все сессии
+                        sessionChatGigachat={sessionChatGigachat}   //  все сессии чата Gigachat
+                        setSessionChatGigachat={setSessionChatGigachat}
+                        valueChatGigachat={valueChatGigachat} //  запрос в чат Gigachat
+                        setValueChatGigachat={setValueChatGigachat}
+                        inpGetValue={inpGetValue}  //   значение после первого запроса
+                        setValue={setValue}
+                    />
+                </div>
+            }
 
 
 
