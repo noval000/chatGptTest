@@ -11,13 +11,13 @@ const Sidebar = (props) => {
 
 
 
-    const llm_session_title = props.llm_session_title;
-    const llm_session_id = props.llm_session_title;
+
 
 
     const [open, setOpen] = useState(false);
 
-
+    const [llm_session_title, setLimSessionTitle] = useState('');   //   название сессии
+    const [llm_session_id, setLimSessionId] = useState('');   //  id session
     const closeModal = () => setOpen(false);
 
     const submitSession = async (e) => {
@@ -86,11 +86,11 @@ const Sidebar = (props) => {
             <section className="side">
                 <a href='#!' className="nameSidebar"
                    onClick={(e) => {
-                       props.setLimSessionTitle('none');
-                       props.setLimSessionId('none');
+                       setLimSessionTitle('none');
+                       setLimSessionId('none');
                        submitSessionNew(e)
-                       console.log(props.llm_session_title)
-                       console.log(props.llm_session_id)
+                       console.log(llm_session_title)
+                       console.log(llm_session_id)
                    }}
                 >
                     Помощник ТРИЗ
@@ -114,10 +114,10 @@ const Sidebar = (props) => {
                                 <div key={el.id} className="linkSession">
                                     <a href="#!"
                                        onClick={(e) => {
-                                           props.setLimSessionTitle(el.title)
-                                           props.setLimSessionId(el.id)
-                                           console.log(props.llm_session_title)
-                                           console.log(props.llm_session_id)
+                                           setLimSessionTitle(el.title)
+                                           setLimSessionId(el.id)
+                                           console.log(llm_session_title)
+                                           console.log(llm_session_id)
                                            submitSession(e)
                                        }}
                                     >{el.title}</a>
