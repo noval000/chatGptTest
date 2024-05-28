@@ -12,8 +12,7 @@ const MainSectionForm = (props) => {
 
 
     const [inpGetValue, setValue] = useState('')   //   значение после первого запроса
-    const [valueChatGpt, setValueChatGpt] = useState('')  //  запрос в чат гпт
-    const [sessionChatGpt, setSessionChatGpt] = useState([])  //  все запросы в чат gpt
+
 
     const [valueChatClaude, setValueChatClaude] = useState('')  //  запрос в чат Claude
     const [sessionChatClaude, setSessionChatClaude] = useState([])  //  все запросы в чат Claude
@@ -92,10 +91,10 @@ const MainSectionForm = (props) => {
                         submitChatGpt={submitChatGpt}
                         session={props.session}    // все сессии
                         setSession={props.setSession}    // изменение сессий
-                        sessionChatGpt={sessionChatGpt}   //  все сессии чата gpt
-                        setSessionChatGpt={setSessionChatGpt}
-                        valueChatGpt={valueChatGpt} //  запрос в чат гпт
-                        setValueChatGpt={setValueChatGpt}
+                        sessionChatGpt={props.sessionChatGpt}   //  все сессии чата gpt
+                        setSessionChatGpt={props.setSessionChatGpt}
+                        valueChatGpt={props.valueChatGpt} //  запрос в чат гпт
+                        setValueChatGpt={props.setValueChatGpt}
                         inpGetValue={inpGetValue}  //   значение после первого запроса
                         setValue={setValue}
                     />

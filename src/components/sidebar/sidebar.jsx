@@ -40,8 +40,8 @@ const Sidebar = (props) => {
                 credentials: "include",
                 withCredentials: true,
             });
-            props.setLlmSessionResponcesGPT(response.data.llm_session_responses.filter(el => el[8] === 'chatgpt'))
-            console.log(props.llmSessionResponcesGPT)
+            props.setSessionChatGpt(response.data.llm_session_responses.filter(el => el[8] === 'chatgpt'))
+            console.log(props.sessionChatGpt)
             console.log('server responce' , response.data);
 
         } catch (error) {
