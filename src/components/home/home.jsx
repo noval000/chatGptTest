@@ -14,6 +14,7 @@ const Home = (props) => {
     const [sessionChatGpt, setSessionChatGpt] = useState([])  //  все запросы в чат gpt
 
 
+
     const submitSession = async (e) => {
         e.preventDefault();
 
