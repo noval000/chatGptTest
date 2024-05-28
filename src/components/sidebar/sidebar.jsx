@@ -20,9 +20,10 @@ const Sidebar = (props) => {
     const closeModal = () => setOpen(false);
 
 
-
+    React.useEffect(() => {
+        console.log(`state is `, llm_session_title);
+    }, [llm_session_title]);
     const submitSession = async (e) => {
-
             e.preventDefault();
 
 
