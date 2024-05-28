@@ -40,6 +40,8 @@ const Sidebar = (props) => {
                 credentials: "include",
                 withCredentials: true,
             });
+            props.setLlmSessionResponcesGPT(response.data.llm_session_responses.filter(el => el[8] === 'chatgpt'))
+            console.log(props.llmSessionResponcesGPT)
             console.log('server responce' , response.data);
 
         } catch (error) {
@@ -78,7 +80,7 @@ const Sidebar = (props) => {
         }
 
 
-    }    //   отправка запроса при нажатии на название сессии
+    }    //   отправка запроса при нажатии на новую сессии
 
     return (
         <div className="flexAndCenter">
