@@ -50,10 +50,49 @@ const Sidebar = (props) => {
 
     }    //   отправка запроса при нажатии на название сессии
 
+
+    const submitSessionNew = async (e) => {
+        e.preventDefault();
+
+
+        // данные для отправки на сервер
+
+        const data = {
+            lim_session_title,
+            lim_session_id
+        };
+
+        try {
+
+            // Отправка данных на сервер
+            const response = await axios.post('/api/llm_session', data, {
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                credentials: "include",
+                withCredentials: true,
+            });
+            console.log('server responce' , response.data);
+
+        } catch (error) {
+            console.error('error' , error)
+        }
+
+
+    }    //   отправка запроса при нажатии на название сессии
+
     return (
         <div className="flexAndCenter">
             <section className="side">
-                <a href='#!' className="nameSidebar">
+                <a href='#!' className="nameSidebar"
+                   onClick={(e) => {
+                       setLimSessionTitle('none');
+                       setLimSessionId('none');
+                       submitSessionNew(e)
+                       console.log(lim_session_title)
+                       console.log(lim_session_id)
+                   }}
+                >
                     Помощник ТРИЗ
                     <span className="signIn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
