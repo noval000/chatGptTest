@@ -34,10 +34,12 @@ const Sidebar = (props) => {
         try {
 
             // Отправка данных на сервер
-            const response = await axios.post('http://192.168.21.106:5000/api/llm_session', data, {
+            const response = await axios.post('/api/llm_session', data, {
                 headers: {
                     'Content-Type': 'application/json'
-                }
+                },
+                credentials: "include",
+                withCredentials: true,
             });
             console.log('server responce' , response.data);
 
