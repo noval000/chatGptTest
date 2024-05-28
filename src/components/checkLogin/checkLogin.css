@@ -1,0 +1,52 @@
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+.formLogin {
+    width: 50%;
+    height: 50%;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginForm input[name='username'],
+.loginForm input[name='password'] {
+    margin-bottom: 20px;
+    border: 1px solid;
+    padding: 11px;
+    border-radius: 10px;
+}
+
+.loginForm input[type='submit'] {
+    width: 100%;
+    cursor: pointer;
+    border: 1px solid;
+    padding: 10px 0;
+    border-radius: 10px;
+}
+
+.nameForm {
+    margin-bottom: 40px;
+}
+
+.registrationForm {
+    opacity: .7;
+    margin-top: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .5s all ease;
+}
+
+.registrationForm:hover {
+    opacity: .5;
+}
