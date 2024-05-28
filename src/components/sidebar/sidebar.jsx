@@ -55,8 +55,8 @@ const Sidebar = (props) => {
         }        //   отправка запроса при нажатии на название сессии
 
     useEffect(() => {
-        console.log(`state is `, llm_session_title);
-    }, [llm_session_title, llm_session_id]);
+        console.log(`state is `, props.llm_session_title);
+    }, [props.llm_session_title, props.llm_session_id]);
 
 
 
@@ -122,7 +122,7 @@ const Sidebar = (props) => {
                         props.session.map(el => (
                                 <div key={el.id} className="linkSession">
                                     <a href="#!"
-                                       onClick={async (e) => {
+                                       onClick={(e) => {
                                            props.setLimSessionTitle(() => el.title)
                                            props.setLimSessionId(() => el.id)
                                            console.log(llm_session_title)
