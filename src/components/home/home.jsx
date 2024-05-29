@@ -54,6 +54,9 @@ const Home = (props) => {
         };
         if (changeSessionForSubmit === true) {
             submitFirstChat();
+            setTimeout(() => {
+                setChangeSessionForSubmit(false)
+            }, 1500);
         }
     }, [sessionChatGpt, changeSessionForSubmit]);    //  отправка запроса на ответ
 
