@@ -56,14 +56,13 @@ const Home = (props) => {
                     console.error('There was an error sending the data!', error);
                 });
         };
-        if (changeSessionForSubmit === true) {
-            submitFirstChat();
-            setTimeout(() => {
-                setChangeSessionForSubmit(false)
-            }, 1500);
-        }
-        console.log(changeSessionForSubmit)
-    }, [changeSessionForSubmit]);    //  отправка запроса на ответ
+        submitFirstChat();
+        // if (changeSessionForSubmit === true) {
+        //     setTimeout(() => {
+        //         setChangeSessionForSubmit(false)
+        //     }, 1500);
+        // }
+    }, [sessionChatGpt]);    //  отправка запроса на ответ
 
 
 
