@@ -131,11 +131,12 @@
 
 
 .loader2 {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
-    position: relative;
-    animation: rotate 1s linear infinite
+    position: absolute;
+    animation: rotate 1s linear infinite;
+    left: 10px;
 }
 .loader2::before , .loader2::after {
     content: "";
