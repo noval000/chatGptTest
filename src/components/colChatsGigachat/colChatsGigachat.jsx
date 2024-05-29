@@ -142,7 +142,7 @@ const ColChatsGigachat = (props) => {
                            }}
                     />
                     <input type="submit"
-                           className={props.setChangeSessionForSubmit ? 'd-noneInput' : ''}
+                           // className={props.setChangeSessionForSubmit ? 'd-noneInput' : ''}
                            value=''
                            onClick={(e) => {
                                const formChat = e.target.closest('#formChatGigachat');

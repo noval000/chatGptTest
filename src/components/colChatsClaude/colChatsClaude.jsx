@@ -1,9 +1,12 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import iconUser from "../images/imgIcon/user_circle.png";
 import iconTriz from "../images/imgIcon/triz_logo_big_blue.png";
 import './colChatsClaude.css';
 
 const ColChatsClaude = (props) => {
+
+
+    const [loaderClaude, setLoaderClaude] = useState(false);
 
 
     const bottom = useRef(null)
@@ -124,6 +127,7 @@ const ColChatsClaude = (props) => {
                     }
                     {
                         props.changeSessionForSubmit === true &&
+                        loaderClaude === true &&
                         <span className="loader2"></span>
                     }
                     <span className="loader2"></span>
@@ -147,6 +151,7 @@ const ColChatsClaude = (props) => {
                                    // props.setSessionChatClaude([...props.sessionChatClaude, props.valueChatClaude])
                                    console.log(props.inpGetValue, props.valueChatGpt, props.valueChatGigachat, props.valueChatClaude)
                                    console.log(props.sessionChatClaude);
+                                   setLoaderClaude(true)
                                    props.setChangeSessionForSubmit(true)    //   отслеживаем изменилось ли значение при отправке
                                    props.setValueChatClaude('');     //    обнуляем инпут после отправки запроса
                                    // props.submitFirstChat(e)
