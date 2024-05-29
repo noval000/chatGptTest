@@ -19,8 +19,8 @@ const Sidebar = (props) => {
 
     const closeModal = () => setOpen(false);
 
-    const [titleLlm, setTitleLlm] = useState('');
-    const [idLlm, setidLlm] = useState('');
+    const [titleLlm, setTitleLlm] = useState(props.llm_session_title);
+    const [idLlm, setidLlm] = useState(props.llm_session_id);
 
 
     useEffect(() => {
@@ -57,7 +57,7 @@ const Sidebar = (props) => {
 
             }      //   отправка запроса при нажатии на название сессии
         submitSession();
-    }, [titleLlm, idLlm]);
+    }, [props, llm_session_title, llm_session_id]);
 
 
 
