@@ -31,6 +31,7 @@ const Home = (props) => {
 
 
     useEffect(() => {
+        if (changeSessionForSubmit === true) {
         const submitFirstChat = (e) => {
             // e.preventDefault();
             // Данные для отправки на сервер
@@ -57,7 +58,7 @@ const Home = (props) => {
                 });
         };
         submitFirstChat();
-        if (changeSessionForSubmit === true) {
+
             setTimeout(() => {
                 setChangeSessionForSubmit(false)
             }, 1500);
