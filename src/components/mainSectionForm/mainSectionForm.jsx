@@ -81,6 +81,7 @@ const MainSectionForm = (props) => {
                         setValueChatGigachat={props.setValueChatGigachat}
                         valueChatGpt={props.valueChatGpt}    //  запрос в чат гпт
                         setValueChatGpt={props.setValueChatGpt}
+                        setChangeSessionForSubmit={props.setChangeSessionForSubmit}
                     />
                     <ColChatsGigachat
                         session={props.session} // все сессии
@@ -95,6 +96,7 @@ const MainSectionForm = (props) => {
                         setValueChatClaude={props.setValueChatClaude}
                         valueChatGpt={props.valueChatGpt}    //  запрос в чат гпт
                         setValueChatGpt={props.setValueChatGpt}
+                        setChangeSessionForSubmit={props.setChangeSessionForSubmit}
                     />
                 </div>
             }
