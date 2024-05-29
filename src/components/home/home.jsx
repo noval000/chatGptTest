@@ -62,7 +62,7 @@ const Home = (props) => {
                 setChangeSessionForSubmit(false)
             }, 1500);
         }
-    }, [sessionChatGpt]);    //  отправка запроса на ответ
+    }, [changeSessionForSubmit]);    //  отправка запроса на ответ
 
 
 
