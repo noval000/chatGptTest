@@ -65,6 +65,8 @@ const MainSectionForm = (props) => {
                         setValueChatClaude={props.setValueChatClaude}
                         valueChatGpt={props.valueChatGpt}    //  запрос в чат гпт
                         setValueChatGpt={props.setValueChatGpt}
+                        changeSessionForSubmit={props.changeSessionForSubmit}    //   отслеживаем изменилось ли значение при отправке
+                        setChangeSessionForSubmit={props.setChangeSessionForSubmit}
                     />
                     <ColChatsClaude
                         session={props.session} // все сессии

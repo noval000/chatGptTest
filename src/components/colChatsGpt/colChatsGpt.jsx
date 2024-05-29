@@ -145,13 +145,14 @@ const ColChatsGpt = (props) => {
                            onClick={(e) => {
                                const formChat = e.target.closest('#formChatGpt');
                                formChat.addEventListener('submit', e => {
-                                   e.preventDefault();
+                                   // e.preventDefault();
                                    props.setSessionChatGpt([...props.sessionChatGpt, props.valueChatGpt])
                                    props.setValue('none');
                                    props.setValueChatGpt(props.valueChatGpt);
                                    console.log(props.inpGetValue, props.valueChatGpt, props.valueChatGigachat, props.valueChatClaude);
                                    // props.setSession([...props.session, props.valueChatGpt]);
                                    console.log(props.session);
+                                   props.setChangeSessionForSubmit(true)    //   отслеживаем изменилось ли значение при отправке
                                    // props.submitFirstChat(e)
                                })
                            }}/>

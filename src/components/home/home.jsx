@@ -7,6 +7,8 @@ const Home = (props) => {
 
 
 
+    const [changeSessionForSubmit, setChangeSessionForSubmit] = useState(false);  //   отслеживаем изменилось ли значение при отправке
+
     const [inpGetValue, setValue] = useState('')   //   значение после первого запроса
 
 
@@ -50,8 +52,10 @@ const Home = (props) => {
                     console.error('There was an error sending the data!', error);
                 });
         };
-        submitFirstChat();
-    }, [sessionChatGpt]);    //  отправка запроса на ответ
+        if (changeSessionForSubmit === true) {
+            submitFirstChat();
+        }
+    }, [sessionChatGpt, changeSessionForSubmit]);    //  отправка запроса на ответ
 
 
 
@@ -79,6 +83,8 @@ const Home = (props) => {
                 setLimSessionId={setLimSessionId}
             />
             <MainSectionForm
+                changeSessionForSubmit={changeSessionForSubmit}    //   отслеживаем изменилось ли значение при отправке
+                setChangeSessionForSubmit={setChangeSessionForSubmit}
                 sessionChatGigachat={sessionChatGigachat}  //  все запросы в чат Gigachat
                 setSessionChatGigachat={setSessionChatGigachat}
                 valueChatGigachat={valueChatGigachat}    //  запрос в чат Gigachat
