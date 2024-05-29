@@ -144,7 +144,7 @@ const ColChatsGigachat = (props) => {
                                    props.setValueChatGigachat(props.valueChatGigachat);
                                    console.log(props.inpGetValue, props.valueChatGpt, props.valueChatGigachat, props.valueChatClaude)
                                    console.log(props.sessionChatGigachat);
-                                   props.submitFirstChat(e)
+                                   // props.submitFirstChat(e)
                                })
                            }}/>
                 </div>

@@ -36,7 +36,7 @@ const FirstChat = (props) => {
                                        props.setValueChatClaude('none');
                                        console.log(props.inpGetValue, props.valueChatGpt, props.valueChatGigachat, props.valueChatClaude)
                                        // props.(props.inpGetValue);
-                                       props.submitFirstChat(e)
+                                       // props.submitFirstChat(e)
                                    })
                                }}
                         />

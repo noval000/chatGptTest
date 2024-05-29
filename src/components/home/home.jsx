@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Sidebar from "../sidebar/sidebar";
 import MainSectionForm from "../mainSectionForm/mainSectionForm";
 import axios from "axios";
@@ -27,29 +27,32 @@ const Home = (props) => {
     const [sessionChatGigachat, setSessionChatGigachat] = useState([])  //  все запросы в чат Gigachat
 
 
-
-    const submitFirstChat = (e) => {
-        // e.preventDefault();
-        // Данные для отправки на сервер
-        const data = {
-            llm_session_title,
-            llm_session_id,
-            inpGetValue,
-            valueChatGpt,
-            valueChatClaude,
-            valueChatGigachat
+    useEffect(() => {
+        const submitFirstChat = (e) => {
+            // e.preventDefault();
+            // Данные для отправки на сервер
+            const data = {
+                llm_session_title,
+                llm_session_id,
+                inpGetValue,
+                valueChatGpt,
+                valueChatClaude,
+                valueChatGigachat
+            };
+            // Отправка данных на сервер
+            axios.post('/api/llm_session/new_query', data)
+                .then(response => {
+                    console.log('Server response:', response.data);
+                    setSessionChatGpt([...sessionChatGpt, response.data.chatgpt])
+                    console.log(sessionChatGpt)
+                })
+                .catch(error => {
+                    console.error('There was an error sending the data!', error);
+                });
         };
-        // Отправка данных на сервер
-        axios.post('/api/llm_session/new_query', data)
-            .then(response => {
-                console.log('Server response:', response.data);
-                setSessionChatGpt([...sessionChatGpt, response.data.chatgpt])
-                console.log(sessionChatGpt)
-            })
-            .catch(error => {
-                console.error('There was an error sending the data!', error);
-            });
-    };    //  отправка запроса на ответ
+        submitFirstChat();
+    }, [valueChatGpt, valueChatClaude, valueChatGigachat]);    //  отправка запроса на ответ
+
 
 
 
@@ -97,7 +100,7 @@ const Home = (props) => {
                 setSession={props.setSession}    // изменение сессий
                 setValue={setValue}    //    первый запрос
                 inpGetValue={inpGetValue}
-                submitFirstChat={submitFirstChat}
+                // submitFirstChat={submitFirstChat}
             />
         </div>
     );

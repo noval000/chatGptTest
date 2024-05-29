@@ -152,7 +152,7 @@ const ColChatsGpt = (props) => {
                                    console.log(props.inpGetValue, props.valueChatGpt, props.valueChatGigachat, props.valueChatClaude)
                                    props.setSession([...props.session, props.valueChatGpt])
                                    console.log(props.session)
-                                   props.submitFirstChat(e)
+                                   // props.submitFirstChat(e)
                                })
                            }}/>
                 </div>

@@ -143,7 +143,7 @@ const ColChatsClaude = (props) => {
                                    props.setValueChatClaude(props.valueChatClaude);
                                    console.log(props.inpGetValue, props.valueChatGpt, props.valueChatGigachat, props.valueChatClaude)
                                    console.log(props.sessionChatClaude);
-                                   props.submitFirstChat(e)
+                                   // props.submitFirstChat(e)
                                })
                            }}
                     />
