@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './sidebar.css';
 import Popup from "reactjs-popup";
 import 'reactjs-popup/dist/index.css';
@@ -53,17 +53,14 @@ const Sidebar = (props) => {
                     console.error('error' , error)
                 }
 
-            }      //   отправка запроса при нажатии на название сессии
+            }
         submitSession();
-    }, [llm_session_title, llm_session_id, props.llm_session_title, props.llm_session_id]);
+    }, [llm_session_title, llm_session_id, props.llm_session_title, props.llm_session_id]);     //   отправка запроса при нажатии на название сессии
 
 
-
-
-
-
-    const submitSessionNew = useCallback(async (e) => {
-            e.preventDefault();
+    useEffect(() => {
+        const submitSessionNew = async (e) => {
+            // e.preventDefault();
 
 
             // данные для отправки на сервер
@@ -90,8 +87,11 @@ const Sidebar = (props) => {
             }
 
 
-        }, [props.llm_session_title]
-    )  //   отправка запроса при нажатии на новую сессии
+        }
+        submitSessionNew();
+    }, [llm_session_title, llm_session_id, props.llm_session_title, props.llm_session_id]);     //   отправка запроса при нажатии на новую сессии
+
+
 
     return (
         <div className="flexAndCenter">
@@ -100,7 +100,6 @@ const Sidebar = (props) => {
                    onClick={(e) => {
                        props.setLimSessionTitle('none');
                        props.setLimSessionId('none');
-                       submitSessionNew(e)
                        console.log(llm_session_title)
                        console.log(llm_session_id)
                    }}
