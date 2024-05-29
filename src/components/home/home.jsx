@@ -27,31 +27,31 @@ const Home = (props) => {
     const [sessionChatGigachat, setSessionChatGigachat] = useState([])  //  все запросы в чат Gigachat
 
 
-    useEffect(() => {
-        const submitFirstChat = (e) => {
-            // e.preventDefault();
-            // Данные для отправки на сервер
-            const data = {
-                llm_session_title,
-                llm_session_id,
-                inpGetValue,
-                valueChatGpt,
-                valueChatClaude,
-                valueChatGigachat
-            };
-            // Отправка данных на сервер
-            axios.post('/api/llm_session/new_query', data)
-                .then(response => {
-                    console.log('Server response:', response.data);
-                    setSessionChatGpt([...sessionChatGpt, response.data.chatgpt])
-                    console.log(sessionChatGpt)
-                })
-                .catch(error => {
-                    console.error('There was an error sending the data!', error);
-                });
-        };
-        submitFirstChat();
-    }, [sessionChatGpt, valueChatGpt, valueChatClaude, valueChatGigachat]);    //  отправка запроса на ответ
+    // useEffect(() => {
+    //     const submitFirstChat = (e) => {
+    //         // e.preventDefault();
+    //         // Данные для отправки на сервер
+    //         const data = {
+    //             llm_session_title,
+    //             llm_session_id,
+    //             inpGetValue,
+    //             valueChatGpt,
+    //             valueChatClaude,
+    //             valueChatGigachat
+    //         };
+    //         // Отправка данных на сервер
+    //         axios.post('/api/llm_session/new_query', data)
+    //             .then(response => {
+    //                 console.log('Server response:', response.data);
+    //                 setSessionChatGpt([...sessionChatGpt, response.data.chatgpt])
+    //                 console.log(sessionChatGpt)
+    //             })
+    //             .catch(error => {
+    //                 console.error('There was an error sending the data!', error);
+    //             });
+    //     };
+    //     submitFirstChat();
+    // }, [sessionChatGpt, ]);    //  отправка запроса на ответ
 
 
 
