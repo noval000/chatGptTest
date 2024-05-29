@@ -1,8 +1,13 @@
 import React, {useState} from 'react';
 import Sidebar from "../sidebar/sidebar";
 import MainSectionForm from "../mainSectionForm/mainSectionForm";
+import axios from "axios";
 
 const Home = (props) => {
+
+
+
+    const [inpGetValue, setValue] = useState('')   //   значение после первого запроса
 
 
 
@@ -20,6 +25,29 @@ const Home = (props) => {
 
     const [valueChatGigachat, setValueChatGigachat] = useState('')  //  запрос в чат Gigachat
     const [sessionChatGigachat, setSessionChatGigachat] = useState([])  //  все запросы в чат Gigachat
+
+
+
+    const submitFirstChat = (e) => {
+        // e.preventDefault();
+        // Данные для отправки на сервер
+        const data = {
+            llm_session_title,
+            llm_session_id,
+            inpGetValue,
+            valueChatGpt,
+            valueChatClaude,
+            valueChatGigachat
+        };
+        // Отправка данных на сервер
+        axios.post('/api/llm_session/new_query', data)
+            .then(response => {
+                console.log('Server response:', response.data);
+            })
+            .catch(error => {
+                console.error('There was an error sending the data!', error);
+            });
+    };    //  отправка запроса на ответ
 
 
 
@@ -65,6 +93,9 @@ const Home = (props) => {
                 firstname={props.firstname}  //   имя для приветствия
                 session={props.session}    // все сессии
                 setSession={props.setSession}    // изменение сессий
+                setValue={setValue}    //    первый запрос
+                inpGetValue={inpGetValue}
+                submitFirstChat={submitFirstChat}
             />
         </div>
     );

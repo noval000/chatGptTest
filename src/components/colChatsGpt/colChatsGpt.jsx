@@ -146,12 +146,15 @@ const ColChatsGpt = (props) => {
                                const formChat = e.target.closest('#formChatGpt');
                                formChat.addEventListener('submit', e => {
                                    e.preventDefault();
-                                   props.setValueChatGpt(props.valueChatGpt);
                                    props.setSessionChatGpt([...props.sessionChatGpt, props.valueChatGpt])
-                                   props.setValueChatGpt('');
+                                   props.setValue('none');
+                                   props.setValueChatGpt(props.valueChatGpt);
+                                   props.setValueChatGigachat('none');
+                                   props.setValueChatClaude('none');
+                                   console.log(props.inpGetValue, props.valueChatGpt, props.valueChatGigachat, props.valueChatClaude)
                                    props.setSession([...props.session, props.valueChatGpt])
                                    console.log(props.session)
-                                   props.submitChatGpt(e)
+                                   props.submitFirstChat(e)
                                })
                            }}/>
                 </div>

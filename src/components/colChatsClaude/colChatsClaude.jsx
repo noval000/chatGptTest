@@ -138,11 +138,14 @@ const ColChatsClaude = (props) => {
                                const formChat = e.target.closest('#formChatClaude');
                                formChat.addEventListener('submit', e => {
                                    e.preventDefault();
-                                   props.setValueChatClaude(props.valueChatClaude);
                                    props.setSessionChatClaude([...props.sessionChatClaude, props.valueChatClaude])
-                                   props.setValueChatClaude('');
+                                   props.setValue('none');
+                                   props.setValueChatGpt('none');
+                                   props.setValueChatGigachat('none');
+                                   props.setValueChatClaude(props.valueChatClaude);
+                                   console.log(props.inpGetValue, props.valueChatGpt, props.valueChatGigachat, props.valueChatClaude)
                                    console.log(props.sessionChatClaude);
-                                   props.submitChatClaude(e)
+                                   props.submitFirstChat(e)
                                })
                            }}
                     />
