@@ -50,14 +50,15 @@ const Home = (props) => {
                     props.setSession([...props.session, response.data])
                     console.log(props.session)
                     console.log(changeSessionForSubmit)
+                    setValueChatGpt('');
                 })
+                .finally(() => console.log('ok'))
                 .catch(error => {
                     console.error('There was an error sending the data!', error);
                 });
         };
         if (changeSessionForSubmit === true) {
             submitFirstChat();
-            setValueChatGpt('');
             setTimeout(() => {
                 setChangeSessionForSubmit(false)
             }, 1500);
