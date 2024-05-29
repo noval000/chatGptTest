@@ -130,24 +130,24 @@
 }
 
 
-.loader {
-    width: 48px;
-    height: 48px;
+.loader2 {
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    position: relative;
+    position: absolute;
     animation: rotate 1s linear infinite
 }
-.loader::before , .loader::after {
+.loader2::before , .loader::after {
     content: "";
     box-sizing: border-box;
     position: absolute;
-    inset: 0px;
+    inset: 0;
     border-radius: 50%;
-    border: 5px solid #FFF;
+    border: 2px solid #FFF;
     animation: prixClipFix 2s linear infinite ;
 }
-.loader::after{
-    border-color: #FF3D00;
+.loader2::after{
+    border-color: #696969;
     animation: prixClipFix 2s linear infinite , rotate 0.5s linear infinite reverse;
     inset: 6px;
 }
