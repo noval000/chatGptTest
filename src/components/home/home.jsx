@@ -49,6 +49,7 @@ const Home = (props) => {
                     console.log('Server response:', response.data);
                     props.setSession([...props.session, response.data])
                     console.log(props.session)
+                    console.log(changeSessionForSubmit)
                 })
                 .catch(error => {
                     console.error('There was an error sending the data!', error);
@@ -60,6 +61,7 @@ const Home = (props) => {
                 setChangeSessionForSubmit(false)
             }, 1500);
         }
+        console.log(changeSessionForSubmit)
     }, [changeSessionForSubmit]);    //  отправка запроса на ответ
 
 
