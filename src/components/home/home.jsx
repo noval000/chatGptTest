@@ -28,7 +28,6 @@ const Home = (props) => {
     const [valueChatGigachat, setValueChatGigachat] = useState('')  //  запрос в чат Gigachat
     const [sessionChatGigachat, setSessionChatGigachat] = useState([])  //  все запросы в чат Gigachat
 
-    console.log(props.session)
 
 
     useEffect(() => {
@@ -47,7 +46,7 @@ const Home = (props) => {
             axios.post('/api/llm_session/new_query', data)
                 .then(response => {
                     console.log('Server response:', response.data);
-                    props.setSession([...props.sessionChatGpt, response.data])
+                    props.setSession([...sessionChatGpt, response.data])
                     console.log(sessionChatGpt)
                     console.log(changeSessionForSubmit)
                     setValueChatGpt('');
