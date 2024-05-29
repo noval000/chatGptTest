@@ -134,10 +134,10 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    position: absolute;
+    position: relative;
     animation: rotate 1s linear infinite
 }
-.loader2::before , .loader::after {
+.loader2::before , .loader2::after {
     content: "";
     box-sizing: border-box;
     position: absolute;
