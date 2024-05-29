@@ -147,7 +147,7 @@ const ColChatsGpt = (props) => {
                            }}
                     />
                     <input type="submit"
-                           disabled={props.changeSessionForSubmit}
+                           className={props.changeSessionForSubmit ? 'd-noneInput' : ''}
                            value=''
                            onClick={(e) => {
                                const formChat = e.target.closest('#formChatGpt');
