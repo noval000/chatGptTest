@@ -51,7 +51,7 @@ const Home = (props) => {
                 });
         };
         submitFirstChat();
-    }, [valueChatGpt, valueChatClaude, valueChatGigachat]);    //  отправка запроса на ответ
+    }, [sessionChatGpt, valueChatGpt, valueChatClaude, valueChatGigachat]);    //  отправка запроса на ответ
 
 
 
