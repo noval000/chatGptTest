@@ -8,8 +8,11 @@ const ColChatsGpt = (props) => {
 
 
     const [loaderGpt, setLoaderGpt] = useState(false);
+
     useEffect(() => {
-        setLoaderGpt(true)
+        if (props.changeSessionForSubmit === true) {
+            setLoaderGpt(true)
+        }
     }, [props.changeSessionForSubmit])
 
     const bottom = useRef(null)
