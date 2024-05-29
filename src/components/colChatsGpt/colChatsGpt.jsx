@@ -8,9 +8,9 @@ const ColChatsGpt = (props) => {
 
 
     const [loaderGpt, setLoaderGpt] = useState(false);
-    if (props.changeSessionForSubmit === true) {
+    useEffect(() => {
         setLoaderGpt(true)
-    }
+    }, [props.changeSessionForSubmit])
 
     const bottom = useRef(null)
     const scrollToTop = () => {  //  скрол дилаога вниз
