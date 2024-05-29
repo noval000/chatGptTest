@@ -6,16 +6,7 @@ import './colChatsGigachat.css';
 const ColChatsGigachat = (props) => {
 
 
-    const [loaderGitgachat, setLoaderGigachat] = useState(false);
 
-    useEffect(() => {
-        if (props.changeSessionForSubmit === true) {
-            setLoaderGigachat(true)
-        }
-        else {
-            setLoaderGigachat(false)
-        }
-    }, [props.changeSessionForSubmit])
 
 
 
@@ -136,9 +127,10 @@ const ColChatsGigachat = (props) => {
                         ))
                     }
                     {
-                        loaderGitgachat === true &&
+                        props.setChangeSessionForSubmit === true &&
                         <span className="loader2"></span>
                     }
+                    <span className="loader2"></span>
                 </div>
             </div>
             <form action="" id="formChatGigachat">
@@ -150,7 +142,7 @@ const ColChatsGigachat = (props) => {
                            }}
                     />
                     <input type="submit"
-                           className={loaderGitgachat ? 'd-noneInput' : ''}
+                           className={props.setChangeSessionForSubmit ? 'd-noneInput' : ''}
                            value=''
                            onClick={(e) => {
                                const formChat = e.target.closest('#formChatGigachat');

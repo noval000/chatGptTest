@@ -7,16 +7,7 @@ const ColChatsGpt = (props) => {
 
 
 
-    const [loaderGpt, setLoaderGpt] = useState(false);
 
-    useEffect(() => {
-        if (props.changeSessionForSubmit === true) {
-            setLoaderGpt(true)
-        }
-        else {
-            setLoaderGpt(false)
-        }
-    }, [props.changeSessionForSubmit])
 
     const bottom = useRef(null)
     const scrollToTop = () => {  //  скрол дилаога вниз
@@ -142,15 +133,16 @@ const ColChatsGpt = (props) => {
                         ))
                     }
                     {
-                        loaderGpt === true &&
+                        props.setChangeSessionForSubmit === true &&
                         <span className="loader2"></span>
                     }
+                    <span className="loader2"></span>
                 </div>
             </div>
             <form action="" id="formChatGpt">
                 <div className="input-area90">
                     <input
-                           disabled={loaderGpt}
+                           disabled={props.setChangeSessionForSubmit}
                            type="text"
                            placeholder="Ваш запрос в ChatGpt"
                            value={props.valueChatGpt}
@@ -159,7 +151,7 @@ const ColChatsGpt = (props) => {
                            }}
                     />
                     <input type="submit"
-                           className={loaderGpt ? 'd-noneInput' : ''}
+                           className={props.setChangeSessionForSubmit ? 'd-noneInput' : ''}
                            value=''
                            onClick={(e) => {
                                const formChat = e.target.closest('#formChatGpt');
