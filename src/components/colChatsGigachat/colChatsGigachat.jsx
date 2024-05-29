@@ -1,9 +1,21 @@
-import React, {useEffect, useRef } from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import iconUser from "../images/imgIcon/user_circle.png";
 import iconTriz from "../images/imgIcon/triz_logo_big_blue.png";
 import './colChatsGigachat.css';
 
 const ColChatsGigachat = (props) => {
+
+
+    const [loaderGitgachat, setLoaderGigachat] = useState(false);
+
+    useEffect(() => {
+        if (props.changeSessionForSubmit === true) {
+            setLoaderGigachat(true)
+        }
+        else {
+            setLoaderGigachat(false)
+        }
+    }, [props.changeSessionForSubmit])
 
 
 
@@ -124,7 +136,7 @@ const ColChatsGigachat = (props) => {
                         ))
                     }
                     {
-                        props.changeSessionForSubmit === true &&
+                        loaderGitgachat === true &&
                         <span className="loader2"></span>
                     }
                 </div>
@@ -138,7 +150,7 @@ const ColChatsGigachat = (props) => {
                            }}
                     />
                     <input type="submit"
-                           className={props.changeSessionForSubmit ? 'd-noneInput' : ''}
+                           className={loaderGitgachat ? 'd-noneInput' : ''}
                            value=''
                            onClick={(e) => {
                                const formChat = e.target.closest('#formChatGigachat');
