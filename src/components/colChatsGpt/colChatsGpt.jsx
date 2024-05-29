@@ -95,7 +95,7 @@ const ColChatsGpt = (props) => {
                                         </div>
                                     </div>
                                     <div className="zapros">
-                                        <p>{el.response}</p>
+                                        <p>{el[2]}</p>
                                     </div>
                                 </div>
                                 <div className="answer">
