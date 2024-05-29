@@ -54,9 +54,9 @@ const Home = (props) => {
                     console.error('There was an error sending the data!', error);
                 });
         };
-        submitFirstChat();
         setValueChatGpt('');
         if (changeSessionForSubmit === true) {
+            submitFirstChat();
             setTimeout(() => {
                 setChangeSessionForSubmit(false)
             }, 1500);
