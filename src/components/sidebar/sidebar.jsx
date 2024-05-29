@@ -19,9 +19,6 @@ const Sidebar = (props) => {
 
     const closeModal = () => setOpen(false);
 
-    const [titleLlm, setTitleLlm] = useState(props.llm_session_title);
-    const [idLlm, setidLlm] = useState(props.llm_session_id);
-
 
     useEffect(() => {
         const submitSession = async (e) => {
@@ -128,12 +125,10 @@ const Sidebar = (props) => {
                                 <div key={el.id} className="linkSession">
                                     <a href="#!"
                                        onClick={(e) => {
-                                           setTitleLlm(titleLlm);
-                                           setidLlm(idLlm);
-                                           props.setLimSessionTitle(titleLlm)
-                                           props.setLimSessionId(idLlm)
-                                           console.log(titleLlm)
-                                           console.log(idLlm)
+                                           props.setLimSessionTitle(el.title)
+                                           props.setLimSessionId(el.id)
+                                           console.log(llm_session_title)
+                                           console.log(llm_session_id)
                                            // submitSession(e)
                                        }}
                                     >{el.title}</a>
