@@ -1,10 +1,16 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import './colChats.css';
 import iconUser from '../images/imgIcon/user_circle.png';
 import iconTriz from '../images/imgIcon/triz_logo_big_blue.png';
 
 const ColChatsGpt = (props) => {
 
+
+
+    const [loaderGpt, setLoaderGpt] = useState(false);
+    if (props.changeSessionForSubmit === true) {
+        setLoaderGpt(true)
+    }
 
     const bottom = useRef(null)
     const scrollToTop = () => {  //  скрол дилаога вниз
@@ -130,7 +136,7 @@ const ColChatsGpt = (props) => {
                         ))
                     }
                     {
-                        props.changeSessionForSubmit === true &&
+                        loaderGpt === true &&
                         <span className="loader2"></span>
                     }
                 </div>
@@ -138,7 +144,7 @@ const ColChatsGpt = (props) => {
             <form action="" id="formChatGpt">
                 <div className="input-area90">
                     <input
-                           disabled={props.changeSessionForSubmit}
+                           disabled={loaderGpt}
                            type="text"
                            placeholder="Ваш запрос в ChatGpt"
                            value={props.valueChatGpt}
@@ -147,7 +153,7 @@ const ColChatsGpt = (props) => {
                            }}
                     />
                     <input type="submit"
-                           className={props.changeSessionForSubmit ? 'd-noneInput' : ''}
+                           className={loaderGpt ? 'd-noneInput' : ''}
                            value=''
                            onClick={(e) => {
                                const formChat = e.target.closest('#formChatGpt');
