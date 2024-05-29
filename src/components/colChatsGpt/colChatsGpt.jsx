@@ -13,6 +13,9 @@ const ColChatsGpt = (props) => {
         if (props.changeSessionForSubmit === true) {
             setLoaderGpt(true)
         }
+        else {
+            setLoaderGpt(false)
+        }
     }, [props.changeSessionForSubmit])
 
     const bottom = useRef(null)
