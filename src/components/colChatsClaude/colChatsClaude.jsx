@@ -140,8 +140,6 @@ const ColChatsClaude = (props) => {
                                    e.preventDefault();
                                    props.setSessionChatClaude([...props.sessionChatClaude, props.valueChatClaude])
                                    props.setValue('none');
-                                   props.setValueChatGpt('none');
-                                   props.setValueChatGigachat('none');
                                    props.setValueChatClaude(props.valueChatClaude);
                                    console.log(props.inpGetValue, props.valueChatGpt, props.valueChatGigachat, props.valueChatClaude)
                                    console.log(props.sessionChatClaude);

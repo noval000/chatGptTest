@@ -149,8 +149,6 @@ const ColChatsGpt = (props) => {
                                    props.setSessionChatGpt([...props.sessionChatGpt, props.valueChatGpt])
                                    props.setValue('none');
                                    props.setValueChatGpt(props.valueChatGpt);
-                                   props.setValueChatGigachat('none');
-                                   props.setValueChatClaude('none');
                                    console.log(props.inpGetValue, props.valueChatGpt, props.valueChatGigachat, props.valueChatClaude)
                                    props.setSession([...props.session, props.valueChatGpt])
                                    console.log(props.session)

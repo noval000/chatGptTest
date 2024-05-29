@@ -141,9 +141,7 @@ const ColChatsGigachat = (props) => {
                                    e.preventDefault();
                                    props.setSessionChatGigachat([...props.sessionChatGigachat, props.valueChatGigachat])
                                    props.setValue('none');
-                                   props.setValueChatGpt('none');
                                    props.setValueChatGigachat(props.valueChatGigachat);
-                                   props.setValueChatClaude('none');
                                    console.log(props.inpGetValue, props.valueChatGpt, props.valueChatGigachat, props.valueChatClaude)
                                    console.log(props.sessionChatGigachat);
                                    props.submitFirstChat(e)
