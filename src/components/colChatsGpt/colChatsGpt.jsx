@@ -138,7 +138,7 @@ const ColChatsGpt = (props) => {
             <form action="" id="formChatGpt">
                 <div className="input-area90">
                     <input
-                            disabled={props.changeSessionForSubmit}
+                           disabled={props.changeSessionForSubmit}
                            type="text"
                            placeholder="Ваш запрос в ChatGpt"
                            value={props.valueChatGpt}

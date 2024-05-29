@@ -47,7 +47,10 @@ const Home = (props) => {
                 .then(response => {
                     console.log('Server response:', response.data);
                     setSessionChatGpt([...sessionChatGpt, response.data])
+                    setSessionChatGigachat([...sessionChatGigachat, response.data])
+                    setSessionChatClaude([...sessionChatClaude, response.data])
                     console.log(changeSessionForSubmit)
+                    console.log(valueChatGpt, valueChatClaude, valueChatGigachat)
                 })
                 .finally(() => console.log('ok'))
                 .catch(error => {
@@ -57,6 +60,8 @@ const Home = (props) => {
         if (changeSessionForSubmit === true) {
             submitFirstChat();
             setValueChatGpt('');
+            setValueChatGigachat('');
+            setValueChatClaude('');
             setTimeout(() => {
                 setChangeSessionForSubmit(false)
             }, 1500);

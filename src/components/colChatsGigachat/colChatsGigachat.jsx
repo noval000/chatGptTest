@@ -123,6 +123,10 @@ const ColChatsGigachat = (props) => {
                             </div>
                         ))
                     }
+                    {
+                        props.changeSessionForSubmit === true &&
+                        <span className="loader2"></span>
+                    }
                 </div>
             </div>
             <form action="" id="formChatGigachat">
@@ -134,16 +138,18 @@ const ColChatsGigachat = (props) => {
                            }}
                     />
                     <input type="submit"
+                           className={props.changeSessionForSubmit ? 'd-noneInput' : ''}
                            value=''
                            onClick={(e) => {
                                const formChat = e.target.closest('#formChatGigachat');
                                formChat.addEventListener('submit', e => {
                                    e.preventDefault();
                                    props.setSessionChatGigachat([...props.sessionChatGigachat, props.valueChatGigachat])
-                                   props.setValue('none');
                                    props.setValueChatGigachat(props.valueChatGigachat);
                                    console.log(props.inpGetValue, props.valueChatGpt, props.valueChatGigachat, props.valueChatClaude)
                                    console.log(props.sessionChatGigachat);
+                                   props.setChangeSessionForSubmit(true)    //   отслеживаем изменилось ли значение при отправке
+                                   props.setValueChatGigachat('');     //    обнуляем инпут после отправки запроса
                                    // props.submitFirstChat(e)
                                })
                            }}/>

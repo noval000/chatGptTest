@@ -122,6 +122,10 @@ const ColChatsClaude = (props) => {
                             </div>
                         ))
                     }
+                    {
+                        props.changeSessionForSubmit === true &&
+                        <span className="loader2"></span>
+                    }
                 </div>
             </div>
             <form action="" id="formChatClaude">
@@ -139,10 +143,11 @@ const ColChatsClaude = (props) => {
                                formChat.addEventListener('submit', e => {
                                    e.preventDefault();
                                    props.setSessionChatClaude([...props.sessionChatClaude, props.valueChatClaude])
-                                   props.setValue('none');
                                    props.setValueChatClaude(props.valueChatClaude);
                                    console.log(props.inpGetValue, props.valueChatGpt, props.valueChatGigachat, props.valueChatClaude)
                                    console.log(props.sessionChatClaude);
+                                   props.setChangeSessionForSubmit(true)    //   отслеживаем изменилось ли значение при отправке
+                                   props.setValueChatClaude('');     //    обнуляем инпут после отправки запроса
                                    // props.submitFirstChat(e)
                                })
                            }}
