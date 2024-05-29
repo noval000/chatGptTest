@@ -31,7 +31,6 @@ const Home = (props) => {
 
 
     useEffect(() => {
-        if (changeSessionForSubmit === true) {
         const submitFirstChat = (e) => {
             // e.preventDefault();
             // Данные для отправки на сервер
@@ -49,7 +48,6 @@ const Home = (props) => {
                     console.log('Server response:', response.data);
                     setSessionChatGpt([...sessionChatGpt, response.data])
                     console.log(changeSessionForSubmit)
-                    setValueChatGpt('');
                 })
                 .finally(() => console.log('ok'))
                 .catch(error => {
@@ -57,7 +55,8 @@ const Home = (props) => {
                 });
         };
         submitFirstChat();
-
+        setValueChatGpt('');
+        if (changeSessionForSubmit === true) {
             setTimeout(() => {
                 setChangeSessionForSubmit(false)
             }, 1500);
