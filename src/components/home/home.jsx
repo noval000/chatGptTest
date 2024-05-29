@@ -57,6 +57,7 @@ const Home = (props) => {
         };
         if (changeSessionForSubmit === true) {
             submitFirstChat();
+            setValueChatGpt('');
             setTimeout(() => {
                 setChangeSessionForSubmit(false)
             }, 1500);
