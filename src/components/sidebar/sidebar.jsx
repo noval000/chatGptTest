@@ -20,6 +20,7 @@ const Sidebar = (props) => {
     const closeModal = () => setOpen(false);
 
 
+
     useEffect(() => {
         const submitSession = async (e) => {
                 // e.preventDefault();
@@ -54,7 +55,7 @@ const Sidebar = (props) => {
 
             }      //   отправка запроса при нажатии на название сессии
         submitSession();
-    }, [props, llm_session_title, llm_session_id]);
+    }, [props, llm_session_title, llm_session_id, props.llm_session_title, props.llm_session_id]);
 
 
 
