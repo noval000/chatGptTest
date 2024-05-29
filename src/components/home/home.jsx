@@ -43,6 +43,8 @@ const Home = (props) => {
         axios.post('/api/llm_session/new_query', data)
             .then(response => {
                 console.log('Server response:', response.data);
+                props.setSessionChatGpt([...sessionChatGpt, response.data.chatgpt])
+                console.log(sessionChatGpt)
             })
             .catch(error => {
                 console.error('There was an error sending the data!', error);
