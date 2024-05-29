@@ -46,7 +46,7 @@ const Home = (props) => {
             axios.post('/api/llm_session/new_query', data)
                 .then(response => {
                     console.log('Server response:', response.data);
-                    props.setSession([...sessionChatGpt, response.data])
+                    setSessionChatGpt([...sessionChatGpt, response.data])
                     console.log(sessionChatGpt)
                     console.log(changeSessionForSubmit)
                     setValueChatGpt('');
