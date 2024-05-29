@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import './sidebar.css';
 import Popup from "reactjs-popup";
 import 'reactjs-popup/dist/index.css';
@@ -19,49 +19,52 @@ const Sidebar = (props) => {
 
     const closeModal = () => setOpen(false);
 
+    const [titleLlm, setTitleLlm] = useState('');
+    const [idLlm, setidLlm] = useState('');
 
 
-    const submitSession = useCallback(
-        async (e) => {
-            e.preventDefault();
+    useEffect(() => {
+        const submitSession = async (e) => {
+                e.preventDefault();
 
 
-            // данные для отправки на сервер
+                // данные для отправки на сервер
 
-            const data = {
-                llm_session_title,
-                llm_session_id
-            };
+                const data = {
+                    llm_session_title,
+                    llm_session_id
+                };
 
-            try {
+                try {
 
-                // Отправка данных на сервер
-                const response = await axios.post('/api/llm_session', data, {
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    credentials: "include",
-                    withCredentials: true,
-                });
-                props.setSessionChatGpt(response.data.llm_session_responses.filter(el => el[8] === 'chatgpt'))
-                props.setSessionChatClaude(response.data.llm_session_responses.filter(el => el[8] === 'claude'))
-                props.setSessionChatGigachat(response.data.llm_session_responses.filter(el => el[8] === 'gigachat'))
-                console.log(props.sessionChatGpt)
-                console.log('server responce' , response.data);
+                    // Отправка данных на сервер
+                    const response = await axios.post('/api/llm_session', data, {
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        credentials: "include",
+                        withCredentials: true,
+                    });
+                    props.setSessionChatGpt(response.data.llm_session_responses.filter(el => el[8] === 'chatgpt'))
+                    props.setSessionChatClaude(response.data.llm_session_responses.filter(el => el[8] === 'claude'))
+                    props.setSessionChatGigachat(response.data.llm_session_responses.filter(el => el[8] === 'gigachat'))
+                    console.log(props.sessionChatGpt)
+                    console.log('server responce' , response.data);
 
-            } catch (error) {
-                console.error('error' , error)
-            }
+                } catch (error) {
+                    console.error('error' , error)
+                }
 
-        },  [llm_session_title, llm_session_id]       //   отправка запроса при нажатии на название сессии
-    )
-
-
-
+            }      //   отправка запроса при нажатии на название сессии
+        submitSession();
+    }, [titleLlm, idLlm]);
 
 
-    const submitSessionNew = useCallback(
-        async (e) => {
+
+
+
+
+    const submitSessionNew = useCallback(async (e) => {
             e.preventDefault();
 
 
@@ -125,13 +128,13 @@ const Sidebar = (props) => {
                                 <div key={el.id} className="linkSession">
                                     <a href="#!"
                                        onClick={(e) => {
-                                           const titleLlm = el.title;
-                                           const idLlm = el.id;
+                                           setTitleLlm(titleLlm);
+                                           setidLlm(idLlm);
                                            props.setLimSessionTitle(titleLlm)
                                            props.setLimSessionId(idLlm)
                                            console.log(titleLlm)
                                            console.log(idLlm)
-                                           submitSession(e)
+                                           // submitSession(e)
                                        }}
                                     >{el.title}</a>
                                     <button type="button" className="changeNameLink" onClick={(e) => {
