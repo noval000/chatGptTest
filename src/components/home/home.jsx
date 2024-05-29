@@ -57,11 +57,11 @@ const Home = (props) => {
                 });
         };
         submitFirstChat();
-        // if (changeSessionForSubmit === true) {
-        //     setTimeout(() => {
-        //         setChangeSessionForSubmit(false)
-        //     }, 1500);
-        // }
+        if (changeSessionForSubmit === true) {
+            setTimeout(() => {
+                setChangeSessionForSubmit(false)
+            }, 1500);
+        }
     }, [sessionChatGpt]);    //  отправка запроса на ответ
 
 
