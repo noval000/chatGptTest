@@ -48,7 +48,6 @@ const Home = (props) => {
                 .then(response => {
                     console.log('Server response:', response.data);
                     setSessionChatGpt([...sessionChatGpt, response.data])
-                    console.log(sessionChatGpt)
                     console.log(changeSessionForSubmit)
                     setValueChatGpt('');
                 })
@@ -63,6 +62,7 @@ const Home = (props) => {
                 setChangeSessionForSubmit(false)
             }, 1500);
         }
+        console.log(sessionChatGpt)
     }, [changeSessionForSubmit]);    //  отправка запроса на ответ
 
 
