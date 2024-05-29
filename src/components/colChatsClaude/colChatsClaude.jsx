@@ -142,8 +142,8 @@ const ColChatsClaude = (props) => {
                                const formChat = e.target.closest('#formChatClaude');
                                formChat.addEventListener('submit', e => {
                                    e.preventDefault();
-                                   props.setSessionChatClaude([...props.sessionChatClaude, props.valueChatClaude])
                                    props.setValueChatClaude(props.valueChatClaude);
+                                   // props.setSessionChatClaude([...props.sessionChatClaude, props.valueChatClaude])
                                    console.log(props.inpGetValue, props.valueChatGpt, props.valueChatGigachat, props.valueChatClaude)
                                    console.log(props.sessionChatClaude);
                                    props.setChangeSessionForSubmit(true)    //   отслеживаем изменилось ли значение при отправке

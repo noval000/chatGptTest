@@ -144,8 +144,8 @@ const ColChatsGigachat = (props) => {
                                const formChat = e.target.closest('#formChatGigachat');
                                formChat.addEventListener('submit', e => {
                                    e.preventDefault();
-                                   props.setSessionChatGigachat([...props.sessionChatGigachat, props.valueChatGigachat])
                                    props.setValueChatGigachat(props.valueChatGigachat);
+                                   // props.setSessionChatGigachat([...props.sessionChatGigachat, props.valueChatGigachat])
                                    console.log(props.inpGetValue, props.valueChatGpt, props.valueChatGigachat, props.valueChatClaude)
                                    console.log(props.sessionChatGigachat);
                                    props.setChangeSessionForSubmit(true)    //   отслеживаем изменилось ли значение при отправке
