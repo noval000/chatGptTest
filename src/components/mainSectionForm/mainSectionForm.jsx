@@ -36,6 +36,12 @@ const MainSectionForm = (props) => {
                     inpGetValue={props.inpGetValue}  //   значение после первого запроса
                     setValue={props.setValue}
                     submitFirstChat={props.submitFirstChat}     //  отправка запроса на ответ
+                    valueChatGigachat={props.valueChatGigachat}    //  запрос в чат Gigachat
+                    setValueChatGigachat={props.setValueChatGigachat}
+                    valueChatClaude={props.valueChatClaude}      //  запрос в чат Claude
+                    setValueChatClaude={props.setValueChatClaude}
+                    valueChatGpt={props.valueChatGpt}    //  запрос в чат гпт
+                    setValueChatGpt={props.setValueChatGpt}
                 />
             }
 
@@ -50,11 +56,15 @@ const MainSectionForm = (props) => {
                         setSession={props.setSession}    // изменение сессий
                         sessionChatGpt={props.sessionChatGpt}   //  все сессии чата gpt
                         setSessionChatGpt={props.setSessionChatGpt}
-                        valueChatGpt={props.valueChatGpt} //  запрос в чат гпт
-                        setValueChatGpt={props.setValueChatGpt}
                         inpGetValue={props.inpGetValue}  //   значение после первого запроса
                         setValue={props.setValue}
                         submitFirstChat={props.submitFirstChat}     //  отправка запроса на ответ
+                        valueChatGigachat={props.valueChatGigachat}    //  запрос в чат Gigachat
+                        setValueChatGigachat={props.setValueChatGigachat}
+                        valueChatClaude={props.valueChatClaude}      //  запрос в чат Claude
+                        setValueChatClaude={props.setValueChatClaude}
+                        valueChatGpt={props.valueChatGpt}    //  запрос в чат гпт
+                        setValueChatGpt={props.setValueChatGpt}
                     />
                     <ColChatsClaude
                         session={props.session} // все сессии
@@ -65,6 +75,10 @@ const MainSectionForm = (props) => {
                         inpGetValue={props.inpGetValue}  //   значение после первого запроса
                         setValue={props.setValue}
                         submitFirstChat={props.submitFirstChat}     //  отправка запроса на ответ
+                        valueChatGigachat={props.valueChatGigachat}    //  запрос в чат Gigachat
+                        setValueChatGigachat={props.setValueChatGigachat}
+                        valueChatGpt={props.valueChatGpt}    //  запрос в чат гпт
+                        setValueChatGpt={props.setValueChatGpt}
                     />
                     <ColChatsGigachat
                         session={props.session} // все сессии
@@ -75,6 +89,10 @@ const MainSectionForm = (props) => {
                         inpGetValue={props.inpGetValue}  //   значение после первого запроса
                         setValue={props.setValue}
                         submitFirstChat={props.submitFirstChat}     //  отправка запроса на ответ
+                        valueChatClaude={props.valueChatClaude}      //  запрос в чат Claude
+                        setValueChatClaude={props.setValueChatClaude}
+                        valueChatGpt={props.valueChatGpt}    //  запрос в чат гпт
+                        setValueChatGpt={props.setValueChatGpt}
                     />
                 </div>
             }
