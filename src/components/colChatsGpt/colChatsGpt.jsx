@@ -131,8 +131,9 @@ const ColChatsGpt = (props) => {
                     }
                     {
                         props.changeSessionForSubmit === true &&
-                        <span className="loader">ggg</span>
+                        <span className="loader"></span>
                     }
+                    <span className="loader"></span>
                 </div>
             </div>
             <form action="" id="formChatGpt">
