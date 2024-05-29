@@ -125,10 +125,12 @@ const Sidebar = (props) => {
                                 <div key={el.id} className="linkSession">
                                     <a href="#!"
                                        onClick={(e) => {
-                                           props.setLimSessionTitle(() => el.title)
-                                           props.setLimSessionId(() => el.id)
-                                           console.log(llm_session_title)
-                                           console.log(llm_session_id)
+                                           const titleLlm = el.title;
+                                           const idLlm = el.id;
+                                           props.setLimSessionTitle(titleLlm)
+                                           props.setLimSessionId(idLlm)
+                                           console.log(titleLlm)
+                                           console.log(idLlm)
                                            submitSession(e)
                                        }}
                                     >{el.title}</a>
