@@ -25,7 +25,7 @@ const Sidebar = (props) => {
 
     useEffect(() => {
         const submitSession = async (e) => {
-                e.preventDefault();
+                // e.preventDefault();
 
 
                 // данные для отправки на сервер
