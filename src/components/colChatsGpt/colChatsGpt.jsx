@@ -126,12 +126,12 @@ const ColChatsGpt = (props) => {
                                         </a>
                                     </div>
                                 </div>
-                                {
-                                    props.changeSessionForSubmit === true &&
-                                    <div className="loader">ggg</div>
-                                }
                             </div>
                         ))
+                    }
+                    {
+                        props.changeSessionForSubmit === true &&
+                        <div className="loader">ggg</div>
                     }
                 </div>
             </div>
