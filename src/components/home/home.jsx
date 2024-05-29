@@ -68,7 +68,7 @@ const Home = (props) => {
             }, 1500);
         }
         console.log(changeSessionForSubmit)
-        console.log(sessionChatGpt.map(el => el))
+        console.log(sessionChatGpt.map(el => el.map(el => el)))
     }, [changeSessionForSubmit]);    //  отправка запроса на ответ
 
 
