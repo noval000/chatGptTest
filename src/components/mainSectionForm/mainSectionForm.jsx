@@ -46,6 +46,8 @@ const MainSectionForm = (props) => {
                     setValueChatClaude={props.setValueChatClaude}
                     valueChatGpt={props.valueChatGpt}    //  запрос в чат гпт
                     setValueChatGpt={props.setValueChatGpt}
+                    setOpenTheeWindowNewSession={props.setOpenTheeWindowNewSession}    ///    для открытия 3 окон при отправке запроса с новой сессии
+                    openTheeWindowNewSession={props.openTheeWindowNewSession}   ///    для открытия 3 окон при отправке запроса с новой сессии
                 />
             }
 
