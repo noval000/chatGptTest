@@ -97,7 +97,8 @@ const MainSectionForm = (props) => {
                         setValueChatClaude={props.setValueChatClaude}
                         valueChatGpt={props.valueChatGpt}    //  запрос в чат гпт
                         setValueChatGpt={props.setValueChatGpt}
-                        setChangeSessionForSubmit={props.setChangeSessionForSubmit}
+                        setChangeSessionForSubmit={props.setChangeSessionForSubmit}  //   отслеживаем изменилось ли значение при отправке в gpt
+                        changeSessionForSubmit={props.changeSessionForSubmit}
                     />
                 </div>
             }
