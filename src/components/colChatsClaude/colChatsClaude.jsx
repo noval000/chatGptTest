@@ -148,9 +148,10 @@ const ColChatsClaude = (props) => {
                                    e.preventDefault();
                                    props.setValueChatClaude(props.valueChatClaude);
                                    // props.setSessionChatClaude([...props.sessionChatClaude, props.valueChatClaude])
-                                   console.log(props.inpGetValue, props.valueChatGpt, props.valueChatGigachat, props.valueChatClaude)
+                                   // console.log(props.inpGetValue, props.valueChatGpt, props.valueChatGigachat, props.valueChatClaude)
                                    console.log(props.sessionChatClaude);
                                    setLoaderClaude(true)
+                                   console.log(props.valueChatClaude)
                                    props.setChangeSessionForSubmit(true)    //   отслеживаем изменилось ли значение при отправке
                                    props.setValueChatClaude('');     //    обнуляем инпут после отправки запроса
                                    // props.submitFirstChat(e)
