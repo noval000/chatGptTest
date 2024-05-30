@@ -47,7 +47,8 @@ const Home = (props) => {
             axios.post('/api/llm_session/new_query', data)
                 .then(response => {
                     console.log('Server response:', response.data);
-                    setSessionChatGpt(...sessionChatGpt, response.data.filter(el => el.datetime_response === 'chatgpt'))
+                    const messageGpt = response.data.filter(el => el.datetime_response === 'chatgpt')
+                    setSessionChatGpt([...sessionChatGpt, messageGpt])
                     setSessionChatGigachat([...sessionChatGigachat, response.data])
                     setSessionChatClaude([...sessionChatClaude, response.data])
                     console.log(changeSessionForSubmit)
