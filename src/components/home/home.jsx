@@ -84,8 +84,8 @@ const Home = (props) => {
                         user_score: messageGigachat[0].user_score
                     }
                     setSessionChatGpt([...sessionChatGpt, newMessageGpt])
-                    setSessionChatGigachat([...sessionChatGigachat, newMessageClaude])
-                    setSessionChatClaude([...sessionChatClaude, newMessageGigachat])
+                    setSessionChatGigachat([...sessionChatGigachat, newMessageGigachat])
+                    setSessionChatClaude([...sessionChatClaude, newMessageClaude])
                 })
                 .finally(() => console.log('ok'))
                 .catch(error => {
