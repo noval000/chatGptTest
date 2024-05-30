@@ -104,7 +104,7 @@ const Home = (props) => {
         }
         console.log(changeSessionForSubmit)
         console.log(sessionChatGpt)
-    }, [valueChatGigachat || valueChatGpt || valueChatClaude]);    //  отправка запроса на ответ
+    }, [changeSessionForSubmit, valueChatGigachat || valueChatGpt || valueChatClaude]);    //  отправка запроса на ответ
 
 
 
