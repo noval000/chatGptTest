@@ -78,7 +78,7 @@ const Home = (props) => {
                         id: messageGigachat[0].id,
                         model: messageGigachat[0].model,
                         query: messageGigachat[0].query,
-                        response: messageGigachat[1].response,
+                        response: messageGigachat[0].response,
                         session_id: messageGigachat[0].session_id,
                         task: messageGigachat[0].task,
                         user_score: messageGigachat[0].user_score
@@ -91,18 +91,18 @@ const Home = (props) => {
                     setValueChatGpt('');
                     setValueChatGigachat('');
                     setValueChatClaude('');
+                    setChangeSessionForSubmit(false)
                 })
                 .catch(error => {
                     console.error('There was an error sending the data!', error);
                 });
         };
-
-        if (changeSessionForSubmit === true) {
-            submitFirstChat();
-            setTimeout(() => {
-                setChangeSessionForSubmit(false)
-            }, 1500);
-        }
+        submitFirstChat();
+        // if (changeSessionForSubmit === true) {
+        //     setTimeout(() => {
+        //         setChangeSessionForSubmit(false)
+        //     }, 1500);
+        // }
         console.log(changeSessionForSubmit)
         console.log(sessionChatGpt)
     }, [changeSessionForSubmit, valueChatGigachat || valueChatGpt || valueChatClaude]);    //  отправка запроса на ответ
