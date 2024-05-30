@@ -30,6 +30,8 @@ const MainSectionForm = (props) => {
                 props.llm_session_title === 'none' &&      //  если у сессии тайтл none открывается пустой чат   (при нажатии на новую сессию)
                 props.llm_session_id === 'none' &&
                 <FirstChat
+                    changeSessionForSubmitAll={props.changeSessionForSubmitAll}    //   отслеживаем изменилось ли значение при отправке c главной
+                    setChangeSessionForSubmitAll={props.setChangeSessionForSubmitAll}
                     firstname={props.firstname}   //   имя для приветствия
                     setSession={props.setSession}
                     session={props.session}

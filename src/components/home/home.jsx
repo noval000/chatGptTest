@@ -10,6 +10,9 @@ const Home = (props) => {
     const [changeSessionForSubmit, setChangeSessionForSubmit] = useState(false);  //   отслеживаем изменилось ли значение при отправке в gigachat
     const [changeSessionForSubmitGpt, setChangeSessionForSubmitGpt] = useState(false);  //   отслеживаем изменилось ли значение при отправке в chatGpt
     const [changeSessionForSubmitClaude, setChangeSessionForSubmitClaude] = useState(false);  //   отслеживаем изменилось ли значение при отправке в claude
+    const [changeSessionForSubmitAll, setChangeSessionForSubmitAll] = useState(false);  //   отслеживаем изменилось ли значение при отправке c главной
+
+
 
     const [inpGetValue, setValue] = useState('');   //   значение после первого запроса
 
@@ -41,10 +44,10 @@ const Home = (props) => {
             const data = {
                 llm_session_title,
                 llm_session_id,
-                inpGetValue,
+                // inpGetValue,
                 // valueChatGpt,
                 // valueChatClaude,
-                // valueChatGigachat
+                valueChatGigachat
             };
             // Отправка данных на сервер
             axios.post('/api/llm_session/new_query', data)
@@ -116,9 +119,9 @@ const Home = (props) => {
             const data = {
                 llm_session_title,
                 llm_session_id,
-                inpGetValue,
+                // inpGetValue,
                 // valueChatGpt,
-                // valueChatClaude
+                valueChatClaude
                 // valueChatGigachat
             };
             // Отправка данных на сервер
@@ -191,8 +194,8 @@ const Home = (props) => {
             const data = {
                 llm_session_title,
                 llm_session_id,
-                inpGetValue,
-                // valueChatGpt
+                // inpGetValue,
+                valueChatGpt
                 // valueChatClaude,
                 // valueChatGigachat
             };
@@ -280,6 +283,8 @@ const Home = (props) => {
                 setLimSessionId={setLimSessionId}
             />
             <MainSectionForm
+                changeSessionForSubmitAll={changeSessionForSubmitAll}    //   отслеживаем изменилось ли значение при отправке c главной
+                setChangeSessionForSubmitAll={setChangeSessionForSubmitAll}
                 changeSessionForSubmitClaude={changeSessionForSubmitClaude}   //   отслеживаем изменилось ли значение при отправке в claude
                 setChangeSessionForSubmitClaude={setChangeSessionForSubmitClaude}
                 changeSessionForSubmitGpt={changeSessionForSubmitGpt}   //   отслеживаем изменилось ли значение при отправке в gpt
