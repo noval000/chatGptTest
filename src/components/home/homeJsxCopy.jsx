@@ -7,7 +7,7 @@ const Home = (props) => {
 
 
 
-    const [changeSessionForSubmit, setChangeSessionForSubmit] = useState(false);  //   отслеживаем изменилось ли значение при отправке в gigachat
+    const [changeSessionForSubmit, setChangeSessionForSubmit] = useState(false);  //   отслеживаем изменилось ли значение при отправке
 
     const [inpGetValue, setValue] = useState('')   //   значение после первого запроса
 
@@ -40,39 +40,39 @@ const Home = (props) => {
                 llm_session_title,
                 llm_session_id,
                 inpGetValue,
-                // valueChatGpt,
-                // valueChatClaude,
+                valueChatGpt,
+                valueChatClaude,
                 valueChatGigachat
             };
             // Отправка данных на сервер
             axios.post('/api/llm_session/new_query', data)
                 .then(response => {
                     console.log('Server response:', response.data);
-                    // const messageGpt = response.data.filter(el => el.datetime_response === 'chatgpt')
-                    // const messageClaude = response.data.filter(el => el.datetime_response === 'claude')
+                    const messageGpt = response.data.filter(el => el.datetime_response === 'chatgpt')
+                    const messageClaude = response.data.filter(el => el.datetime_response === 'claude')
                     const messageGigachat = response.data.filter(el => el.datetime_response === 'gigachat')
-                    // const newMessageGpt = {
-                    //     datetime_query: messageGpt[0].datetime_query,
-                    //     datetime_response: messageGpt[0].datetime_response,
-                    //     id: messageGpt[0].id,
-                    //     model: messageGpt[0].model,
-                    //     query: messageGpt[0].query,
-                    //     response: messageGpt[0].response,
-                    //     session_id: messageGpt[0].session_id,
-                    //     task: messageGpt[0].task,
-                    //     user_score: messageGpt[0].user_score
-                    // }
-                    // const newMessageClaude = {
-                    //     datetime_query: messageClaude[0].datetime_query,
-                    //     datetime_response: messageClaude[0].datetime_response,
-                    //     id: messageClaude[0].id,
-                    //     model: messageClaude[0].model,
-                    //     query: messageClaude[0].query,
-                    //     response: messageClaude[0].response,
-                    //     session_id: messageClaude[0].session_id,
-                    //     task: messageClaude[0].task,
-                    //     user_score: messageClaude[0].user_score
-                    // }
+                    const newMessageGpt = {
+                        datetime_query: messageGpt[0].datetime_query,
+                        datetime_response: messageGpt[0].datetime_response,
+                        id: messageGpt[0].id,
+                        model: messageGpt[0].model,
+                        query: messageGpt[0].query,
+                        response: messageGpt[0].response,
+                        session_id: messageGpt[0].session_id,
+                        task: messageGpt[0].task,
+                        user_score: messageGpt[0].user_score
+                    }
+                    const newMessageClaude = {
+                        datetime_query: messageClaude[0].datetime_query,
+                        datetime_response: messageClaude[0].datetime_response,
+                        id: messageClaude[0].id,
+                        model: messageClaude[0].model,
+                        query: messageClaude[0].query,
+                        response: messageClaude[0].response,
+                        session_id: messageClaude[0].session_id,
+                        task: messageClaude[0].task,
+                        user_score: messageClaude[0].user_score
+                    }
                     const newMessageGigachat = {
                         datetime_query: messageGigachat[0].datetime_query,
                         datetime_response: messageGigachat[0].datetime_response,
@@ -84,14 +84,14 @@ const Home = (props) => {
                         task: messageGigachat[0].task,
                         user_score: messageGigachat[0].user_score
                     }
-                    // setSessionChatGpt([...sessionChatGpt, newMessageGpt])
-                    // setSessionChatClaude([...sessionChatClaude, newMessageClaude])
+                    setSessionChatGpt([...sessionChatGpt, newMessageGpt])
                     setSessionChatGigachat([...sessionChatGigachat, newMessageGigachat])
+                    setSessionChatClaude([...sessionChatClaude, newMessageClaude])
                 })
                 .finally(() => {
-                    // setValueChatGpt('');
+                    setValueChatGpt('');
                     setValueChatGigachat('');
-                    // setValueChatClaude('');
+                    setValueChatClaude('');
                     setChangeSessionForSubmit(false)
                 })
                 .catch(error => {
@@ -104,7 +104,7 @@ const Home = (props) => {
         }
         console.log(changeSessionForSubmit)
         console.log(sessionChatGpt)
-    }, [changeSessionForSubmit]);    //  отправка запроса на ответ от чата gigachat
+    }, [changeSessionForSubmit]);    //  отправка запроса на ответ
 
 
 
