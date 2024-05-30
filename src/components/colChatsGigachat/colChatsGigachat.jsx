@@ -140,6 +140,7 @@ const ColChatsGigachat = (props) => {
                            onChange={(e) => {
                                props.setValueChatGigachat(e.target.value);
                                props.setValue(e.target.value);
+                               console.log(props.valueChatGigachat)
                            }}
                     />
                     <input type="submit"
@@ -154,6 +155,7 @@ const ColChatsGigachat = (props) => {
                                    // props.setSessionChatGigachat([...props.sessionChatGigachat, props.valueChatGigachat])
                                    console.log(props.inpGetValue, props.valueChatGpt, props.valueChatGigachat, props.valueChatClaude)
                                    console.log(props.sessionChatGigachat);
+                                   console.log(props.valueChatGigachat)
                                    props.setChangeSessionForSubmit(true)    //   отслеживаем изменилось ли значение при отправке
                                    // props.setValueChatGigachat('');     //    обнуляем инпут после отправки запроса
                                    // props.submitFirstChat(e)

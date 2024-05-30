@@ -38,7 +38,7 @@ const Home = (props) => {
 
     useEffect(() => {
         const submitFirstChat = (e) => {
-            e.preventDefault();
+            // e.preventDefault();
             setChangeSessionForSubmit(true)
             // Данные для отправки на сервер
             const data = {
