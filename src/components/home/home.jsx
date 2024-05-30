@@ -48,7 +48,7 @@ const Home = (props) => {
                 .then(response => {
                     console.log('Server response:', response.data);
                     const messageGpt = response.data.filter(el => el.datetime_response === 'chatgpt')
-                    setSessionChatGpt([...sessionChatGpt, Object.assign(messageGpt)])
+                    setSessionChatGpt([...sessionChatGpt, messageGpt.map(el => el)])
                     setSessionChatGigachat([...sessionChatGigachat, response.data])
                     setSessionChatClaude([...sessionChatClaude, response.data])
                 })
