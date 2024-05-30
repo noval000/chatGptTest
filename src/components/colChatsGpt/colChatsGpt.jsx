@@ -161,7 +161,7 @@ const ColChatsGpt = (props) => {
                                    console.log(props.valueChatGpt)
                                    // props.setSession([...props.session, props.valueChatGpt]);
                                    props.setChangeSessionForSubmit(true)    //   отслеживаем изменилось ли значение при отправке
-                                   // props.setValueChatGpt('');     //    обнуляем инпут после отправки запроса
+                                   props.setValueChatGpt('');     //    обнуляем инпут после отправки запроса
                                    // props.submitFirstChat(e)
                                })
                            }}/>

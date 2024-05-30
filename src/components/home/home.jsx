@@ -102,9 +102,6 @@ const Home = (props) => {
 
         if (changeSessionForSubmit === true) {
             submitFirstChat();
-            setTimeout(() => {
-                setChangeSessionForSubmit(false)
-            }, 1500);
         }
         console.log(changeSessionForSubmit)
         console.log(sessionChatGpt)
