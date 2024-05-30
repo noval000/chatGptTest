@@ -70,7 +70,6 @@ const Home = (props) => {
         }
         console.log(changeSessionForSubmit)
         console.log(sessionChatGpt)
-        console.log(messageGpt)
     }, [changeSessionForSubmit]);    //  отправка запроса на ответ
 
 
