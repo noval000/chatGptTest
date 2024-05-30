@@ -333,7 +333,6 @@ const Home = (props) => {
                     setValueChatClaude('');
                     setValueChatGpt('');
                     setChangeSessionForSubmitGpt(false);
-                    setOpenTheeWindowNewSession(true);
                 })
                 .catch(error => {
                     console.error('There was an error sending the data!', error);
@@ -373,6 +372,7 @@ const Home = (props) => {
                 setLimSessionId={setLimSessionId}
             />
             <MainSectionForm
+                setOpenTheeWindowNewSession={setOpenTheeWindowNewSession}    ///    для открытия 3 окон при отправке запроса с новой сессии
                 openTheeWindowNewSession={openTheeWindowNewSession}   ///    для открытия 3 окон при отправке запроса с новой сессии
                 changeSessionForSubmitAll={changeSessionForSubmitAll}    //   отслеживаем изменилось ли значение при отправке c главной
                 setChangeSessionForSubmitAll={setChangeSessionForSubmitAll}

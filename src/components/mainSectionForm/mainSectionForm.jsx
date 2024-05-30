@@ -16,6 +16,7 @@ const MainSectionForm = (props) => {
             {
                 props.llm_session_title === '' &&              //  если у сессии нет тайтла открывается пустой чат   (обычно при логине)
                 props.llm_session_id === '' &&
+                props.openTheeWindowNewSession === false &&
                 <FirstChat
                     firstname={props.firstname}   //   имя для приветствия
                     setSession={props.setSession}
@@ -23,7 +24,8 @@ const MainSectionForm = (props) => {
                     inpGetValue={props.inpGetValue}  //   значение после первого запроса
                     setValue={props.setValue}
                     submitFirstChat={props.submitFirstChat}     //  отправка запроса на ответ
-
+                    setOpenTheeWindowNewSession={props.setOpenTheeWindowNewSession}    ///    для открытия 3 окон при отправке запроса с новой сессии
+                    openTheeWindowNewSession={props.openTheeWindowNewSession}   ///    для открытия 3 окон при отправке запроса с новой сессии
                 />
             }
             {
