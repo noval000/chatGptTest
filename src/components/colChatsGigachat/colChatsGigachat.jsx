@@ -155,7 +155,7 @@ const ColChatsGigachat = (props) => {
                                    console.log(props.inpGetValue, props.valueChatGpt, props.valueChatGigachat, props.valueChatClaude)
                                    console.log(props.sessionChatGigachat);
                                    props.setChangeSessionForSubmit(true)    //   отслеживаем изменилось ли значение при отправке
-                                   props.setValueChatGigachat('');     //    обнуляем инпут после отправки запроса
+                                   // props.setValueChatGigachat('');     //    обнуляем инпут после отправки запроса
                                    // props.submitFirstChat(e)
                                })
                            }}/>
