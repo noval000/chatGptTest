@@ -153,7 +153,7 @@ const ColChatsClaude = (props) => {
                                    setLoaderClaude(true)
                                    console.log(props.valueChatClaude)
                                    props.setChangeSessionForSubmit(true)    //   отслеживаем изменилось ли значение при отправке
-                                   props.setValueChatClaude('');     //    обнуляем инпут после отправки запроса
+                                   props.setValueChatClaude('none');     //    обнуляем инпут после отправки запроса
                                    // props.submitFirstChat(e)
                                })
                            }}
