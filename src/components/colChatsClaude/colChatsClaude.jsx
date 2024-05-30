@@ -140,6 +140,7 @@ const ColChatsClaude = (props) => {
                            }}
                     />
                     <input type="submit"
+                           disabled={props.changeSessionForSubmitClaude}
                            value=''
                            onClick={(e) => {
                                const formChat = e.target.closest('#formChatClaude');
