@@ -94,6 +94,7 @@ const Home = (props) => {
                     setSessionChatGigachat([...sessionChatGigachat, newMessageGigachat])
                 })
                 .finally(() => {
+                    setValue('');
                     // setValueChatGpt('');
                     setValueChatGigachat('');
                     // setValueChatClaude('');
