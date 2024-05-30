@@ -130,7 +130,6 @@ const ColChatsGigachat = (props) => {
                         props.changeSessionForSubmit === true &&
                         <span className="loader2"></span>
                     }
-                    <span className="loader2"></span>
                 </div>
             </div>
             <form action="" id="formChatGigachat">
