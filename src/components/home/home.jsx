@@ -111,7 +111,8 @@ const Home = (props) => {
     useEffect(() => {
         const submitFirstChat = (e) => {
             // e.preventDefault();
-            setChangeSessionForSubmitClaude(true)
+            setChangeSessionForSubmitClaude(true);
+            setValueChatClaude('');
             // Данные для отправки на сервер
             const data = {
                 llm_session_title,
