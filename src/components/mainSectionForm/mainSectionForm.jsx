@@ -107,7 +107,7 @@ const MainSectionForm = (props) => {
 
 
             {
-                props.changeSessionForSubmit === true &&     //  если у сессии есть тайтл открывается история чата   (при нажатии на сессию)
+                props.openTheeWindowNewSession === true &&     //  если у сессии есть тайтл открывается история чата   (при нажатии на сессию)
                 <div className="chat-container">
                     <ColChatsGpt
                         session={props.session}    // все сессии

@@ -12,7 +12,7 @@ const Home = (props) => {
     const [changeSessionForSubmitClaude, setChangeSessionForSubmitClaude] = useState(false);  //   отслеживаем изменилось ли значение при отправке в claude
     const [changeSessionForSubmitAll, setChangeSessionForSubmitAll] = useState(false);  //   отслеживаем изменилось ли значение при отправке c главной
 
-
+    const [openTheeWindowNewSession, setOpenTheeWindowNewSession] = useState(false);   //  для открытия трех окон при отправке нового запроса
 
     const [inpGetValue, setValue] = useState('');   //   значение после первого запроса
 
@@ -332,7 +332,8 @@ const Home = (props) => {
                     setValueChatGigachat('');
                     setValueChatClaude('');
                     setValueChatGpt('');
-                    setChangeSessionForSubmitGpt(false)
+                    setChangeSessionForSubmitGpt(false);
+                    setOpenTheeWindowNewSession(true);
                 })
                 .catch(error => {
                     console.error('There was an error sending the data!', error);
@@ -372,6 +373,7 @@ const Home = (props) => {
                 setLimSessionId={setLimSessionId}
             />
             <MainSectionForm
+                openTheeWindowNewSession={openTheeWindowNewSession}   ///    для открытия 3 окон при отправке запроса с новой сессии
                 changeSessionForSubmitAll={changeSessionForSubmitAll}    //   отслеживаем изменилось ли значение при отправке c главной
                 setChangeSessionForSubmitAll={setChangeSessionForSubmitAll}
                 changeSessionForSubmitClaude={changeSessionForSubmitClaude}   //   отслеживаем изменилось ли значение при отправке в claude
