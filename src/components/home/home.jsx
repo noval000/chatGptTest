@@ -87,7 +87,7 @@ const Home = (props) => {
                     setSessionChatGigachat([...sessionChatGigachat, newMessageGigachat])
                     setSessionChatClaude([...sessionChatClaude, newMessageClaude])
                 })
-                .finally(() => console.log('ok'))
+                .finally(() => console.log(valueChatGpt))
                 .catch(error => {
                     console.error('There was an error sending the data!', error);
                 });
