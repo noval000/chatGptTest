@@ -44,7 +44,9 @@ const Login = (props) => {
             setResponseData(response.data)
             setLogin(response.data.loggedin);   //  true or false for validate
             setFirstName(response.data.first_name)   //  записываем имя для приветствия
-            setSession(response.data.llm_sessions.filter(el => el.status === 'active'))  //   фильтруем массив по активным сессиям
+            setSession(response.data.llm_sessions.filter(el => el.status === 'active').sort((a, b) =>
+                new Date(a.datetime_last_update).getTime() - new Date(b.datetime_last_update).getTime()
+            ));  //   фильтруем массив по активным сессиям
             localStorage.setItem('login' , response.data.loggedin)  //  Закдываем в session storage авторизован или нет
             console.log(loginOk, responseData)
             console.log(response.data.first_name)
