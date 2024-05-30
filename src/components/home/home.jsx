@@ -51,7 +51,6 @@ const Home = (props) => {
                     setSessionChatGpt(messageGpt)
                     setSessionChatGigachat([...sessionChatGigachat, response.data])
                     setSessionChatClaude([...sessionChatClaude, response.data])
-                    console.log(messageGpt)
                 })
                 .finally(() => console.log('ok'))
                 .catch(error => {
