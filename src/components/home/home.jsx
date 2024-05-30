@@ -176,7 +176,7 @@ const Home = (props) => {
                 });
         };
 
-        if (setChangeSessionForSubmitClaude === true) {
+        if (changeSessionForSubmitClaude === true) {
             submitFirstChat();
         }
         console.log(changeSessionForSubmit)
