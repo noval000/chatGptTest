@@ -26,6 +26,8 @@ const MainSectionForm = (props) => {
                     submitFirstChat={props.submitFirstChat}     //  отправка запроса на ответ
                     setOpenTheeWindowNewSession={props.setOpenTheeWindowNewSession}    ///    для открытия 3 окон при отправке запроса с новой сессии
                     openTheeWindowNewSession={props.openTheeWindowNewSession}   ///    для открытия 3 окон при отправке запроса с новой сессии
+                    changeSessionForSubmitAll={props.changeSessionForSubmitAll}    //   отслеживаем изменилось ли значение при отправке c главной
+                    setChangeSessionForSubmitAll={props.setChangeSessionForSubmitAll}
                 />
             }
             {
