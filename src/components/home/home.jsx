@@ -14,6 +14,8 @@ const Home = (props) => {
 
     const [openTheeWindowNewSession, setOpenTheeWindowNewSession] = useState(false);   //  для открытия трех окон при отправке нового запроса
 
+    console.log(openTheeWindowNewSession);
+
     const [inpGetValue, setValue] = useState('');   //   значение после первого запроса
 
 

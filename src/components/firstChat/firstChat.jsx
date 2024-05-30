@@ -35,7 +35,9 @@ const FirstChat = (props) => {
                                        // props.(props.inpGetValue);
                                        // props.submitFirstChat(e)
                                        props.setChangeSessionForSubmitAll(true);
+                                       console.log(props.openTheeWindowNewSession);
                                        props.setOpenTheeWindowNewSession(false);
+                                       console.log(props.openTheeWindowNewSession);
                                    })
                                }}
                         />
