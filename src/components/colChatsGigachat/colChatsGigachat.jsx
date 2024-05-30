@@ -135,12 +135,14 @@ const ColChatsGigachat = (props) => {
             <form action="" id="formChatGigachat">
                 <div className="input-area90">
                     <input type="text" value={props.valueChatGigachat}
+                           disabled={props.changeSessionForSubmit}
                            placeholder="Ваш запрос в Gigachat"
                            onChange={(e) => {
                                props.setValueChatGigachat(e.target.value);
                            }}
                     />
                     <input type="submit"
+                           disabled={props.changeSessionForSubmit}
                            // className={props.setChangeSessionForSubmit ? 'd-noneInput' : ''}
                            value=''
                            onClick={(e) => {

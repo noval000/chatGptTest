@@ -141,7 +141,7 @@ const ColChatsGpt = (props) => {
             <form action="" id="formChatGpt">
                 <div className="input-area90">
                     <input
-                           // disabled={props.setChangeSessionForSubmit}
+                           disabled={props.changeSessionForSubmitGpt}
                            type="text"
                            placeholder="Ваш запрос в ChatGpt"
                            value={props.valueChatGpt}
@@ -150,6 +150,7 @@ const ColChatsGpt = (props) => {
                            }}
                     />
                     <input type="submit"
+                           disabled={props.changeSessionForSubmitGpt}
                            // className={props.setChangeSessionForSubmit ? 'd-noneInput' : ''}
                            value=''
                            onClick={(e) => {

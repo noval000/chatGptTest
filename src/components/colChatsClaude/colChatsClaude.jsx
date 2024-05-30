@@ -134,6 +134,7 @@ const ColChatsClaude = (props) => {
             <form action="" id="formChatClaude">
                 <div className="input-area90">
                     <input type="text" value={props.valueChatClaude}
+                           disabled={props.changeSessionForSubmitClaude}
                            placeholder="Ваш запрос в Claude"
                            onChange={(e) => {
                                props.setValueChatClaude(e.target.value);
