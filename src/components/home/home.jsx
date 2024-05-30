@@ -83,7 +83,7 @@ const Home = (props) => {
                         datetime_response: messageGigachat[0].datetime_response,
                         id: messageGigachat[0].id,
                         model: messageGigachat[0].model,
-                        query: messageGigachat[0].query,
+                        query: inpGetValue,
                         response: messageGigachat[0].response,
                         session_id: messageGigachat[0].session_id,
                         task: messageGigachat[0].task,
