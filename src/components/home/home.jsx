@@ -58,8 +58,9 @@ const Home = (props) => {
                     console.error('There was an error sending the data!', error);
                 });
         };
+        submitFirstChat();
         if (changeSessionForSubmit === true) {
-            submitFirstChat();
+
             setValueChatGpt('');
             setValueChatGigachat('');
             setValueChatClaude('');
