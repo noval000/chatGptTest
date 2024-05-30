@@ -147,6 +147,7 @@ const ColChatsGpt = (props) => {
                            value={props.valueChatGpt}
                            onChange={(e) => {
                                props.setValueChatGpt(e.target.value)
+                               props.setValue(e.target.value);
                            }}
                     />
                     <input type="submit"

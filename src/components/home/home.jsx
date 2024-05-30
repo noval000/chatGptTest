@@ -44,7 +44,7 @@ const Home = (props) => {
                 inpGetValue,
                 // valueChatGpt,
                 // valueChatClaude,
-                valueChatGigachat
+                // valueChatGigachat
             };
             // Отправка данных на сервер
             axios.post('/api/llm_session/new_query', data)
@@ -118,7 +118,7 @@ const Home = (props) => {
                 llm_session_id,
                 inpGetValue,
                 // valueChatGpt,
-                valueChatClaude
+                // valueChatClaude
                 // valueChatGigachat
             };
             // Отправка данных на сервер
@@ -192,7 +192,7 @@ const Home = (props) => {
                 llm_session_title,
                 llm_session_id,
                 inpGetValue,
-                valueChatGpt
+                // valueChatGpt
                 // valueChatClaude,
                 // valueChatGigachat
             };
