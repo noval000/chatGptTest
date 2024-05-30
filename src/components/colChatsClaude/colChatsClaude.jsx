@@ -138,6 +138,8 @@ const ColChatsClaude = (props) => {
                            placeholder="Ваш запрос в Claude"
                            onChange={(e) => {
                                props.setValueChatClaude(e.target.value);
+                               props.setValue(e.target.value);
+                               console.log(props.inpGetValue)
                            }}
                     />
                     <input type="submit"
