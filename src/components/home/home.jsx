@@ -211,7 +211,7 @@ const Home = (props) => {
                         datetime_response: messageGpt[0].datetime_response,
                         id: messageGpt[0].id,
                         model: messageGpt[0].model,
-                        query: messageGpt[0].query,
+                        query: inpGetValue,
                         response: messageGpt[0].response,
                         session_id: messageGpt[0].session_id,
                         task: messageGpt[0].task,
