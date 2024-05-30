@@ -150,7 +150,7 @@ const Home = (props) => {
                         datetime_response: messageClaude[0].datetime_response,
                         id: messageClaude[0].id,
                         model: messageClaude[0].model,
-                        query: inpGetValue,
+                        query: valueChatClaude,
                         response: messageClaude[0].response,
                         session_id: messageClaude[0].session_id,
                         task: messageClaude[0].task,
@@ -175,6 +175,7 @@ const Home = (props) => {
                     // setValueChatGpt('');
                     setValueChatClaude('');
                     // setValueChatClaude('');
+                    setValue('');
                     setChangeSessionForSubmitClaude(false)
                 })
                 .catch(error => {
@@ -185,6 +186,8 @@ const Home = (props) => {
         if (changeSessionForSubmitClaude === true) {
             submitFirstChat();
         }
+        setValue('');
+        setValueChatClaude('');
         console.log(changeSessionForSubmit)
         console.log(sessionChatGpt)
     }, [changeSessionForSubmitClaude]);    //  отправка запроса на ответ от чата claude
@@ -214,7 +217,7 @@ const Home = (props) => {
                         datetime_response: messageGpt[0].datetime_response,
                         id: messageGpt[0].id,
                         model: messageGpt[0].model,
-                        query: inpGetValue,
+                        query: valueChatGpt,
                         response: messageGpt[0].response,
                         session_id: messageGpt[0].session_id,
                         task: messageGpt[0].task,
@@ -247,6 +250,7 @@ const Home = (props) => {
                     // setSessionChatGigachat([...sessionChatGigachat, newMessageGigachat])
                 })
                 .finally(() => {
+                    setValue('');
                     setValueChatGpt('');
                     // setValueChatGigachat('');
                     // setValueChatClaude('');
@@ -260,6 +264,8 @@ const Home = (props) => {
         if (changeSessionForSubmitGpt === true) {
             submitFirstChat();
         }
+        setValue('');
+        setValueChatGpt('');
         console.log(changeSessionForSubmit)
         console.log(sessionChatGpt)
     }, [changeSessionForSubmitGpt]);    //  отправка запроса на ответ от чата gpt
@@ -323,8 +329,9 @@ const Home = (props) => {
                 })
                 .finally(() => {
                     setValue('');
-                    // setValueChatGigachat('');
-                    // setValueChatClaude('');
+                    setValueChatGigachat('');
+                    setValueChatClaude('');
+                    setValueChatGpt('');
                     setChangeSessionForSubmitGpt(false)
                 })
                 .catch(error => {
@@ -335,6 +342,10 @@ const Home = (props) => {
         if (setChangeSessionForSubmitAll === true) {
             submitFirstChat();
         }
+        setValue('');
+        setValueChatGigachat('');
+        setValueChatClaude('');
+        setValueChatGpt('');
         console.log(changeSessionForSubmit)
         console.log(sessionChatGpt)
     }, [changeSessionForSubmitAll]);    //  отправка запроса на ответ в общий чат

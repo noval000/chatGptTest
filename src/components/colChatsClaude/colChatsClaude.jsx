@@ -138,7 +138,7 @@ const ColChatsClaude = (props) => {
                            placeholder="Ваш запрос в Claude"
                            onChange={(e) => {
                                props.setValueChatClaude(e.target.value);
-                               props.setValue(e.target.value);
+                               // props.setValue(e.target.value);
                                console.log(props.inpGetValue)
                            }}
                     />
@@ -149,7 +149,7 @@ const ColChatsClaude = (props) => {
                                const formChat = e.target.closest('#formChatClaude');
                                formChat.addEventListener('submit', e => {
                                    e.preventDefault();
-                                   props.setValueChatClaude(props.valueChatClaude);
+                                   // props.setValueChatClaude(props.valueChatClaude);
                                    // props.setSessionChatClaude([...props.sessionChatClaude, props.valueChatClaude])
                                    // console.log(props.inpGetValue, props.valueChatGpt, props.valueChatGigachat, props.valueChatClaude)
                                    console.log(props.sessionChatClaude);
@@ -157,7 +157,7 @@ const ColChatsClaude = (props) => {
                                    console.log(props.valueChatClaude)
                                    props.setChangeSessionForSubmitClaude(true)    //   отслеживаем изменилось ли значение при отправке
                                    console.log(props.changeSessionForSubmitClaude)
-                                   props.setValueChatClaude('');     //    обнуляем инпут после отправки запроса
+                                   // props.setValueChatClaude('');     //    обнуляем инпут после отправки запроса
                                    // props.submitFirstChat(e)
                                })
                            }}
