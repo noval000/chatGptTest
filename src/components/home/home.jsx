@@ -34,6 +34,7 @@ const Home = (props) => {
     useEffect(() => {
         const submitFirstChat = (e) => {
             // e.preventDefault();
+            props.setChangeSessionForSubmit(true)
             // Данные для отправки на сервер
             const data = {
                 llm_session_title,
@@ -88,10 +89,10 @@ const Home = (props) => {
                     setSessionChatClaude([...sessionChatClaude, newMessageClaude])
                 })
                 .finally(() => {
-                        setValueChatGpt('');
-                        setValueChatGigachat('');
-                        setValueChatClaude('');
-                        setChangeSessionForSubmit(false)
+                    setValueChatGpt('');
+                    setValueChatGigachat('');
+                    setValueChatClaude('');
+                    setChangeSessionForSubmit(false)
                 })
                 .catch(error => {
                     console.error('There was an error sending the data!', error);
