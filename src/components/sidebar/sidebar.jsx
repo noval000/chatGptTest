@@ -103,6 +103,7 @@ const Sidebar = (props) => {
                        props.setLimSessionId('none');
                        console.log(llm_session_title)
                        console.log(llm_session_id)
+                       props.setOpenTheeWindowNewSession(false);
                    }}
                 >
                     Помощник ТРИЗ
