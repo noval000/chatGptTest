@@ -147,7 +147,7 @@ const Home = (props) => {
                         datetime_response: messageClaude[0].datetime_response,
                         id: messageClaude[0].id,
                         model: messageClaude[0].model,
-                        query: messageClaude[0].query,
+                        query: inpGetValue,
                         response: messageClaude[0].response,
                         session_id: messageClaude[0].session_id,
                         task: messageClaude[0].task,
