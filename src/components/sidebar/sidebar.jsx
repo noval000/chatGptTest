@@ -43,9 +43,11 @@ const Sidebar = (props) => {
                         credentials: "include",
                         withCredentials: true,
                     });
-                    props.setSessionChatGpt(response.data.llm_session_responses.filter(el => el[8] === 'chatgpt'))
-                    props.setSessionChatClaude(response.data.llm_session_responses.filter(el => el[8] === 'claude'))
-                    props.setSessionChatGigachat(response.data.llm_session_responses.filter(el => el[8] === 'gigachat'))
+
+
+                    props.setSessionChatGpt(response.data.llm_session_responses.filter(el => el.datetime_response === 'chatgpt'))
+                    props.setSessionChatClaude(response.data.llm_session_responses.filter(el => el.el.datetime_response === 'claude'))
+                    props.setSessionChatGigachat(response.data.llm_session_responses.filter(el => el.el.datetime_response === 'gigachat'))
                     console.log(props.sessionChatGpt)
                     console.log('server responce' , response.data);
 

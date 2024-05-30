@@ -84,7 +84,7 @@ const ColChatsGpt = (props) => {
 
                     {
                         props.sessionChatGpt.map(el => (
-                            <div>
+                            <div key={el.id}>
                                 <div className="question">
                                     <div className="avatar">
                                         <div className="iconAvatar">
@@ -95,7 +95,7 @@ const ColChatsGpt = (props) => {
                                         </div>
                                     </div>
                                     <div className="zapros">
-                                        <p>{el[2]}</p>
+                                        <p>{el.query}</p>
                                     </div>
                                 </div>
                                 <div className="answer">
@@ -108,7 +108,7 @@ const ColChatsGpt = (props) => {
                                         </div>
                                     </div>
                                     <div className="zapros">
-                                        <p>{el[3]}</p>
+                                        <p>{el.response}</p>
                                     </div>
                                     <div className="allBtn d-flex align-items-start">
                                         <a href="#!" type="button" className="btnLike like btn btn-sm">
