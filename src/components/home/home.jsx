@@ -88,12 +88,10 @@ const Home = (props) => {
                     setSessionChatClaude([...sessionChatClaude, newMessageClaude])
                 })
                 .finally(() => {
-                    if (changeSessionForSubmit === true) {
                         setValueChatGpt('');
                         setValueChatGigachat('');
                         setValueChatClaude('');
                         setChangeSessionForSubmit(false)
-                    }
                 })
                 .catch(error => {
                     console.error('There was an error sending the data!', error);
