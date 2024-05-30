@@ -78,7 +78,7 @@ const Home = (props) => {
                         id: messageGigachat[0].id,
                         model: messageGigachat[0].model,
                         query: messageGigachat[0].query,
-                        response: messageGigachat[0].response,
+                        response: messageGigachat[1].response,
                         session_id: messageGigachat[0].session_id,
                         task: messageGigachat[0].task,
                         user_score: messageGigachat[0].user_score
@@ -87,7 +87,11 @@ const Home = (props) => {
                     setSessionChatGigachat([...sessionChatGigachat, newMessageGigachat])
                     setSessionChatClaude([...sessionChatClaude, newMessageClaude])
                 })
-                .finally(() => console.log(valueChatGpt))
+                .finally(() => {
+                    setValueChatGpt('');
+                    setValueChatGigachat('');
+                    setValueChatClaude('');
+                })
                 .catch(error => {
                     console.error('There was an error sending the data!', error);
                 });
@@ -95,9 +99,6 @@ const Home = (props) => {
 
         if (changeSessionForSubmit === true) {
             submitFirstChat();
-            setValueChatGpt('');
-            setValueChatGigachat('');
-            setValueChatClaude('');
             setTimeout(() => {
                 setChangeSessionForSubmit(false)
             }, 1500);
