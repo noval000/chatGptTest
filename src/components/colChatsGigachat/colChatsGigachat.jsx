@@ -127,7 +127,7 @@ const ColChatsGigachat = (props) => {
                         ))
                     }
                     {
-                        props.setChangeSessionForSubmit === true &&
+                        props.changeSessionForSubmit === true &&
                         <span className="loader2"></span>
                     }
                 </div>
