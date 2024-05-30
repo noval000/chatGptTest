@@ -65,8 +65,8 @@ const MainSectionForm = (props) => {
                         setValueChatClaude={props.setValueChatClaude}
                         valueChatGpt={props.valueChatGpt}    //  запрос в чат гпт
                         setValueChatGpt={props.setValueChatGpt}
-                        changeSessionForSubmit={props.changeSessionForSubmit}    //   отслеживаем изменилось ли значение при отправке
-                        setChangeSessionForSubmit={props.setChangeSessionForSubmit}
+                        changeSessionForSubmitGpt={props.changeSessionForSubmitGpt}   //   отслеживаем изменилось ли значение при отправке в gpt
+                        setChangeSessionForSubmitGpt={props.setChangeSessionForSubmitGpt}
                     />
                     <ColChatsClaude
                         session={props.session} // все сессии
@@ -81,7 +81,8 @@ const MainSectionForm = (props) => {
                         setValueChatGigachat={props.setValueChatGigachat}
                         valueChatGpt={props.valueChatGpt}    //  запрос в чат гпт
                         setValueChatGpt={props.setValueChatGpt}
-                        setChangeSessionForSubmit={props.setChangeSessionForSubmit}
+                        changeSessionForSubmitClaude={props.changeSessionForSubmitClaude}   //   отслеживаем изменилось ли значение при отправке в claude
+                        setChangeSessionForSubmitClaude={props.setChangeSessionForSubmitClaude}
                     />
                     <ColChatsGigachat
                         session={props.session} // все сессии

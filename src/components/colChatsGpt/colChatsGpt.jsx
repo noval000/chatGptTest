@@ -132,10 +132,10 @@ const ColChatsGpt = (props) => {
                             </div>
                         ))
                     }
-                    {/*{*/}
-                    {/*    props.changeSessionForSubmit === true &&*/}
-                    {/*    <span className="loader2"></span>*/}
-                    {/*}*/}
+                    {
+                        props.changeSessionForSubmitGpt === true &&
+                        <span className="loader2"></span>
+                    }
                 </div>
             </div>
             <form action="" id="formChatGpt">
@@ -160,7 +160,7 @@ const ColChatsGpt = (props) => {
                                    // props.setSessionChatGpt([...props.sessionChatGpt, props.valueChatGpt]);
                                    console.log(props.valueChatGpt)
                                    // props.setSession([...props.session, props.valueChatGpt]);
-                                   // props.setChangeSessionForSubmit(true)    //   отслеживаем изменилось ли значение при отправке
+                                   props.setChangeSessionForSubmitGpt(true)    //   отслеживаем изменилось ли значение при отправке
                                    props.setValueChatGpt('');     //    обнуляем инпут после отправки запроса
                                    // props.submitFirstChat(e)
                                })

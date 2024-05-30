@@ -125,10 +125,10 @@ const ColChatsClaude = (props) => {
                             </div>
                         ))
                     }
-                    {/*{*/}
-                    {/*    props.changeSessionForSubmit === true &&*/}
-                    {/*    <span className="loader2"></span>*/}
-                    {/*}*/}
+                    {
+                        props.changeSessionForSubmitClaude === true &&
+                        <span className="loader2"></span>
+                    }
                 </div>
             </div>
             <form action="" id="formChatClaude">
@@ -151,7 +151,7 @@ const ColChatsClaude = (props) => {
                                    console.log(props.sessionChatClaude);
                                    setLoaderClaude(true)
                                    console.log(props.valueChatClaude)
-                                   // props.setChangeSessionForSubmit(true)    //   отслеживаем изменилось ли значение при отправке
+                                   props.setChangeSessionForSubmitClaude(true)    //   отслеживаем изменилось ли значение при отправке
                                    props.setValueChatClaude('');     //    обнуляем инпут после отправки запроса
                                    // props.submitFirstChat(e)
                                })
