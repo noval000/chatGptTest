@@ -139,7 +139,7 @@ const ColChatsGigachat = (props) => {
                            placeholder="Ваш запрос в Gigachat"
                            onChange={(e) => {
                                props.setValueChatGigachat(e.target.value);
-                               props.setValue(e.target.value);
+                               // props.setValue(e.target.value);
                                console.log(props.valueChatGigachat)
                            }}
                     />
