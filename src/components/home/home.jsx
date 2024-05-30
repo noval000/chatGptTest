@@ -108,6 +108,8 @@ const Home = (props) => {
         if (changeSessionForSubmit === true) {
             submitFirstChat();
         }
+        setValue('');
+        setValueChatGigachat('');
         console.log(changeSessionForSubmit)
         console.log(sessionChatGpt)
     }, [changeSessionForSubmit]);    //  отправка запроса на ответ от чата gigachat
