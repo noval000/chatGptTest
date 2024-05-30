@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef} from 'react';
 import './colChats.css';
 import iconUser from '../images/imgIcon/user_circle.png';
 import iconTriz from '../images/imgIcon/triz_logo_big_blue.png';

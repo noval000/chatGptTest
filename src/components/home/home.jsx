@@ -11,7 +11,7 @@ const Home = (props) => {
     const [changeSessionForSubmitGpt, setChangeSessionForSubmitGpt] = useState(false);  //   отслеживаем изменилось ли значение при отправке в chatGpt
     const [changeSessionForSubmitClaude, setChangeSessionForSubmitClaude] = useState(false);  //   отслеживаем изменилось ли значение при отправке в claude
 
-    const [inpGetValue, setValue] = useState('')   //   значение после первого запроса
+    const [inpGetValue, setValue] = useState('');   //   значение после первого запроса
 
 
 

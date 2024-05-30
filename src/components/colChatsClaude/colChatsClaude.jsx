@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef} from 'react';
 import iconUser from "../images/imgIcon/user_circle.png";
 import iconTriz from "../images/imgIcon/triz_logo_big_blue.png";
 import './colChatsClaude.css';
@@ -6,7 +6,7 @@ import './colChatsClaude.css';
 const ColChatsClaude = (props) => {
 
 
-    const [loaderClaude, setLoaderClaude] = useState(false);
+
 
 
     const bottom = useRef(null)
@@ -149,11 +149,11 @@ const ColChatsClaude = (props) => {
                                    // props.setSessionChatClaude([...props.sessionChatClaude, props.valueChatClaude])
                                    // console.log(props.inpGetValue, props.valueChatGpt, props.valueChatGigachat, props.valueChatClaude)
                                    console.log(props.sessionChatClaude);
-                                   setLoaderClaude(true)
+
                                    console.log(props.valueChatClaude)
                                    props.setChangeSessionForSubmitClaude(true)    //   отслеживаем изменилось ли значение при отправке
                                    console.log(props.changeSessionForSubmitClaude)
-                                   props.setValueChatClaude('');     //    обнуляем инпут после отправки запроса
+                                   // props.setValueChatClaude('');     //    обнуляем инпут после отправки запроса
                                    // props.submitFirstChat(e)
                                })
                            }}
