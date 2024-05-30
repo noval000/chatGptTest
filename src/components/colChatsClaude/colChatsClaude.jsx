@@ -125,10 +125,10 @@ const ColChatsClaude = (props) => {
                             </div>
                         ))
                     }
-                    {
-                        props.changeSessionForSubmit === true &&
-                        <span className="loader2"></span>
-                    }
+                    {/*{*/}
+                    {/*    props.changeSessionForSubmit === true &&*/}
+                    {/*    <span className="loader2"></span>*/}
+                    {/*}*/}
                 </div>
             </div>
             <form action="" id="formChatClaude">
