@@ -112,7 +112,7 @@ const Home = (props) => {
         setValueChatGigachat('');
         console.log(changeSessionForSubmit)
         console.log(sessionChatGpt)
-    }, [changeSessionForSubmit, valueChatGigachat]);    //  отправка запроса на ответ от чата gigachat
+    }, [changeSessionForSubmit]);    //  отправка запроса на ответ от чата gigachat
 
     useEffect(() => {
         const submitFirstChat = (e) => {
