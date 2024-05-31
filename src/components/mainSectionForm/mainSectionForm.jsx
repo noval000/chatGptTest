@@ -35,6 +35,7 @@ const MainSectionForm = (props) => {
                 props.llm_session_id === 'none' &&
                 props.openTheeWindowNewSession === false &&
                 <FirstChat
+                    sessionChatGpt={props.sessionChatGpt}
                     changeSessionForSubmitAll={props.changeSessionForSubmitAll}    //   отслеживаем изменилось ли значение при отправке c главной
                     setChangeSessionForSubmitAll={props.setChangeSessionForSubmitAll}
                     firstname={props.firstname}   //   имя для приветствия
