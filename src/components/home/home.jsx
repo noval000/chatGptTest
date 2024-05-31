@@ -59,7 +59,7 @@ const Home = (props) => {
                     // const messageGpt = response.data.filter(el => el.datetime_response === 'chatgpt')
                     // const messageClaude = response.data.filter(el => el.datetime_response === 'claude')
                     // const messageGigachat = response.data.filter(el => el.datetime_response === 'gigachat');
-                    const messageGigachatTest = response.data.llm_responses;
+                    const messageGigachatTest = response.data.llm_responses[0];
                     // const newMessageGpt = {
                     //     datetime_query: messageGpt[0].datetime_query,
                     //     datetime_response: messageGpt[0].datetime_response,
