@@ -32,7 +32,7 @@ const FirstChat = (props) => {
                                    form.addEventListener('submit', e => {
                                        e.preventDefault();
                                        // props.setSession([props.inpGetValue, ...props.session])
-                                       // props.setValue(props.session);
+                                       props.setValue(props.inpGetValue);
                                        console.log(props.inpGetValue, props.valueChatGpt, props.valueChatGigachat, props.valueChatClaude)
                                        // props.(props.inpGetValue);
                                        // props.submitFirstChat(e)
