@@ -31,9 +31,14 @@ const FirstChat = (props) => {
                                onClick={(e) => {
                                    const form = e.target.closest('#mainForm');
                                    form.addEventListener('submit', e => {
+                                       const llm_session_title = props.llm_session_title;
+                                       const llm_session_id = props.llm_session_id;
+                                       const inpGetValue = props.inpGetValue;
                                        e.preventDefault();
                                        const data = {
-                                           props,
+                                           llm_session_title,
+                                           llm_session_id,
+                                           inpGetValue,
 
                                            // valueChatGpt
                                            // valueChatClaude,
