@@ -131,51 +131,51 @@ const Home = (props) => {
         console.log(sessionChatGpt)
     }, [changeSessionForSubmitClaude]);    //  отправка запроса на ответ от чата claude
 
-    // useEffect(() => {
-    //     const submitFirstChat = (e) => {
-    //         setChangeSessionForSubmitGpt(true)
-    //         // Данные для отправки на сервер
-    //         const data = {
-    //             llm_session_title,
-    //             llm_session_id,
-    //             valueChatGpt
-    //         };
-    //         // Отправка данных на сервер
-    //         axios.post('/api/llm_session/new_query', data)
-    //             .then(response => {
-    //                 console.log('Server response:', response.data);
-    //                 const messageGptTest = response.data.llm_responses[0];
-    //                 const newMessageGpt = {
-    //                     datetime_query: messageGptTest.datetime_query,
-    //                     datetime_response: messageGptTest.datetime_response,
-    //                     id: messageGptTest.id,
-    //                     model: messageGptTest.model,
-    //                     query: valueChatGpt,
-    //                     response: messageGptTest.response,
-    //                     session_id: messageGptTest.session_id,
-    //                     task: messageGptTest.task,
-    //                     user_score: messageGptTest.user_score
-    //                 }
-    //                 setSessionChatGpt([...sessionChatGpt, newMessageGpt])
-    //             })
-    //             .finally(() => {
-    //                 setValue('');
-    //                 setValueChatGpt('');
-    //                 setChangeSessionForSubmitGpt(false)
-    //             })
-    //             .catch(error => {
-    //                 console.error('There was an error sending the data!', error);
-    //             });
-    //     };
-    //
-    //     if (changeSessionForSubmitGpt === true) {
-    //         submitFirstChat();
-    //     }
-    //     setValue('');
-    //     setValueChatGpt('');
-    //     console.log(changeSessionForSubmit)
-    //     console.log(sessionChatGpt)
-    // }, [changeSessionForSubmitGpt]);    //  отправка запроса на ответ от чата gpt
+    useEffect(() => {
+        const submitFirstChat = (e) => {
+            setChangeSessionForSubmitGpt(true)
+            // Данные для отправки на сервер
+            const data = {
+                llm_session_title,
+                llm_session_id,
+                valueChatGpt
+            };
+            // Отправка данных на сервер
+            axios.post('/api/llm_session/new_query', data)
+                .then(response => {
+                    console.log('Server response:', response.data);
+                    const messageGptTest = response.data.llm_responses[0];
+                    const newMessageGpt = {
+                        datetime_query: messageGptTest.datetime_query,
+                        datetime_response: messageGptTest.datetime_response,
+                        id: messageGptTest.id,
+                        model: messageGptTest.model,
+                        query: valueChatGpt,
+                        response: messageGptTest.response,
+                        session_id: messageGptTest.session_id,
+                        task: messageGptTest.task,
+                        user_score: messageGptTest.user_score
+                    }
+                    setSessionChatGpt([...sessionChatGpt, newMessageGpt])
+                })
+                .finally(() => {
+                    setValue('');
+                    setValueChatGpt('');
+                    setChangeSessionForSubmitGpt(false)
+                })
+                .catch(error => {
+                    console.error('There was an error sending the data!', error);
+                });
+        };
+
+        if (changeSessionForSubmitGpt === true) {
+            submitFirstChat();
+        }
+        setValue('');
+        setValueChatGpt('');
+        console.log(changeSessionForSubmit)
+        console.log(sessionChatGpt)
+    }, [changeSessionForSubmitGpt]);    //  отправка запроса на ответ от чата gpt
 
     useEffect(() => {
         const submitFirstChat = (e) => {

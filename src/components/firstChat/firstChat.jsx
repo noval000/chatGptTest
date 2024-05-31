@@ -31,11 +31,6 @@ const FirstChat = (props) => {
                                    const form = e.target.closest('#mainForm');
                                    form.addEventListener('submit', e => {
                                        e.preventDefault();
-                                       // props.setSession([props.inpGetValue, ...props.session])
-                                       props.setValue(props.inpGetValue);
-                                       console.log(props.inpGetValue, props.valueChatGpt, props.valueChatGigachat, props.valueChatClaude)
-                                       // props.(props.inpGetValue);
-                                       // props.submitFirstChat(e)
                                        props.setChangeSessionForSubmitAll(true);
                                        console.log(props.openTheeWindowNewSession);
                                        props.setOpenTheeWindowNewSession(true);
