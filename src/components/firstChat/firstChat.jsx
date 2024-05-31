@@ -94,9 +94,9 @@ const FirstChat = (props) => {
                                            })
                                            .finally(() => {
                                                props.setValue('');
-                                               props.setValueChatGigachat('');
-                                               props.setValueChatClaude('');
-                                               props.setValueChatGpt('');
+                                               // props.setValueChatGigachat('');
+                                               // props.setValueChatClaude('');
+                                               // props.setValueChatGpt('');
                                                // setChangeSessionForSubmitGpt(false);
                                            })
                                            .catch(error => {
