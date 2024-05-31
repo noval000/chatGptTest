@@ -17,7 +17,7 @@ const FirstChat = (props) => {
                 <h5>Здравствуйте, {props.firstname}. Введите ваш запрос</h5>
             </div>
             <div className="allBlockMain">
-                <form action="">
+                <form id="mainForm" action="">
                     <div className="input-area">
                         <input type="text" placeholder="Введите ваш запрос"
                                value={props.inpGetValue}
@@ -28,7 +28,7 @@ const FirstChat = (props) => {
                         <input type="submit"
                                value=""
                                onClick={(e) => {
-                                   const form = e.target.closest('form');
+                                   const form = e.target.closest('#mainForm');
                                    form.addEventListener('submit', e => {
                                        e.preventDefault();
                                        // props.setSession([props.inpGetValue, ...props.session])
