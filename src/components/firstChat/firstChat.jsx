@@ -52,11 +52,12 @@ const FirstChat = (props) => {
                                                // console.log(props.llm_session_id);
                                                props.setSession(response.data.llm_sessions);
                                                // props.llm_session_id = response.data.id;
-                                               console.log(props.session)
+                                               // console.log(props.session)
                                                // const messageGpt = response.data.filter(el => el.datetime_response === 'chatgpt');
                                                const messageGpt = response.data.llm_responses[0];
                                                const messageClaude = response.data.llm_responses[1];
                                                const messageGigachat = response.data.llm_responses[2];
+                                               console.log(messageGpt)
                                                // const messageClaude = response.data.filter(el => el.datetime_response === 'claude');
                                                // const messageGigachat = response.data.filter(el => el.datetime_response === 'gigachat');
                                                const newMessageGpt = {
