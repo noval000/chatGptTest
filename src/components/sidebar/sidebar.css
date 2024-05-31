@@ -95,6 +95,6 @@
     font-size: 26px;
 }
 
-.linkSession.active {
+.linkSession a.active {
     opacity: 0.5;
 }

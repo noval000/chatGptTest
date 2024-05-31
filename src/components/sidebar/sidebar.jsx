@@ -129,9 +129,9 @@ const Sidebar = (props) => {
                     }
                     {
                         props.session.map(el => (
-                                <div key={el.id}
-                                     className={activeLink ? 'linkSession active' : 'linkSession'}>
+                                <div key={el.id} className='linkSession active'>
                                     <a href="#!"
+                                       className={activeLink ? 'active' : ''}
                                        onClick={(e) => {
                                            setActiveLink(!activeLink);
                                            props.setLimSessionTitle(el.title)
