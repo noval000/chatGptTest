@@ -133,7 +133,7 @@ const Sidebar = (props) => {
                                     <a href="#!"
                                        className='linkActive'
                                        onClick={(e) => {
-                                           e.target.closest('.linkSession').querySelector('.linkActive').classList.add('active');
+                                           e.target.closest('.linkSession').querySelector('.linkActive').classList.toggle('active');
                                            setActiveLink(!activeLink);
                                            props.setLimSessionTitle(el.title)
                                            props.setLimSessionId(el.id)
