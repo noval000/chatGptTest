@@ -51,6 +51,8 @@ const FirstChat = (props) => {
                                                props.setSession(response.data.llm_sessions)
                                                // const messageGpt = response.data.filter(el => el.datetime_response === 'chatgpt');
                                                const messageGpt = response.data.llm_responses.filter(el => el.datetime_response === 'chatgpt');
+                                               const messageClaude = response.data.llm_responses.filter(el => el.datetime_response === 'claude');
+                                               const messageGigachat = response.data.llm_responses.filter(el => el.datetime_response === 'gigachat');
                                                // const messageClaude = response.data.filter(el => el.datetime_response === 'claude');
                                                // const messageGigachat = response.data.filter(el => el.datetime_response === 'gigachat');
                                                const newMessageGpt = {
@@ -64,34 +66,34 @@ const FirstChat = (props) => {
                                                    task: messageGpt.task,
                                                    user_score: messageGpt.user_score
                                                };
-                                               // const newMessageClaude = {
-                                               //     datetime_query: messageClaude[0].datetime_query,
-                                               //     datetime_response: messageClaude[0].datetime_response,
-                                               //     id: messageClaude[0].id,
-                                               //     model: messageClaude[0].model,
-                                               //     query: inpGetValue,
-                                               //     response: messageClaude[0].response,
-                                               //     session_id: messageClaude[0].session_id,
-                                               //     task: messageClaude[0].task,
-                                               //     user_score: messageClaude[0].user_score
-                                               // };
-                                               // const newMessageGigachat = {
-                                               //     datetime_query: messageGigachat[0].datetime_query,
-                                               //     datetime_response: messageGigachat[0].datetime_response,
-                                               //     id: messageGigachat[0].id,
-                                               //     model: messageGigachat[0].model,
-                                               //     query: inpGetValue,
-                                               //     response: messageGigachat[0].response,
-                                               //     session_id: messageGigachat[0].session_id,
-                                               //     task: messageGigachat[0].task,
-                                               //     user_score: messageGigachat[0].user_score
-                                               // };
+                                               const newMessageClaude = {
+                                                   datetime_query: messageClaude.datetime_query,
+                                                   datetime_response: messageClaude.datetime_response,
+                                                   id: messageClaude.id,
+                                                   model: messageClaude.model,
+                                                   query: inpGetValue,
+                                                   response: messageClaude.response,
+                                                   session_id: messageClaude.session_id,
+                                                   task: messageClaude.task,
+                                                   user_score: messageClaude.user_score
+                                               };
+                                               const newMessageGigachat = {
+                                                   datetime_query: messageGigachat.datetime_query,
+                                                   datetime_response: messageGigachat.datetime_response,
+                                                   id: messageGigachat.id,
+                                                   model: messageGigachat.model,
+                                                   query: inpGetValue,
+                                                   response: messageGigachat.response,
+                                                   session_id: messageGigachat.session_id,
+                                                   task: messageGigachat.task,
+                                                   user_score: messageGigachat.user_score
+                                               };
                                                props.setSessionChatGpt([...props.sessionChatGpt, newMessageGpt]);
-                                               // props.setSessionChatClaude([...props.sessionChatClaude, newMessageClaude]);
-                                               // props.setSessionChatGigachat([...props.sessionChatGigachat, newMessageGigachat]);
+                                               props.setSessionChatClaude([...props.sessionChatClaude, newMessageClaude]);
+                                               props.setSessionChatGigachat([...props.sessionChatGigachat, newMessageGigachat]);
                                            })
                                            .finally(() => {
-                                               // props.setValue('');
+                                               props.setValue('');
                                                // setValueChatGigachat('');
                                                // setValueChatClaude('');
                                                // setValueChatGpt('');
