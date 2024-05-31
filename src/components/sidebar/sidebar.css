@@ -94,3 +94,7 @@
     justify-content: center;
     font-size: 26px;
 }
+
+.linkSession.active {
+    opacity: 0.5;
+}
