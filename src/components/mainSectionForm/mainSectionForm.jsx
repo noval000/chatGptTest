@@ -134,7 +134,6 @@ const MainSectionForm = (props) => {
                         changeSessionForSubmitGpt={props.changeSessionForSubmitGpt}   //   отслеживаем изменилось ли значение при отправке в gpt
                         setChangeSessionForSubmitGpt={props.setChangeSessionForSubmitGpt}
                     />
-                    <div>jjjj</div>
                     <ColChatsClaude
                         session={props.session} // все сессии
                         sessionChatClaude={props.sessionChatClaude} //  все сессии чата Claude
