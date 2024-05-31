@@ -137,6 +137,7 @@ const Sidebar = (props) => {
                                            hoverLink.forEach(el => {
                                                el.addEventListener('click' , e => {
                                                    console.log('active')
+                                                   e.target.closest('.linkSession').classList.add('active');
                                                })
                                            })
                                            props.setLimSessionTitle(el.title);
