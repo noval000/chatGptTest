@@ -41,25 +41,6 @@ const FirstChat = (props) => {
                                        console.log(props.openTheeWindowNewSession);
                                        props.setOpenTheeWindowNewSession(true);
                                        console.log(props.openTheeWindowNewSession);
-                                       const data = {
-                                           props
-                                           // valueChatGpt
-                                           // valueChatClaude,
-                                           // valueChatGigachat
-                                       };
-                                       // Отправка данных на сервер
-                                       axios.post('/api/llm_session/new_query', data)
-                                           .then(response => {
-                                               console.log('Server response:', response.data);
-
-
-                                           })
-                                           .finally(() => {
-
-                                           })
-                                           .catch(error => {
-                                               console.error('There was an error sending the data!', error);
-                                           });
                                    })
                                }}
                         />
