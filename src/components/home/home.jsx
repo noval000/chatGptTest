@@ -274,6 +274,7 @@ const Home = (props) => {
 
     useEffect(() => {
         const submitFirstChat = (e) => {
+            props.setSession([props.inpGetValue, ...props.session])
             // e.preventDefault();
             setChangeSessionForSubmitAll(true)
             // Данные для отправки на сервер
