@@ -288,12 +288,12 @@ const Home = (props) => {
                 // valueChatGigachat
             };
             // Отправка данных на сервер
-            axios.post('/api/llm_session', data)
+            axios.post('/api/llm_session/new_query', data)
                 .then(response => {
                     console.log('Server response:', response.data);
-                    const messageGpt = response.data.filter(el => el.datetime_response === 'chatgpt')
-                    const messageClaude = response.data.filter(el => el.datetime_response === 'claude')
-                    const messageGigachat = response.data.filter(el => el.datetime_response === 'gigachat')
+                    const messageGpt = response.data.filter(el => el.datetime_response === 'chatgpt');
+                    const messageClaude = response.data.filter(el => el.datetime_response === 'claude');
+                    const messageGigachat = response.data.filter(el => el.datetime_response === 'gigachat');
                     const newMessageGpt = {
                         datetime_query: messageGpt[0].datetime_query,
                         datetime_response: messageGpt[0].datetime_response,
@@ -304,7 +304,7 @@ const Home = (props) => {
                         session_id: messageGpt[0].session_id,
                         task: messageGpt[0].task,
                         user_score: messageGpt[0].user_score
-                    }
+                    };
                     const newMessageClaude = {
                         datetime_query: messageClaude[0].datetime_query,
                         datetime_response: messageClaude[0].datetime_response,
@@ -315,7 +315,7 @@ const Home = (props) => {
                         session_id: messageClaude[0].session_id,
                         task: messageClaude[0].task,
                         user_score: messageClaude[0].user_score
-                    }
+                    };
                     const newMessageGigachat = {
                         datetime_query: messageGigachat[0].datetime_query,
                         datetime_response: messageGigachat[0].datetime_response,
@@ -326,10 +326,10 @@ const Home = (props) => {
                         session_id: messageGigachat[0].session_id,
                         task: messageGigachat[0].task,
                         user_score: messageGigachat[0].user_score
-                    }
-                    setSessionChatGpt([...sessionChatGpt, newMessageGpt])
-                    setSessionChatClaude([...sessionChatClaude, newMessageClaude])
-                    setSessionChatGigachat([...sessionChatGigachat, newMessageGigachat])
+                    };
+                    setSessionChatGpt([...sessionChatGpt, newMessageGpt]);
+                    setSessionChatClaude([...sessionChatClaude, newMessageClaude]);
+                    setSessionChatGigachat([...sessionChatGigachat, newMessageGigachat]);
                 })
                 .finally(() => {
                     setValue('');

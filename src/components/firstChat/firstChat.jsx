@@ -1,6 +1,7 @@
 import React from 'react';
 import "./firstChat.css";
 import trizLogo from "../images/imgIcon/triz_logo_big_blue.png";
+import axios from "axios";
 
 const FirstChat = (props) => {
 
@@ -30,6 +31,7 @@ const FirstChat = (props) => {
                                    const form = e.target.closest('form');
                                    form.addEventListener('submit', e => {
                                        e.preventDefault();
+                                        axios.post()
                                        // props.setSession([props.inpGetValue, ...props.session])
                                        props.setValue(props.session);
                                        console.log(props.inpGetValue, props.valueChatGpt, props.valueChatGigachat, props.valueChatClaude)
@@ -39,6 +41,25 @@ const FirstChat = (props) => {
                                        console.log(props.openTheeWindowNewSession);
                                        props.setOpenTheeWindowNewSession(true);
                                        console.log(props.openTheeWindowNewSession);
+                                       const data = {
+                                           props
+                                           // valueChatGpt
+                                           // valueChatClaude,
+                                           // valueChatGigachat
+                                       };
+                                       // Отправка данных на сервер
+                                       axios.post('/api/llm_session/new_query', data)
+                                           .then(response => {
+                                               console.log('Server response:', response.data);
+
+
+                                           })
+                                           .finally(() => {
+
+                                           })
+                                           .catch(error => {
+                                               console.error('There was an error sending the data!', error);
+                                           });
                                    })
                                }}
                         />
