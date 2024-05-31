@@ -137,7 +137,12 @@ const Sidebar = (props) => {
                                            hoverLink.forEach(el => {
                                                el.addEventListener('click' , e => {
                                                    console.log('active')
-                                                   e.target.closest('.linkSession').classList.add('active');
+                                                   if (!e.target.closest('.linkSession').classList.add('active')) {
+                                                       e.target.closest('.linkSession').classList.add('active');
+                                                   } else {
+                                                       e.target.closest('.linkSession').classList.remove('active');
+                                                   }
+
                                                })
                                            })
                                            props.setLimSessionTitle(el.title);
