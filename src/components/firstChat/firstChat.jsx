@@ -51,8 +51,8 @@ const FirstChat = (props) => {
                                                props.setSession(response.data.llm_sessions)
                                                // const messageGpt = response.data.filter(el => el.datetime_response === 'chatgpt');
                                                const messageGpt = response.data.llm_responses[0];
-                                               const messageClaude = response.data.llm_responses[0];
-                                               const messageGigachat = response.data.llm_responses[0];
+                                               const messageClaude = response.data.llm_responses[1];
+                                               const messageGigachat = response.data.llm_responses[2];
                                                // const messageClaude = response.data.filter(el => el.datetime_response === 'claude');
                                                // const messageGigachat = response.data.filter(el => el.datetime_response === 'gigachat');
                                                const newMessageGpt = {
