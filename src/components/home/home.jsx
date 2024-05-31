@@ -246,9 +246,9 @@ const Home = (props) => {
                     console.error('There was an error sending the data!', error);
                 });
         };
-        submitFirstChat();
-        if (setChangeSessionForSubmitAll === true) {
 
+        if (setChangeSessionForSubmitAll === true) {
+            submitFirstChat();
         }
         setValue('');
         setValueChatGigachat('');
