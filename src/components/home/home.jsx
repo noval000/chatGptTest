@@ -58,7 +58,8 @@ const Home = (props) => {
                     console.log('Server response:', response.data);
                     // const messageGpt = response.data.filter(el => el.datetime_response === 'chatgpt')
                     // const messageClaude = response.data.filter(el => el.datetime_response === 'claude')
-                    const messageGigachat = response.data.filter(el => el.datetime_response === 'gigachat')
+                    const messageGigachat = response.data.filter(el => el.datetime_response === 'gigachat');
+                    const messageGigachatTest = response.data;
                     // const newMessageGpt = {
                     //     datetime_query: messageGpt[0].datetime_query,
                     //     datetime_response: messageGpt[0].datetime_response,
@@ -82,15 +83,15 @@ const Home = (props) => {
                     //     user_score: messageClaude[0].user_score
                     // }
                     const newMessageGigachat = {
-                        datetime_query: messageGigachat[0].datetime_query,
-                        datetime_response: messageGigachat[0].datetime_response,
-                        id: messageGigachat[0].id,
-                        model: messageGigachat[0].model,
+                        datetime_query: messageGigachatTest.datetime_query,
+                        datetime_response: messageGigachatTest.datetime_response,
+                        id: messageGigachatTest.id,
+                        model: messageGigachatTest.model,
                         query: valueChatGigachat,
-                        response: messageGigachat[0].response,
-                        session_id: messageGigachat[0].session_id,
-                        task: messageGigachat[0].task,
-                        user_score: messageGigachat[0].user_score
+                        response: messageGigachatTest.response,
+                        session_id: messageGigachatTest.session_id,
+                        task: messageGigachatTest.task,
+                        user_score: messageGigachatTest.user_score
                     }
                     // setSessionChatGpt([...sessionChatGpt, newMessageGpt])
                     // setSessionChatClaude([...sessionChatClaude, newMessageClaude])
