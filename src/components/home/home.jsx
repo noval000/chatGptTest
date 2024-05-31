@@ -364,7 +364,8 @@ const Home = (props) => {
 
             const data = {
                 llm_session_title,
-                llm_session_id
+                llm_session_id,
+                inpGetValue
             };
 
             try {
