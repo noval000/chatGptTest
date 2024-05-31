@@ -33,6 +33,7 @@ const MainSectionForm = (props) => {
             {
                 props.llm_session_title === 'none' &&      //  если у сессии тайтл none открывается пустой чат   (при нажатии на новую сессию)
                 props.llm_session_id === 'none' &&
+                props.openTheeWindowNewSession === false &&
                 <FirstChat
                     changeSessionForSubmitAll={props.changeSessionForSubmitAll}    //   отслеживаем изменилось ли значение при отправке c главной
                     setChangeSessionForSubmitAll={props.setChangeSessionForSubmitAll}
@@ -58,6 +59,7 @@ const MainSectionForm = (props) => {
                 props.llm_session_id !== '' &&
                 props.llm_session_title !== 'none' &&
                 props.llm_session_id !== 'none' &&
+                props.openTheeWindowNewSession === false &&
                 <div className="chat-container">
                     <ColChatsGpt
                         session={props.session}    // все сессии
