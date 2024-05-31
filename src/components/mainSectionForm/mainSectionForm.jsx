@@ -18,6 +18,7 @@ const MainSectionForm = (props) => {
                 props.llm_session_id === '' &&
                 props.openTheeWindowNewSession === false &&
                 <FirstChat
+                    setLimSessionId={props.setLimSessionId}
                     llm_session_title={props.llm_session_title}  //   название сессии
                     llm_session_id={props.llm_session_id}  //  id session
                     sessionChatGigachat={props.sessionChatGigachat}  //  все запросы в чат Gigachat
@@ -43,6 +44,7 @@ const MainSectionForm = (props) => {
                 props.llm_session_id === 'none' &&
                 props.openTheeWindowNewSession === false &&
                 <FirstChat
+                    setLimSessionId={props.setLimSessionId}
                     llm_session_title={props.llm_session_title}  //   название сессии
                     llm_session_id={props.llm_session_id}  //  id session
                     sessionChatGigachat={props.sessionChatGigachat}  //  все запросы в чат Gigachat
