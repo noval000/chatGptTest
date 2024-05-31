@@ -157,7 +157,7 @@ const ColChatsGpt = (props) => {
                            onClick={(e) => {
                                const formChat = e.target.closest('#formChatGpt');
                                formChat.addEventListener('submit', e => {
-                                   // e.preventDefault();
+                                   e.preventDefault();
                                    // props.setValueChatGpt(props.valueChatGpt);
                                    // props.setSessionChatGpt([...props.sessionChatGpt, props.valueChatGpt]);
                                    console.log(props.valueChatGpt)
