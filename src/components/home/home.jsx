@@ -287,7 +287,7 @@ const Home = (props) => {
                 // valueChatClaude,
                 // valueChatGigachat
             };
-            console.log(props.session)
+            console.log('ntncnn')
             // Отправка данных на сервер
             axios.post('/api/llm_session/new_query', data)
                 .then(response => {
