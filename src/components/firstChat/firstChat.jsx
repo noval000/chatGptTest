@@ -104,8 +104,7 @@ const FirstChat = (props) => {
                                            });
                                        props.setChangeSessionForSubmitAll(true);
                                        console.log(props.openTheeWindowNewSession);
-                                       // props.setOpenTheeWindowNewSession(true);
-                                       props.setOpenTheeWindowNewSession(false);
+                                       props.setOpenTheeWindowNewSession(true);
                                        console.log(props.openTheeWindowNewSession);
                                    })
                                }}
