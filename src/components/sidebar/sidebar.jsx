@@ -105,6 +105,7 @@ const Sidebar = (props) => {
                        console.log(llm_session_id)
                        if (props.openTheeWindowNewSession === true) {
                            props.setOpenTheeWindowNewSession(!props.openTheeWindowNewSession);
+                           console.log(props.openTheeWindowNewSession)
                        }
                    }}
                 >
