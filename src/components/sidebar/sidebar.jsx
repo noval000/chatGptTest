@@ -21,42 +21,42 @@ const Sidebar = (props) => {
 
 
 
-    // useEffect(() => {
-    //     const submitSession = async (e) => {
-    //             // e.preventDefault();
-    //
-    //
-    //             // данные для отправки на сервер
-    //
-    //             const data = {
-    //                 llm_session_title,
-    //                 llm_session_id
-    //             };
-    //
-    //             try {
-    //
-    //                 // Отправка данных на сервер
-    //                 const response = await axios.post('/api/llm_session', data, {
-    //                     headers: {
-    //                         'Content-Type': 'application/json'
-    //                     },
-    //                     credentials: "include",
-    //                     withCredentials: true,
-    //                 });
-    //                 props.setSessionChatGpt(response.data.llm_responses.filter(el => el.datetime_response === 'chatgpt'))
-    //                 props.setSessionChatClaude(response.data.llm_responses.filter(el => el.datetime_response === 'claude'))
-    //                 props.setSessionChatGigachat(response.data.llm_responses.filter(el => el.datetime_response === 'gigachat'))
-    //                 console.log(props.sessionChatGpt)
-    //
-    //                 console.log('server responce' , response.data);
-    //
-    //             } catch (error) {
-    //                 console.error('error' , error)
-    //             }
-    //
-    //         }
-    //     submitSession();
-    // }, [llm_session_title, llm_session_id, props.llm_session_title, props.llm_session_id]);     //   отправка запроса при нажатии на название сессии
+    useEffect(() => {
+        const submitSession = async (e) => {
+                // e.preventDefault();
+
+
+                // данные для отправки на сервер
+
+                const data = {
+                    llm_session_title,
+                    llm_session_id
+                };
+
+                try {
+
+                    // Отправка данных на сервер
+                    const response = await axios.post('/api/llm_session', data, {
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        credentials: "include",
+                        withCredentials: true,
+                    });
+                    props.setSessionChatGpt(response.data.llm_responses.filter(el => el.datetime_response === 'chatgpt'))
+                    props.setSessionChatClaude(response.data.llm_responses.filter(el => el.datetime_response === 'claude'))
+                    props.setSessionChatGigachat(response.data.llm_responses.filter(el => el.datetime_response === 'gigachat'))
+                    console.log(props.sessionChatGpt)
+
+                    console.log('server responce' , response.data);
+
+                } catch (error) {
+                    console.error('error' , error)
+                }
+
+            }
+        submitSession();
+    }, [llm_session_title, llm_session_id, props.llm_session_title, props.llm_session_id]);     //   отправка запроса при нажатии на название сессии
 
 
     // useEffect(() => {
