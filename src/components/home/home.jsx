@@ -271,7 +271,7 @@ const Home = (props) => {
         setValueChatGpt('');
         console.log(changeSessionForSubmit)
         console.log(sessionChatGpt)
-    }, [changeSessionForSubmitGpt, changeSessionForSubmitAll]);    //  отправка запроса на ответ от чата gpt
+    }, [changeSessionForSubmitGpt]);    //  отправка запроса на ответ от чата gpt
 
     useEffect(() => {
         const submitFirstChat = (e) => {
