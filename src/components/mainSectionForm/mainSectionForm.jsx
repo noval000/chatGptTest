@@ -18,6 +18,7 @@ const MainSectionForm = (props) => {
                 props.llm_session_id === '' &&
                 props.openTheeWindowNewSession === false &&
                 <FirstChat
+                    essionChatGpt={props.sessionChatGpt}
                     firstname={props.firstname}   //   имя для приветствия
                     setSession={props.setSession}
                     session={props.session}
