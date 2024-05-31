@@ -58,7 +58,7 @@ const Home = (props) => {
                     console.log('Server response:', response.data);
                     // const messageGpt = response.data.filter(el => el.datetime_response === 'chatgpt')
                     // const messageClaude = response.data.filter(el => el.datetime_response === 'claude')
-                    const messageGigachat = response.data.filter(el => el.datetime_response === 'gigachat');
+                    // const messageGigachat = response.data.filter(el => el.datetime_response === 'gigachat');
                     const messageGigachatTest = response.data;
                     // const newMessageGpt = {
                     //     datetime_query: messageGpt[0].datetime_query,
