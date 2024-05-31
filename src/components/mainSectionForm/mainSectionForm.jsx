@@ -62,6 +62,7 @@ const MainSectionForm = (props) => {
                 props.openTheeWindowNewSession === false &&
                 <div className="chat-container">
                     <ColChatsGpt
+                        setChangeSessionForSubmitAll={props.setChangeSessionForSubmitAll}
                         session={props.session}    // все сессии
                         setSession={props.setSession}    // изменение сессий
                         sessionChatGpt={props.sessionChatGpt}   //  все сессии чата gpt
@@ -118,6 +119,7 @@ const MainSectionForm = (props) => {
                 props.openTheeWindowNewSession === true &&     //  при отправке нового запроса появляются эти колонки
                 <div className="chat-container">
                     <ColChatsGpt
+                        setChangeSessionForSubmitAll={props.setChangeSessionForSubmitAll}
                         session={props.session}    // все сессии
                         setSession={props.setSession}    // изменение сессий
                         sessionChatGpt={props.sessionChatGpt}   //  все сессии чата gpt
