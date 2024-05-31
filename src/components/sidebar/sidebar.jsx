@@ -133,10 +133,16 @@ const Sidebar = (props) => {
                                     <a href="#!"
                                        className='linkActive'
                                        onClick={(e) => {
-                                           props.setLimSessionTitle(el.title)
-                                           props.setLimSessionId(el.id)
-                                           console.log(llm_session_title)
-                                           console.log(llm_session_id)
+                                           const hoverLink = document.querySelectorAll('.linkSession');
+                                           hoverLink.forEach(el => {
+                                               el.addEventListener('click' , e => {
+                                                   console.log('active')
+                                               })
+                                           })
+                                           props.setLimSessionTitle(el.title);
+                                           props.setLimSessionId(el.id);
+                                           console.log(llm_session_title);
+                                           console.log(llm_session_id);
                                            props.setOpenTheeWindowNewSession(false);
                                            // submitSession(e)
                                        }}
