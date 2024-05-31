@@ -352,7 +352,7 @@ const Home = (props) => {
         setValueChatGpt('');
         console.log(changeSessionForSubmit)
         console.log(sessionChatGpt)
-    }, [changeSessionForSubmitAll]);    //  отправка запроса на ответ в общий чат
+    }, []);    //  отправка запроса на ответ в общий чат
 
     return (
         <div>

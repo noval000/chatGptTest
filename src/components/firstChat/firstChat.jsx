@@ -36,13 +36,10 @@ const FirstChat = (props) => {
                                        console.log(props.inpGetValue, props.valueChatGpt, props.valueChatGigachat, props.valueChatClaude)
                                        // props.(props.inpGetValue);
                                        // props.submitFirstChat(e)
-                                       setTimeout(() => {
-                                           props.setChangeSessionForSubmitAll(true);
-                                           console.log(props.openTheeWindowNewSession);
-                                           props.setOpenTheeWindowNewSession(true);
-                                           console.log(props.openTheeWindowNewSession);
-                                       }, 2000)
-
+                                       props.setChangeSessionForSubmitAll(true);
+                                       console.log(props.openTheeWindowNewSession);
+                                       props.setOpenTheeWindowNewSession(true);
+                                       console.log(props.openTheeWindowNewSession);
                                    })
                                }}
                         />
