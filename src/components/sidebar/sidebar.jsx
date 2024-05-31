@@ -140,7 +140,8 @@ const Sidebar = (props) => {
                                                    if (!e.target.closest('.linkSession').classList.add('active')) {
                                                        e.target.closest('.linkSession').classList.add('active');
                                                        console.log('kdddd')
-                                                   } else {
+                                                   }
+                                                   if (e.target.closest('.linkSession').classList.add('active')) {
                                                        e.target.closest('.linkSession').classList.remove('active');
                                                    }
                                                })
