@@ -74,7 +74,7 @@ const Sidebar = (props) => {
             try {
 
                 // Отправка данных на сервер
-                const response = await axios.post('/api/llm_session', data, {
+                const response = await axios.post('/api/llm_session/new_query', data, {
                     headers: {
                         'Content-Type': 'application/json'
                     },
