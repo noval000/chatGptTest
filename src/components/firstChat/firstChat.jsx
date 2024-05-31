@@ -50,9 +50,9 @@ const FirstChat = (props) => {
                                                console.log('Server response:', response.data);
                                                props.setSession(response.data.llm_sessions)
                                                // const messageGpt = response.data.filter(el => el.datetime_response === 'chatgpt');
-                                               const messageGpt = response.data.llm_responses.filter(el => el.datetime_response === 'chatgpt');
-                                               const messageClaude = response.data.llm_responses.filter(el => el.datetime_response === 'claude');
-                                               const messageGigachat = response.data.llm_responses.filter(el => el.datetime_response === 'gigachat');
+                                               const messageGpt = response.data.llm_responses[0];
+                                               const messageClaude = response.data.llm_responses[0];
+                                               const messageGigachat = response.data.llm_responses[0];
                                                // const messageClaude = response.data.filter(el => el.datetime_response === 'claude');
                                                // const messageGigachat = response.data.filter(el => el.datetime_response === 'gigachat');
                                                const newMessageGpt = {
