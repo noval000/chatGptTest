@@ -115,61 +115,61 @@ const MainSectionForm = (props) => {
             }
 
 
-            {
-                props.openTheeWindowNewSession === true &&     //  при отправке нового запроса появляются эти колонки
-                <div className="chat-container">
-                    <ColChatsGpt
-                        setChangeSessionForSubmitAll={props.setChangeSessionForSubmitAll}
-                        session={props.session}    // все сессии
-                        setSession={props.setSession}    // изменение сессий
-                        sessionChatGpt={props.sessionChatGpt}   //  все сессии чата gpt
-                        setSessionChatGpt={props.setSessionChatGpt}
-                        inpGetValue={props.inpGetValue}  //   значение после первого запроса
-                        setValue={props.setValue}
-                        submitFirstChat={props.submitFirstChat}     //  отправка запроса на ответ
-                        valueChatGigachat={props.valueChatGigachat}    //  запрос в чат Gigachat
-                        setValueChatGigachat={props.setValueChatGigachat}
-                        valueChatClaude={props.valueChatClaude}      //  запрос в чат Claude
-                        setValueChatClaude={props.setValueChatClaude}
-                        valueChatGpt={props.valueChatGpt}    //  запрос в чат гпт
-                        setValueChatGpt={props.setValueChatGpt}
-                        changeSessionForSubmitGpt={props.changeSessionForSubmitGpt}   //   отслеживаем изменилось ли значение при отправке в gpt
-                        setChangeSessionForSubmitGpt={props.setChangeSessionForSubmitGpt}
-                    />
-                    <ColChatsClaude
-                        session={props.session} // все сессии
-                        sessionChatClaude={props.sessionChatClaude} //  все сессии чата Claude
-                        setSessionChatClaude={props.setSessionChatClaude}
-                        valueChatClaude={props.valueChatClaude} //  запрос в чат Claude
-                        setValueChatClaude={props.setValueChatClaude}
-                        inpGetValue={props.inpGetValue}  //   значение после первого запроса
-                        setValue={props.setValue}
-                        submitFirstChat={props.submitFirstChat}     //  отправка запроса на ответ
-                        valueChatGigachat={props.valueChatGigachat}    //  запрос в чат Gigachat
-                        setValueChatGigachat={props.setValueChatGigachat}
-                        valueChatGpt={props.valueChatGpt}    //  запрос в чат гпт
-                        setValueChatGpt={props.setValueChatGpt}
-                        changeSessionForSubmitClaude={props.changeSessionForSubmitClaude}   //   отслеживаем изменилось ли значение при отправке в claude
-                        setChangeSessionForSubmitClaude={props.setChangeSessionForSubmitClaude}
-                    />
-                    <ColChatsGigachat
-                        session={props.session} // все сессии
-                        sessionChatGigachat={props.sessionChatGigachat}   //  все сессии чата Gigachat
-                        setSessionChatGigachat={props.setSessionChatGigachat}
-                        valueChatGigachat={props.valueChatGigachat} //  запрос в чат Gigachat
-                        setValueChatGigachat={props.setValueChatGigachat}
-                        inpGetValue={props.inpGetValue}  //   значение после первого запроса
-                        setValue={props.setValue}
-                        submitFirstChat={props.submitFirstChat}     //  отправка запроса на ответ
-                        valueChatClaude={props.valueChatClaude}      //  запрос в чат Claude
-                        setValueChatClaude={props.setValueChatClaude}
-                        valueChatGpt={props.valueChatGpt}    //  запрос в чат гпт
-                        setValueChatGpt={props.setValueChatGpt}
-                        setChangeSessionForSubmit={props.setChangeSessionForSubmit}  //   отслеживаем изменилось ли значение при отправке в gpt
-                        changeSessionForSubmit={props.changeSessionForSubmit}
-                    />
-                </div>
-            }
+            {/*{*/}
+            {/*    props.openTheeWindowNewSession === true &&     //  при отправке нового запроса появляются эти колонки*/}
+            {/*    <div className="chat-container">*/}
+            {/*        <ColChatsGpt*/}
+            {/*            setChangeSessionForSubmitAll={props.setChangeSessionForSubmitAll}*/}
+            {/*            session={props.session}    // все сессии*/}
+            {/*            setSession={props.setSession}    // изменение сессий*/}
+            {/*            sessionChatGpt={props.sessionChatGpt}   //  все сессии чата gpt*/}
+            {/*            setSessionChatGpt={props.setSessionChatGpt}*/}
+            {/*            inpGetValue={props.inpGetValue}  //   значение после первого запроса*/}
+            {/*            setValue={props.setValue}*/}
+            {/*            submitFirstChat={props.submitFirstChat}     //  отправка запроса на ответ*/}
+            {/*            valueChatGigachat={props.valueChatGigachat}    //  запрос в чат Gigachat*/}
+            {/*            setValueChatGigachat={props.setValueChatGigachat}*/}
+            {/*            valueChatClaude={props.valueChatClaude}      //  запрос в чат Claude*/}
+            {/*            setValueChatClaude={props.setValueChatClaude}*/}
+            {/*            valueChatGpt={props.valueChatGpt}    //  запрос в чат гпт*/}
+            {/*            setValueChatGpt={props.setValueChatGpt}*/}
+            {/*            changeSessionForSubmitGpt={props.changeSessionForSubmitGpt}   //   отслеживаем изменилось ли значение при отправке в gpt*/}
+            {/*            setChangeSessionForSubmitGpt={props.setChangeSessionForSubmitGpt}*/}
+            {/*        />*/}
+            {/*        <ColChatsClaude*/}
+            {/*            session={props.session} // все сессии*/}
+            {/*            sessionChatClaude={props.sessionChatClaude} //  все сессии чата Claude*/}
+            {/*            setSessionChatClaude={props.setSessionChatClaude}*/}
+            {/*            valueChatClaude={props.valueChatClaude} //  запрос в чат Claude*/}
+            {/*            setValueChatClaude={props.setValueChatClaude}*/}
+            {/*            inpGetValue={props.inpGetValue}  //   значение после первого запроса*/}
+            {/*            setValue={props.setValue}*/}
+            {/*            submitFirstChat={props.submitFirstChat}     //  отправка запроса на ответ*/}
+            {/*            valueChatGigachat={props.valueChatGigachat}    //  запрос в чат Gigachat*/}
+            {/*            setValueChatGigachat={props.setValueChatGigachat}*/}
+            {/*            valueChatGpt={props.valueChatGpt}    //  запрос в чат гпт*/}
+            {/*            setValueChatGpt={props.setValueChatGpt}*/}
+            {/*            changeSessionForSubmitClaude={props.changeSessionForSubmitClaude}   //   отслеживаем изменилось ли значение при отправке в claude*/}
+            {/*            setChangeSessionForSubmitClaude={props.setChangeSessionForSubmitClaude}*/}
+            {/*        />*/}
+            {/*        <ColChatsGigachat*/}
+            {/*            session={props.session} // все сессии*/}
+            {/*            sessionChatGigachat={props.sessionChatGigachat}   //  все сессии чата Gigachat*/}
+            {/*            setSessionChatGigachat={props.setSessionChatGigachat}*/}
+            {/*            valueChatGigachat={props.valueChatGigachat} //  запрос в чат Gigachat*/}
+            {/*            setValueChatGigachat={props.setValueChatGigachat}*/}
+            {/*            inpGetValue={props.inpGetValue}  //   значение после первого запроса*/}
+            {/*            setValue={props.setValue}*/}
+            {/*            submitFirstChat={props.submitFirstChat}     //  отправка запроса на ответ*/}
+            {/*            valueChatClaude={props.valueChatClaude}      //  запрос в чат Claude*/}
+            {/*            setValueChatClaude={props.setValueChatClaude}*/}
+            {/*            valueChatGpt={props.valueChatGpt}    //  запрос в чат гпт*/}
+            {/*            setValueChatGpt={props.setValueChatGpt}*/}
+            {/*            setChangeSessionForSubmit={props.setChangeSessionForSubmit}  //   отслеживаем изменилось ли значение при отправке в gpt*/}
+            {/*            changeSessionForSubmit={props.changeSessionForSubmit}*/}
+            {/*        />*/}
+            {/*    </div>*/}
+            {/*}*/}
 
 
 
