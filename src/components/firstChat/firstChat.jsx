@@ -9,6 +9,7 @@ const FirstChat = (props) => {
 
     useEffect(() => {
         const submitFirstChat = (e) => {
+            console.log('hhhhh')
             // props.setSession([props.inpGetValue, ...props.session])
             // e.preventDefault();
             props.setChangeSessionForSubmitAll(true)
@@ -65,7 +66,7 @@ const FirstChat = (props) => {
                     // setSessionChatGigachat([...sessionChatGigachat, newMessageGigachat]);
                 })
                 .finally(() => {
-                    props.setValue('');
+                    // props.setValue('');
                     // setValueChatGigachat('');
                     // setValueChatClaude('');
                     // setValueChatGpt('');
