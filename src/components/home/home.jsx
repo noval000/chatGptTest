@@ -288,7 +288,7 @@ const Home = (props) => {
                 // valueChatGigachat
             };
             // Отправка данных на сервер
-            axios.post('/api/llm_session/new_query', data)
+            axios.post('/api/llm_session', data)
                 .then(response => {
                     console.log('Server response:', response.data);
                     const messageGpt = response.data.filter(el => el.datetime_response === 'chatgpt')
