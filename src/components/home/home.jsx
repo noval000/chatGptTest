@@ -179,7 +179,7 @@ const Home = (props) => {
 
     useEffect(() => {
         const submitFirstChat = (e) => {
-            props.setSession([props.inpGetValue, ...props.session])
+            // props.setSession([props.inpGetValue, ...props.session])
             // e.preventDefault();
             setChangeSessionForSubmitAll(true)
             // Данные для отправки на сервер
@@ -246,9 +246,9 @@ const Home = (props) => {
                     console.error('There was an error sending the data!', error);
                 });
         };
-
+        submitFirstChat();
         if (setChangeSessionForSubmitAll === true) {
-            submitFirstChat();
+
         }
         setValue('');
         setValueChatGigachat('');
