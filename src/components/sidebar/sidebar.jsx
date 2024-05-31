@@ -134,7 +134,7 @@ const Sidebar = (props) => {
                                        className='linkActive'
                                        onClick={(e) => {
                                            const linkActive = e.target.closest('.linkSession').querySelector('.linkActive');
-                                           if (!e.target.closest('.linkSession').querySelector('.linkActive.active')) {
+                                           if (e.target.closest('.linkSession').querySelector('.linkActive.active')) {
                                                console.log('active')
                                            }
                                            setActiveLink(!activeLink);
