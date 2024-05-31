@@ -9,7 +9,7 @@ import axios from "axios";
 const Sidebar = (props) => {
 
 
-    const [activeLink, setActiveLink] = useState(false);
+
 
 
     let llm_session_title = props.llm_session_title;
@@ -133,7 +133,6 @@ const Sidebar = (props) => {
                                     <a href="#!"
                                        className='linkActive'
                                        onClick={(e) => {
-                                           setActiveLink(!activeLink);
                                            props.setLimSessionTitle(el.title)
                                            props.setLimSessionId(el.id)
                                            console.log(llm_session_title)
