@@ -271,7 +271,7 @@ const Home = (props) => {
         setValueChatGpt('');
         console.log(changeSessionForSubmit)
         console.log(sessionChatGpt)
-    }, [changeSessionForSubmitGpt]);    //  отправка запроса на ответ от чата gpt
+    }, [changeSessionForSubmitGpt, changeSessionForSubmitAll]);    //  отправка запроса на ответ от чата gpt
 
     useEffect(() => {
         const submitFirstChat = (e) => {
@@ -287,7 +287,6 @@ const Home = (props) => {
                 // valueChatClaude,
                 // valueChatGigachat
             };
-            console.log('ntncnn')
             // Отправка данных на сервер
             axios.post('/api/llm_session/new_query', data)
                 .then(response => {
