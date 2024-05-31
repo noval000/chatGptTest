@@ -9,7 +9,7 @@ const FirstChat = (props) => {
 
     useEffect(() => {
         const submitFirstChat = (e) => {
-            console.log('hhhhh')
+            console.log('hhhhh');
             // props.setSession([props.inpGetValue, ...props.session])
             // e.preventDefault();
             props.setChangeSessionForSubmitAll(true)
@@ -110,6 +110,7 @@ const FirstChat = (props) => {
                                onClick={(e) => {
                                    const form = e.target.closest('#mainForm');
                                    form.addEventListener('submit', e => {
+                                       console.log('fff')
                                        e.preventDefault();
                                        props.setChangeSessionForSubmitAll(true);
                                        console.log(props.openTheeWindowNewSession);
