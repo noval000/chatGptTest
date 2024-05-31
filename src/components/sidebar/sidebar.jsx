@@ -59,38 +59,38 @@ const Sidebar = (props) => {
     }, [llm_session_title, llm_session_id, props.llm_session_title, props.llm_session_id]);     //   отправка запроса при нажатии на название сессии
 
 
-    useEffect(() => {
-        const submitSessionNew = async (e) => {
-            // e.preventDefault();
-
-
-            // данные для отправки на сервер
-
-            const data = {
-                llm_session_title,
-                llm_session_id
-            };
-
-            try {
-
-                // Отправка данных на сервер
-                const response = await axios.post('/api/llm_session', data, {
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    credentials: "include",
-                    withCredentials: true,
-                });
-                console.log('server responce' , response.data);
-
-            } catch (error) {
-                console.error('error' , error)
-            }
-
-
-        }
-        submitSessionNew();
-    }, [props.changeSessionForSubmitAll]);     //   отправка запроса при нажатии на новую сессии
+    // useEffect(() => {
+    //     const submitSessionNew = async (e) => {
+    //         // e.preventDefault();
+    //
+    //
+    //         // данные для отправки на сервер
+    //
+    //         const data = {
+    //             llm_session_title,
+    //             llm_session_id
+    //         };
+    //
+    //         try {
+    //
+    //             // Отправка данных на сервер
+    //             const response = await axios.post('/api/llm_session', data, {
+    //                 headers: {
+    //                     'Content-Type': 'application/json'
+    //                 },
+    //                 credentials: "include",
+    //                 withCredentials: true,
+    //             });
+    //             console.log('server responce' , response.data);
+    //
+    //         } catch (error) {
+    //             console.error('error' , error)
+    //         }
+    //
+    //
+    //     }
+    //     submitSessionNew();
+    // }, [props.changeSessionForSubmitAll]);     //   отправка запроса при нажатии на новую сессии
 
 
 
