@@ -48,6 +48,7 @@ const FirstChat = (props) => {
                                        axios.post('/api/llm_session/new_query', data)
                                            .then(response => {
                                                console.log('Server response:', response.data);
+                                               props.setSession(response.data.llm_sessions)
                                                // const messageGpt = response.data.filter(el => el.datetime_response === 'chatgpt');
                                                const messageGpt = response.data.llm_responses.filter(el => el.datetime_response === 'chatgpt');
                                                // const messageClaude = response.data.filter(el => el.datetime_response === 'claude');
