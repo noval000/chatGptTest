@@ -31,15 +31,13 @@ const FirstChat = (props) => {
                                onClick={(e) => {
                                    const form = e.target.closest('#mainForm');
                                    form.addEventListener('submit', e => {
-
                                        const llm_session_title = props.llm_session_title;
-                                       const llm_session_id = props.llm_session_id;
+                                       // const llm_session_id = props.llm_session_id;
                                        const inpGetValue = props.inpGetValue;
-                                       console.log(llm_session_title, llm_session_id, inpGetValue)
                                        e.preventDefault();
                                        const data = {
                                            llm_session_title,
-                                           llm_session_id,
+                                           // llm_session_id,
                                            inpGetValue,
 
                                            // valueChatGpt
@@ -96,9 +94,9 @@ const FirstChat = (props) => {
                                            })
                                            .finally(() => {
                                                props.setValue('');
-                                               // props.setValueChatGigachat('');
-                                               // props.setValueChatClaude('');
-                                               // props.setValueChatGpt('');
+                                               props.setValueChatGigachat('');
+                                               props.setValueChatClaude('');
+                                               props.setValueChatGpt('');
                                                // setChangeSessionForSubmitGpt(false);
                                            })
                                            .catch(error => {
@@ -106,7 +104,7 @@ const FirstChat = (props) => {
                                            });
                                        props.setChangeSessionForSubmitAll(true);
                                        console.log(props.openTheeWindowNewSession);
-                                       props.setOpenTheeWindowNewSession(true);
+                                       props.setOpenTheeWindowNewSession(true)
                                        console.log(props.openTheeWindowNewSession);
                                    })
                                }}
