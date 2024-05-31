@@ -41,47 +41,18 @@ const Home = (props) => {
 
     useEffect(() => {
         const submitFirstChat = (e) => {
-            // e.preventDefault();
             setChangeSessionForSubmit(true)
             // Данные для отправки на сервер
             const data = {
                 llm_session_title,
                 llm_session_id,
-                // inpGetValue,
-                // valueChatGpt,
-                // valueChatClaude,
                 valueChatGigachat
             };
             // Отправка данных на сервер
             axios.post('/api/llm_session/new_query', data)
                 .then(response => {
                     console.log('Server response:', response.data);
-                    // const messageGpt = response.data.filter(el => el.datetime_response === 'chatgpt')
-                    // const messageClaude = response.data.filter(el => el.datetime_response === 'claude')
-                    // const messageGigachat = response.data.filter(el => el.datetime_response === 'gigachat');
                     const messageGigachatTest = response.data.llm_responses[0];
-                    // const newMessageGpt = {
-                    //     datetime_query: messageGpt[0].datetime_query,
-                    //     datetime_response: messageGpt[0].datetime_response,
-                    //     id: messageGpt[0].id,
-                    //     model: messageGpt[0].model,
-                    //     query: messageGpt[0].query,
-                    //     response: messageGpt[0].response,
-                    //     session_id: messageGpt[0].session_id,
-                    //     task: messageGpt[0].task,
-                    //     user_score: messageGpt[0].user_score
-                    // }
-                    // const newMessageClaude = {
-                    //     datetime_query: messageClaude[0].datetime_query,
-                    //     datetime_response: messageClaude[0].datetime_response,
-                    //     id: messageClaude[0].id,
-                    //     model: messageClaude[0].model,
-                    //     query: messageClaude[0].query,
-                    //     response: messageClaude[0].response,
-                    //     session_id: messageClaude[0].session_id,
-                    //     task: messageClaude[0].task,
-                    //     user_score: messageClaude[0].user_score
-                    // }
                     const newMessageGigachat = {
                         datetime_query: messageGigachatTest.datetime_query,
                         datetime_response: messageGigachatTest.datetime_response,
@@ -93,16 +64,12 @@ const Home = (props) => {
                         task: messageGigachatTest.task,
                         user_score: messageGigachatTest.user_score
                     }
-                    // setSessionChatGpt([...sessionChatGpt, newMessageGpt])
-                    // setSessionChatClaude([...sessionChatClaude, newMessageClaude])
                     setSessionChatGigachat([...sessionChatGigachat, newMessageGigachat])
                 })
                 .finally(() => {
                     setValue('');
-                    // setValueChatGpt('');
                     setValueChatGigachat('');
-                    // setValueChatClaude('');
-                    setChangeSessionForSubmit(false)
+                    setChangeSessionForSubmit(false);
                 })
                 .catch(error => {
                     console.error('There was an error sending the data!', error);
@@ -120,36 +87,18 @@ const Home = (props) => {
 
     useEffect(() => {
         const submitFirstChat = (e) => {
-            // e.preventDefault();
             setChangeSessionForSubmitClaude(true);
             // Данные для отправки на сервер
             const data = {
                 llm_session_title,
                 llm_session_id,
-                // inpGetValue,
-                // valueChatGpt,
                 valueChatClaude
-                // valueChatGigachat
             };
             // Отправка данных на сервер
             axios.post('/api/llm_session/new_query', data)
                 .then(response => {
                     console.log('Server response:', response.data);
-                    // const messageGpt = response.data.filter(el => el.datetime_response === 'chatgpt')
-                    // const messageClaude = response.data.filter(el => el.datetime_response === 'claude');
                     const messageClaudeTest = response.data.llm_responses[0];
-                    // const messageGigachat = response.data.filter(el => el.datetime_response === 'gigachat')
-                    // const newMessageGpt = {
-                    //     datetime_query: messageGpt[0].datetime_query,
-                    //     datetime_response: messageGpt[0].datetime_response,
-                    //     id: messageGpt[0].id,
-                    //     model: messageGpt[0].model,
-                    //     query: messageGpt[0].query,
-                    //     response: messageGpt[0].response,
-                    //     session_id: messageGpt[0].session_id,
-                    //     task: messageGpt[0].task,
-                    //     user_score: messageGpt[0].user_score
-                    // }
                     const newMessageClaude = {
                         datetime_query: messageClaudeTest.datetime_query,
                         datetime_response: messageClaudeTest.datetime_response,
@@ -161,25 +110,10 @@ const Home = (props) => {
                         task: messageClaudeTest.task,
                         user_score: messageClaudeTest.user_score
                     }
-                    // const newMessageGigachat = {
-                    //     datetime_query: messageGigachat[0].datetime_query,
-                    //     datetime_response: messageGigachat[0].datetime_response,
-                    //     id: messageGigachat[0].id,
-                    //     model: messageGigachat[0].model,
-                    //     query: messageGigachat[0].query,
-                    //     response: messageGigachat[0].response,
-                    //     session_id: messageGigachat[0].session_id,
-                    //     task: messageGigachat[0].task,
-                    //     user_score: messageGigachat[0].user_score
-                    // }
-                    // setSessionChatGpt([...sessionChatGpt, newMessageGpt])
                     setSessionChatClaude([...sessionChatClaude, newMessageClaude])
-                    // setSessionChatGigachat([...sessionChatGigachat, newMessageGigachat])
                 })
                 .finally(() => {
-                    // setValueChatGpt('');
                     setValueChatClaude('');
-                    // setValueChatClaude('');
                     setValue('');
                     setChangeSessionForSubmitClaude(false)
                 })
@@ -199,25 +133,18 @@ const Home = (props) => {
 
     useEffect(() => {
         const submitFirstChat = (e) => {
-            // e.preventDefault();
             setChangeSessionForSubmitGpt(true)
             // Данные для отправки на сервер
             const data = {
                 llm_session_title,
                 llm_session_id,
-                // inpGetValue,
                 valueChatGpt
-                // valueChatClaude,
-                // valueChatGigachat
             };
             // Отправка данных на сервер
             axios.post('/api/llm_session/new_query', data)
                 .then(response => {
                     console.log('Server response:', response.data);
-                    // const messageGpt = response.data.filter(el => el.datetime_response === 'chatgpt');
                     const messageGptTest = response.data.llm_responses[0];
-                    // const messageClaude = response.data.filter(el => el.datetime_response === 'claude')
-                    // const messageGigachat = response.data.filter(el => el.datetime_response === 'gigachat')
                     const newMessageGpt = {
                         datetime_query: messageGptTest.datetime_query,
                         datetime_response: messageGptTest.datetime_response,
@@ -229,37 +156,11 @@ const Home = (props) => {
                         task: messageGptTest.task,
                         user_score: messageGptTest.user_score
                     }
-                    // const newMessageClaude = {
-                    //     datetime_query: messageClaude[0].datetime_query,
-                    //     datetime_response: messageClaude[0].datetime_response,
-                    //     id: messageClaude[0].id,
-                    //     model: messageClaude[0].model,
-                    //     query: messageClaude[0].query,
-                    //     response: messageClaude[0].response,
-                    //     session_id: messageClaude[0].session_id,
-                    //     task: messageClaude[0].task,
-                    //     user_score: messageClaude[0].user_score
-                    // }
-                    // const newMessageGigachat = {
-                    //     datetime_query: messageGigachat[0].datetime_query,
-                    //     datetime_response: messageGigachat[0].datetime_response,
-                    //     id: messageGigachat[0].id,
-                    //     model: messageGigachat[0].model,
-                    //     query: messageGigachat[0].query,
-                    //     response: messageGigachat[0].response,
-                    //     session_id: messageGigachat[0].session_id,
-                    //     task: messageGigachat[0].task,
-                    //     user_score: messageGigachat[0].user_score
-                    // }
                     setSessionChatGpt([...sessionChatGpt, newMessageGpt])
-                    // setSessionChatClaude([...sessionChatClaude, newMessageClaude])
-                    // setSessionChatGigachat([...sessionChatGigachat, newMessageGigachat])
                 })
                 .finally(() => {
                     setValue('');
                     setValueChatGpt('');
-                    // setValueChatGigachat('');
-                    // setValueChatClaude('');
                     setChangeSessionForSubmitGpt(false)
                 })
                 .catch(error => {
