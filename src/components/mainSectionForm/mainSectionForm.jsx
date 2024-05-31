@@ -30,28 +30,28 @@ const MainSectionForm = (props) => {
                     setChangeSessionForSubmitAll={props.setChangeSessionForSubmitAll}
                 />
             }
-            {
-                props.llm_session_title === 'none' &&      //  если у сессии тайтл none открывается пустой чат   (при нажатии на новую сессию)
-                props.llm_session_id === 'none' &&
-                <FirstChat
-                    changeSessionForSubmitAll={props.changeSessionForSubmitAll}    //   отслеживаем изменилось ли значение при отправке c главной
-                    setChangeSessionForSubmitAll={props.setChangeSessionForSubmitAll}
-                    firstname={props.firstname}   //   имя для приветствия
-                    setSession={props.setSession}
-                    session={props.session}
-                    inpGetValue={props.inpGetValue}  //   значение после первого запроса
-                    setValue={props.setValue}
-                    submitFirstChat={props.submitFirstChat}     //  отправка запроса на ответ
-                    valueChatGigachat={props.valueChatGigachat}    //  запрос в чат Gigachat
-                    setValueChatGigachat={props.setValueChatGigachat}
-                    valueChatClaude={props.valueChatClaude}      //  запрос в чат Claude
-                    setValueChatClaude={props.setValueChatClaude}
-                    valueChatGpt={props.valueChatGpt}    //  запрос в чат гпт
-                    setValueChatGpt={props.setValueChatGpt}
-                    setOpenTheeWindowNewSession={props.setOpenTheeWindowNewSession}    ///    для открытия 3 окон при отправке запроса с новой сессии
-                    openTheeWindowNewSession={props.openTheeWindowNewSession}   ///    для открытия 3 окон при отправке запроса с новой сессии
-                />
-            }
+            {/*{*/}
+            {/*    props.llm_session_title === 'none' &&      //  если у сессии тайтл none открывается пустой чат   (при нажатии на новую сессию)*/}
+            {/*    props.llm_session_id === 'none' &&*/}
+            {/*    <FirstChat*/}
+            {/*        changeSessionForSubmitAll={props.changeSessionForSubmitAll}    //   отслеживаем изменилось ли значение при отправке c главной*/}
+            {/*        setChangeSessionForSubmitAll={props.setChangeSessionForSubmitAll}*/}
+            {/*        firstname={props.firstname}   //   имя для приветствия*/}
+            {/*        setSession={props.setSession}*/}
+            {/*        session={props.session}*/}
+            {/*        inpGetValue={props.inpGetValue}  //   значение после первого запроса*/}
+            {/*        setValue={props.setValue}*/}
+            {/*        submitFirstChat={props.submitFirstChat}     //  отправка запроса на ответ*/}
+            {/*        valueChatGigachat={props.valueChatGigachat}    //  запрос в чат Gigachat*/}
+            {/*        setValueChatGigachat={props.setValueChatGigachat}*/}
+            {/*        valueChatClaude={props.valueChatClaude}      //  запрос в чат Claude*/}
+            {/*        setValueChatClaude={props.setValueChatClaude}*/}
+            {/*        valueChatGpt={props.valueChatGpt}    //  запрос в чат гпт*/}
+            {/*        setValueChatGpt={props.setValueChatGpt}*/}
+            {/*        setOpenTheeWindowNewSession={props.setOpenTheeWindowNewSession}    ///    для открытия 3 окон при отправке запроса с новой сессии*/}
+            {/*        openTheeWindowNewSession={props.openTheeWindowNewSession}   ///    для открытия 3 окон при отправке запроса с новой сессии*/}
+            {/*    />*/}
+            {/*}*/}
 
             {
                 props.llm_session_title !== '' &&      //  если у сессии есть тайтл открывается история чата   (при нажатии на сессию)
