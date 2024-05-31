@@ -65,7 +65,7 @@ const FirstChat = (props) => {
                     // setSessionChatGigachat([...sessionChatGigachat, newMessageGigachat]);
                 })
                 .finally(() => {
-                    // setValue('');
+                    props.setValue('');
                     // setValueChatGigachat('');
                     // setValueChatClaude('');
                     // setValueChatGpt('');
