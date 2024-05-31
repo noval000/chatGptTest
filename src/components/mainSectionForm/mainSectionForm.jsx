@@ -71,7 +71,7 @@ const MainSectionForm = (props) => {
                 props.llm_session_id !== '' &&
                 props.llm_session_title !== 'none' &&
                 props.llm_session_id !== 'none' &&
-                props.openTheeWindowNewSession === false &&
+                props.openTheeWindowNewSession === true &&
                 <div className="chat-container">
                     <ColChatsGpt
                         setChangeSessionForSubmitAll={props.setChangeSessionForSubmitAll}
