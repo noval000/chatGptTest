@@ -358,6 +358,7 @@ const Home = (props) => {
         <div>
             <Sidebar
                 changeSessionForSubmitAll={changeSessionForSubmitAll}
+                openTheeWindowNewSession={openTheeWindowNewSession}
                 setOpenTheeWindowNewSession={setOpenTheeWindowNewSession}  //  при клике на сессию закрывать нижний дубль
                 sessionChatGigachat={sessionChatGigachat}  //  все запросы в чат Gigachat
                 setSessionChatGigachat={setSessionChatGigachat}

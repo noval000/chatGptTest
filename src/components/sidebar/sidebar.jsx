@@ -70,24 +70,26 @@ const Sidebar = (props) => {
                 llm_session_title,
                 llm_session_id
             };
-            axios.post('/api/llm_session/new_query', data)
-            .then(response => {
+
+            try {
+
+                // Отправка данных на сервер
+                const response = await axios.post('/api/llm_session', data, {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    credentials: "include",
+                    withCredentials: true,
+                });
                 console.log('server responce' , response.data);
-            })
-            .finally(() => {
 
-            })
-            .catch(error => {
-                console.error('There was an error sending the data!', error);
-            });
-
+            } catch (error) {
+                console.error('error' , error)
+            }
 
 
         }
-        if (props.changeSessionForSubmit === true) {
-            submitSessionNew();
-        }
-
+        submitSessionNew();
     }, [props.changeSessionForSubmitAll]);     //   отправка запроса при нажатии на новую сессии
 
 
@@ -103,7 +105,6 @@ const Sidebar = (props) => {
                        console.log(llm_session_id)
                        if (props.openTheeWindowNewSession === true) {
                            props.setOpenTheeWindowNewSession(false);
-                           console.log(props.openTheeWindowNewSession)
                        }
                    }}
                 >
