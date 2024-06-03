@@ -6,15 +6,15 @@ import axios from "axios";
 const MenuSidebar = (props) => {
 
 
-
     const [profileModal, openProfileModal] = useState(false);
 
     useEffect(() => {
         const id = props.userId;
+        console.log(id)
         const submitModalProfile = (e) => {
             // Данные для отправки на сервер
             const data = {
-                id;
+                id
             };
             // Отправка данных на сервер
             axios.post('/api/profile', data)
