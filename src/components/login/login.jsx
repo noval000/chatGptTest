@@ -66,6 +66,7 @@ const Login = (props) => {
             setArchiveSession(response.data.llm_sessions.filter(el => el.status === 'deleted').sort((a, b) =>     //   фильтруем массив по архивным сессиям
                 new Date(a.datetime_last_update).getTime() + new Date(b.datetime_last_update).getTime()
             ));
+
             // localStorage.setItem('login' , response.data.loggedin)  //  Закдываем в session storage авторизован или нет
 
         } catch (error) {

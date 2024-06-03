@@ -8,6 +8,8 @@
     padding: 10px 20px;
     cursor: pointer;
     transition: .5s all ease;
+    display: flex;
+    justify-content: space-between;
 }
 
 .listArchiveSession:hover {
@@ -22,4 +24,5 @@
     position: fixed;
     left: 50%;
     transform: translate(-50%);
+    width: 46%;
 }

@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import Popup from "reactjs-popup";
 import './menuSidebar.css';
 import ModalProfile from "../modalProfile/modalProfile";
 import ArchiveProfile from "../archiveProfile/archiveProfile";

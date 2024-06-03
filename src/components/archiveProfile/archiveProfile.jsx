@@ -5,8 +5,6 @@ import './archiveProfile.css';
 const ArchiveProfile = (props) => {
 
 
-
-
     return (
 
         <Popup open={props.open2} closeOnDocumentClick closeModalProfile={props.closeModalProfile}>
@@ -23,7 +21,19 @@ const ArchiveProfile = (props) => {
                             props.archiveSession.map(el => (
                                 <ul className="listsArchiveSession">
                                     <li className="listArchiveSession">
-                                        {el.title}
+                                        <div className="nameSess">
+                                            {el.title}
+                                        </div>
+                                        <div className="timeSess">
+                                            {
+                                                new Date(el.datetime_last_update).getDay() +
+                                                "." + new Date(el.datetime_last_update).getMonth() +
+                                                "." + new Date(el.datetime_last_update).getFullYear()
+                                                + ' ' + new Date(el.datetime_last_update).getHours()
+                                                + ':' + new Date(el.datetime_last_update).getMinutes()
+                                            }
+                                        </div>
+
                                     </li>
                                 </ul>
                             ))
