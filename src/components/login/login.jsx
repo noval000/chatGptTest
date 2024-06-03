@@ -45,7 +45,6 @@ const Login = (props) => {
 
             });
             setUserid(response.data.id);
-            console.log(response.data.id);
             setResponseData(response.data);
             setLogin(response.data.loggedin);   //  true or false for validate
             setFirstName(response.data.first_name)   //  записываем имя для приветствия
@@ -57,8 +56,6 @@ const Login = (props) => {
         } catch (error) {
             console.error('error' , error)
         }
-
-        console.log(userId);
 
 
 
@@ -127,6 +124,7 @@ const Login = (props) => {
             {
                 !openWindowRegistration &&
                 <CheckLogin
+                    userId={userId}   //  id пользователя
                     session={session}   //   все сессии
                     setSession={setSession}   //  смена сессий
                     firstname={firstname}   //   имя для приветствия

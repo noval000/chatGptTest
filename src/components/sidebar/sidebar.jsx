@@ -172,7 +172,9 @@ const Sidebar = (props) => {
                     }
                 </div>
 
-                <MenuSidebar />
+                <MenuSidebar
+                    userId={props.userId}   //  id пользователя
+                />
 
             </section>
 

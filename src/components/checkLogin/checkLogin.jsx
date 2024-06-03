@@ -48,6 +48,7 @@ const CheckLogin = (props) => {
             {
                 props.loginOk === true &&
                 <Home
+                    userId={props.userId}   //  id пользователя
                     session={props.session}   //   все сессии
                     setSession={props.setSession}   //  смена сессий
                     firstname={props.firstname}  //   имя для приветствия

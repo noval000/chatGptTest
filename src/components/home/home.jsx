@@ -261,6 +261,7 @@ const Home = (props) => {
     return (
         <div>
             <Sidebar
+                userId={props.userId}   //  id пользователя
                 changeSessionForSubmitAll={changeSessionForSubmitAll}
                 openTheeWindowNewSession={openTheeWindowNewSession}
                 setOpenTheeWindowNewSession={setOpenTheeWindowNewSession}  //  при клике на сессию закрывать нижний дубль

@@ -10,10 +10,11 @@ const MenuSidebar = (props) => {
     const [profileModal, openProfileModal] = useState(false);
 
     useEffect(() => {
+        const id = props.userId;
         const submitModalProfile = (e) => {
             // Данные для отправки на сервер
             const data = {
-
+                id;
             };
             // Отправка данных на сервер
             axios.post('/api/profile', data)
