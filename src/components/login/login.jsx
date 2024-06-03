@@ -43,8 +43,6 @@ const Login = (props) => {
                 withCredentials: true,
 
             });
-            console.log('server responce' , response.data);
-            console.log(data)
             setResponseData(response.data)
             setLogin(response.data.loggedin);   //  true or false for validate
             setFirstName(response.data.first_name)   //  записываем имя для приветствия
@@ -52,10 +50,6 @@ const Login = (props) => {
                 new Date(a.datetime_last_update).getTime() + new Date(b.datetime_last_update).getTime()
             ));  //   фильтруем массив по активным сессиям
             localStorage.setItem('login' , response.data.loggedin)  //  Закдываем в session storage авторизован или нет
-            console.log(loginOk, responseData)
-            console.log(response.data.first_name)
-            console.log(firstname)
-            console.log(response.data.llm_sessions.filter(el => el.status === 'active'));
 
         } catch (error) {
             console.error('error' , error)
@@ -99,14 +93,12 @@ const Login = (props) => {
                 password
             };
             // Отправка данных на сервер
-            axios.post('/register', data)
+            axios.post('/api/register', data)
                 .then(response => {
                     console.log('Server response:', response.data);
-
-
                 })
                 .finally(() => {
-
+                    setSendRegister(false)
                 })
                 .catch(error => {
                     console.error('There was an error sending the data!', error);
