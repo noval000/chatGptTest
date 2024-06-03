@@ -168,6 +168,9 @@ const Sidebar = (props) => {
                         )
                     }
                 </div>
+                <div className="menu">
+                    <a href="#">Главная</a>
+                </div>
             </section>
 
             <Popup open={open} closeOnDocumentClick onClose={closeModal}>
