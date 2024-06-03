@@ -32,7 +32,7 @@ const MenuSidebar = (props) => {
         if (profileModal === true) {
             submitModalProfile();
         }
-    }, [profileModal]);    //  отправка запроса на регистрацию
+    }, [profileModal]);    //  отправка запроса для отрисовки модалки профиля
 
 
 
@@ -50,7 +50,12 @@ const MenuSidebar = (props) => {
                 }}
             >Профиль
             </button>
-            <a href="#">Архив</a>
+            <button
+                onClick={(e) => {
+                    setOpen(!open);
+                    openProfileModal(!profileModal)
+                }}
+            >Архив</button>
 
             <Popup open={open} closeOnDocumentClick onClose={closeModalProfile}>
                 <div className="modal profileModal">

@@ -44,6 +44,7 @@ const Login = (props) => {
                 withCredentials: true,
 
             });
+            console.log(response.data);
             setUserid(response.data.id);
             setResponseData(response.data);
             setLogin(response.data.loggedin);   //  true or false for validate
@@ -56,7 +57,6 @@ const Login = (props) => {
         } catch (error) {
             console.error('error' , error)
         }
-
 
 
 
