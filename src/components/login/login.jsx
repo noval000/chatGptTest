@@ -33,7 +33,7 @@ const Login = (props) => {
         };
 
         try {
-
+            // const hashedPassword = await bcrypt.hash(password, 10); // Hash the password
             // Отправка данных на сервер
             const response = await axios.post('/api/login', data, {
                 headers: {

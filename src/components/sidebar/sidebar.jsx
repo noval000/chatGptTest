@@ -20,6 +20,9 @@ const Sidebar = (props) => {
 
     const [open, setOpen] = useState(false);
 
+
+    const [openProfile, setOpenProfile] = useState(false);
+
     const closeModal = () => setOpen(false);
 
 
@@ -169,13 +172,16 @@ const Sidebar = (props) => {
                     }
                 </div>
                 <div className="menu">
-                    <a href="#">Главная</a>
-                    <a href="#">Профиль</a>
-                    <a href="#">Главная</a>
+                    <a
+                        onClick={() => {
+                            setOpenProfile(!openProfile)
+                        }}
+                        href="#">Профиль</a>
+                    <a href="#">Архив</a>
                 </div>
             </section>
 
-            <Popup open={open} closeOnDocumentClick onClose={closeModal}>
+            <Popup openProfile={openProfile} closeOnDocumentClick onClose={closeModal}>
                 <div className="modal">
                     <a href="#!" className="closeModal" onClick={closeModal}>
                         &times;
