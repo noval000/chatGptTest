@@ -43,7 +43,8 @@ const Login = (props) => {
                 withCredentials: true,
 
             });
-            setResponseData(response.data)
+            console.log(response.data);
+            setResponseData(response.data);
             setLogin(response.data.loggedin);   //  true or false for validate
             setFirstName(response.data.first_name)   //  записываем имя для приветствия
             setSession(response.data.llm_sessions.filter(el => el.status === 'active').sort((a, b) =>
