@@ -3,6 +3,7 @@ import './sidebar.css';
 import Popup from "reactjs-popup";
 import 'reactjs-popup/dist/index.css';
 import axios from "axios";
+import MenuSidebar from "../menuSidebar/menuSidebar";
 
 
 
@@ -21,9 +22,8 @@ const Sidebar = (props) => {
     const [open, setOpen] = useState(false);
 
 
-    const [openProfile, setOpenProfile] = useState(false);
-
     const closeModal = () => setOpen(false);
+
 
 
 
@@ -171,35 +171,12 @@ const Sidebar = (props) => {
                         )
                     }
                 </div>
-                <div className="menu">
-                    <a
-                        onClick={() => {
-                            setOpenProfile(!openProfile)
-                        }}
-                        href="#">Профиль</a>
-                    <a href="#">Архив</a>
-                </div>
+
+                <MenuSidebar />
+
             </section>
 
-            <Popup openProfile={openProfile} closeOnDocumentClick onClose={closeModal}>
-                <div className="modal">
-                    <a href="#!" className="closeModal" onClick={closeModal}>
-                        &times;
-                    </a>
-                    <div className="headerModal">
 
-                    </div>
-                    <form action="" id="changeName">
-                        <input type="text" className="changeName" />
-                        <input type="submit" onClick={(e) => {
-                            const formChangeName = e.target.closest('#changeName');
-                            formChangeName.addEventListener('submit' , e => {
-                                e.preventDefault();
-                            })
-                        }}/>
-                    </form>
-                </div>
-            </Popup>
 
             <Popup open={open} closeOnDocumentClick onClose={closeModal}>
                 <div className="modal">
