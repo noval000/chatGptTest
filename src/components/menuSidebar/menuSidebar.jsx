@@ -21,7 +21,7 @@ const MenuSidebar = (props) => {
                     console.log('Server response:', response.data);
                 })
                 .finally(() => {
-                    profileModal(false);
+                    openProfileModal(false);
                 })
                 .catch(error => {
                     console.error('There was an error sending the data!', error);
