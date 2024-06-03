@@ -170,8 +170,30 @@ const Sidebar = (props) => {
                 </div>
                 <div className="menu">
                     <a href="#">Главная</a>
+                    <a href="#">Профиль</a>
+                    <a href="#">Главная</a>
                 </div>
             </section>
+
+            <Popup open={open} closeOnDocumentClick onClose={closeModal}>
+                <div className="modal">
+                    <a href="#!" className="closeModal" onClick={closeModal}>
+                        &times;
+                    </a>
+                    <div className="headerModal">
+
+                    </div>
+                    <form action="" id="changeName">
+                        <input type="text" className="changeName" />
+                        <input type="submit" onClick={(e) => {
+                            const formChangeName = e.target.closest('#changeName');
+                            formChangeName.addEventListener('submit' , e => {
+                                e.preventDefault();
+                            })
+                        }}/>
+                    </form>
+                </div>
+            </Popup>
 
             <Popup open={open} closeOnDocumentClick onClose={closeModal}>
                 <div className="modal">

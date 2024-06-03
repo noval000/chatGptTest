@@ -36,7 +36,10 @@ const CheckLogin = (props) => {
                                    }
                                }}
                         ></input>
-                        <div className="registrationForm">
+                        <div className="registrationForm"
+                        onClick={() => {
+                            props.setOpenWindowRegistration(!props.openWindowRegistration);
+                        }}>
                             Зарегистрироваться
                         </div>
                     </form>

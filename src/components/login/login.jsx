@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import CheckLogin from "../checkLogin/checkLogin";
 import axios from "axios";
+import Registration from "../registration/registration";
 
 
 
@@ -16,6 +17,9 @@ const Login = (props) => {
 
 
     axios.defaults.withCredentials = true;
+
+
+    const [openWindowRegistration, setOpenWindowRegistration] = useState(false)
 
 
     const submitCheckLogin = async (e) => {
@@ -63,21 +67,109 @@ const Login = (props) => {
     }    //   авторизация
 
 
+
+
+    /*    стейты для регистрации    */
+
+    const [usernameRegister, setUsernameRegister] = useState('');  //  логин
+    const [mail, setMailRegister] = useState('');  //  mail
+    const [organization, setOrganizationRegister] = useState('');  //  организация
+    const [first_name, setFirstNameRegister] = useState('');  //  имя
+    const [last_name, setLastNameRegister] = useState('');  //  фамилия
+    const [patronymic, setPatronymicRegister] = useState('');  //  отчество
+    const [passwordRegister, setPasswordRegister] = useState('');  //  пароль
+
+    const [sendRegister, setSendRegister] = useState(false);   //   при изменения отправляем на сервак
+
+
+
+
+    useEffect(() => {
+        const username = usernameRegister;
+        const password = passwordRegister;
+        const submitRegister = (e) => {
+            // Данные для отправки на сервер
+            const data = {
+                username,
+                mail,
+                organization,
+                first_name,
+                last_name,
+                patronymic,
+                password
+            };
+            // Отправка данных на сервер
+            axios.post('/register', data)
+                .then(response => {
+                    console.log('Server response:', response.data);
+
+
+                })
+                .finally(() => {
+
+                })
+                .catch(error => {
+                    console.error('There was an error sending the data!', error);
+                });
+        };
+
+        if (sendRegister === true) {
+            submitRegister();
+        }
+    }, [sendRegister]);    //  отправка запроса на регистрацию
+
+
+
+
+
+
+
+
     return (
         <div>
-            <CheckLogin
-                session={session}   //   все сессии
-                setSession={setSession}   //  смена сессий
-                firstname={firstname}   //   имя для приветствия
-                username={username}   //  логин
-                setUserName={setUserName}
-                password={password}   //  пароль
-                setPassword={setPassword}   //  функция смены пароля
-                loginOk={loginOk}    //  логин
-                setLogin={setLogin}   //  функция смены логина
-                submitCheckLogin={submitCheckLogin}  //  функция запроса к серваку при логине
-                responseData={responseData} // проверка есть ответ или нет
-            />
+            {
+                !openWindowRegistration &&
+                <CheckLogin
+                    session={session}   //   все сессии
+                    setSession={setSession}   //  смена сессий
+                    firstname={firstname}   //   имя для приветствия
+                    username={username}   //  логин
+                    setUserName={setUserName}
+                    password={password}   //  пароль
+                    setPassword={setPassword}   //  функция смены пароля
+                    loginOk={loginOk}    //  логин
+                    setLogin={setLogin}   //  функция смены логина
+                    submitCheckLogin={submitCheckLogin}  //  функция запроса к серваку при логине
+                    responseData={responseData} // проверка есть ответ или нет
+                    setOpenWindowRegistration={setOpenWindowRegistration}  //   переключение на форму регистрации
+                    openWindowRegistration={openWindowRegistration}
+                />
+            }
+            {
+                openWindowRegistration &&
+                <Registration
+                    sendRegister={sendRegister}
+                    setSendRegister={setSendRegister}  //  отправка запроса
+                    passwordRegister={passwordRegister} //  пароль
+                    setPasswordRegister={setPasswordRegister}
+                    patronymiс={patronymic}  //  отчество
+                    setPatronymicRegister={setPatronymicRegister}
+                    last_name={last_name}  //  фамилия
+                    setLastNameRegister={setLastNameRegister}
+                    first_name={first_name}  //  имя
+                    setFirstNameRegister={setFirstNameRegister}
+                    organization={organization}  //  организация
+                    setOrganizationRegister={setOrganizationRegister}
+                    mail={mail}   //   mail registration
+                    setMailRegister={setMailRegister}
+                    usernameRegister={usernameRegister}  //   логин при регистрации
+                    setUsernameRegister={setUsernameRegister}
+                    setOpenWindowRegistration={setOpenWindowRegistration}  //   переключение на форму регистрации
+                    openWindowRegistration={openWindowRegistration}
+                />
+            }
+
+
         </div>
     )
 }

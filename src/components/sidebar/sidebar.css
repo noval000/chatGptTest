@@ -98,3 +98,20 @@
 .linkSession a.active {
     opacity: 0.5;
 }
+
+.menu {
+    padding: 20px 20px 0 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.menu a {
+    width: 100%;
+    text-align: start;
+}
+
+.menu a:not(:last-child) {
+    margin-bottom: 10px;
+}
