@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import CheckLogin from "../checkLogin/checkLogin";
 import axios from "axios";
 import Registration from "../registration/registration";
+import {use} from "bcrypt/promises";
 
 
 
@@ -15,6 +16,10 @@ const Login = (props) => {
     const [loginOk, setLogin] = useState(false);   //   верификация
     const [responseData, setResponseData] = useState(null);  //  проверка ответ есть или нет
     const [userId, setUserid] = useState('');   //  id пользователя
+    const [mailLogin, setMailLogin] = useState(''); //  маил пользователя
+    const [lastname, setLastNameLogin] = useState(''); //  фамилия пользователя
+    const [patronymicLogin, setPatronymicLogin] = useState(''); //  отчество пользователя
+    const [organizationLogin, setOrganizationLogin] = useState(''); //  организация пользователя
 
 
     axios.defaults.withCredentials = true;
@@ -45,7 +50,11 @@ const Login = (props) => {
 
             });
             console.log(response.data);
-            setUserid(response.data.id);
+            setOrganizationLogin(response.data.organization);   //   оранизация
+            setPatronymicLogin(response.data.patronymic);    //   отчество пользователя
+            setLastNameLogin(response.data.last_name);   //    фамилия пользователя
+            setMailLogin(response.data.email);  //   mail user
+            setUserid(response.data.id);     //  id user
             setResponseData(response.data);
             setLogin(response.data.loggedin);   //  true or false for validate
             setFirstName(response.data.first_name)   //  записываем имя для приветствия
@@ -124,9 +133,18 @@ const Login = (props) => {
             {
                 !openWindowRegistration &&
                 <CheckLogin
+                    setOrganizationLogin={setOrganizationLogin}  //  организация пользователя
+                    organizationLogin={organizationLogin}
+                    patronymicLogin={patronymicLogin}     //  отчество
+                    setPatronymicLogin={setPatronymicLogin}
+                    setLastNameLogin={setLastNameLogin}   //  фамилия пользователя
+                    lastname={lastname}
+                    mailLogin={mailLogin}   //  маил пользователя
+                    setMailLogin={setMailLogin}
                     userId={userId}   //  id пользователя
                     session={session}   //   все сессии
                     setSession={setSession}   //  смена сессий
+                    setFirstName={setFirstName}
                     firstname={firstname}   //   имя для приветствия
                     username={username}   //  логин
                     setUserName={setUserName}

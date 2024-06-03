@@ -1,5 +1,6 @@
 .profileModal {
-    height: 80vh;
+    height: auto;
+    padding: 0 40px 40px 40px;
 }
 
 .closeModal {
@@ -16,4 +17,67 @@
     border-radius: 50%;
     height: 40px;
     box-shadow: -2px 2px 2px #000;
+}
+
+.changeUserProfile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#userProfile {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#userProfile input:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.name, .lastname, .patronymicLogin, .mailLogin, .organizationLogin {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #696969;
+}
+
+.name, .lastname, .patronymicLogin, .organizationLogin {
+    margin-bottom: 10px;
+}
+
+.name input, .lastname input, .patronymicLogin input, .mailLogin input, .organizationLogin input {
+    padding: 10px;
+    width: 100%;
+    text-align: end;
+    font-size: 16px;
+    background: transparent;
+    border: none;
+}
+
+.headerModalTitle {
+    font-size: 26px;
+    text-align: center;
+    margin: 30px;
+}
+
+.changeInfoBtn {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    background: transparent;
+    border: 1px solid #696969;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .5s all ease;
+}
+
+.changeInfoBtn:hover {
+    background: #696969;
+    color: #fff;
+}
+
+.noneBtnChange {
+    display: none;
 }

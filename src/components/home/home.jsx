@@ -261,6 +261,16 @@ const Home = (props) => {
     return (
         <div>
             <Sidebar
+                setFirstName={props.setFirstName}
+                firstname={props.firstname}  //   имя для приветствия
+                setOrganizationLogin={props.setOrganizationLogin}  //  организация пользователя
+                organizationLogin={props.organizationLogin}
+                patronymicLogin={props.patronymicLogin}     //  отчество
+                setPatronymicLogin={props.setPatronymicLogin}
+                setLastNameLogin={props.setLastNameLogin}   //  фамилия пользователя
+                lastname={props.lastname}
+                mailLogin={props.mailLogin}   //  маил пользователя
+                setMailLogin={props.setMailLogin}
                 userId={props.userId}   //  id пользователя
                 changeSessionForSubmitAll={changeSessionForSubmitAll}
                 openTheeWindowNewSession={openTheeWindowNewSession}

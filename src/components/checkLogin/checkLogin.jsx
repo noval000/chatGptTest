@@ -48,9 +48,18 @@ const CheckLogin = (props) => {
             {
                 props.loginOk === true &&
                 <Home
+                    setOrganizationLogin={props.setOrganizationLogin}  //  организация пользователя
+                    organizationLogin={props.organizationLogin}
+                    patronymicLogin={props.patronymicLogin}     //  отчество
+                    setPatronymicLogin={props.setPatronymicLogin}
+                    setLastNameLogin={props.setLastNameLogin}   //  фамилия пользователя
+                    lastname={props.lastname}
+                    mailLogin={props.mailLogin}   //  маил пользователя
+                    setMailLogin={props.setMailLogin}
                     userId={props.userId}   //  id пользователя
                     session={props.session}   //   все сессии
                     setSession={props.setSession}   //  смена сессий
+                    setFirstName={props.setFirstName}
                     firstname={props.firstname}  //   имя для приветствия
                 />
             }
