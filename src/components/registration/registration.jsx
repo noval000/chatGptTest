@@ -13,7 +13,7 @@ const Registration = (props) => {
                        }}
                 ></input>
                 <input type="email" name="email" placeholder="Введите почту" id="email" required
-                       value={props.mail}
+                       value={props.email}
                        onChange={(e) => {
                            props.setMailRegister(e.target.value)
                        }}

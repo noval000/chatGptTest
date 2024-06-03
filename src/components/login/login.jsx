@@ -66,7 +66,7 @@ const Login = (props) => {
     /*    стейты для регистрации    */
 
     const [usernameRegister, setUsernameRegister] = useState('');  //  логин
-    const [mail, setMailRegister] = useState('');  //  mail
+    const [email, setMailRegister] = useState('');  //  mail
     const [organization, setOrganizationRegister] = useState('');  //  организация
     const [first_name, setFirstNameRegister] = useState('');  //  имя
     const [last_name, setLastNameRegister] = useState('');  //  фамилия
@@ -85,7 +85,7 @@ const Login = (props) => {
             // Данные для отправки на сервер
             const data = {
                 username,
-                mail,
+                email,
                 organization,
                 first_name,
                 last_name,
@@ -98,7 +98,7 @@ const Login = (props) => {
                     console.log('Server response:', response.data);
                 })
                 .finally(() => {
-                    setSendRegister(false)
+                    setSendRegister(false);
                 })
                 .catch(error => {
                     console.error('There was an error sending the data!', error);
@@ -152,7 +152,7 @@ const Login = (props) => {
                     setFirstNameRegister={setFirstNameRegister}
                     organization={organization}  //  организация
                     setOrganizationRegister={setOrganizationRegister}
-                    mail={mail}   //   mail registration
+                    email={email}   //   mail registration
                     setMailRegister={setMailRegister}
                     usernameRegister={usernameRegister}  //   логин при регистрации
                     setUsernameRegister={setUsernameRegister}
