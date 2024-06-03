@@ -44,7 +44,8 @@ const Login = (props) => {
                 withCredentials: true,
 
             });
-            setUserid(response.data.id)
+            setUserid(response.data.id);
+            console.log(response.data.id);
             setResponseData(response.data);
             setLogin(response.data.loggedin);   //  true or false for validate
             setFirstName(response.data.first_name)   //  записываем имя для приветствия
