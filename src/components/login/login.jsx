@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import CheckLogin from "../checkLogin/checkLogin";
 import axios from "axios";
 import Registration from "../registration/registration";
-import {use} from "bcrypt/promises";
 
 
 
