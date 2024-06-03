@@ -14,6 +14,7 @@ const Login = (props) => {
     const [password, setPassword] = useState('');   //  пароль пользователя
     const [loginOk, setLogin] = useState(false);   //   верификация
     const [responseData, setResponseData] = useState(null);  //  проверка ответ есть или нет
+    const [userId, setUserid] = useState('');   //  id пользователя
 
 
     axios.defaults.withCredentials = true;
@@ -43,7 +44,8 @@ const Login = (props) => {
                 withCredentials: true,
 
             });
-            console.log(response.data);
+            setUserid(response.data.id)
+            console.log(userId);
             setResponseData(response.data);
             setLogin(response.data.loggedin);   //  true or false for validate
             setFirstName(response.data.first_name)   //  записываем имя для приветствия
