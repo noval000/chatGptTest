@@ -1,0 +1,25 @@
+.scrollModalSession {
+    overflow: hidden scroll;
+    max-height: 80vh;
+    position: relative;
+}
+
+.listArchiveSession {
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: .5s all ease;
+}
+
+.listArchiveSession:hover {
+    background: #e0e0e0;
+}
+
+.AllSession {
+    padding-top: 100px;
+}
+
+.fixedSession {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%);
+}

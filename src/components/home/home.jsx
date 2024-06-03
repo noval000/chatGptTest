@@ -261,6 +261,8 @@ const Home = (props) => {
     return (
         <div>
             <Sidebar
+                setArchiveSession={props.setArchiveSession}
+                archiveSession={props.archiveSession}   //   все архивные сессии
                 setFirstName={props.setFirstName}
                 firstname={props.firstname}  //   имя для приветствия
                 setOrganizationLogin={props.setOrganizationLogin}  //  организация пользователя

@@ -1,140 +1,80 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Popup from "reactjs-popup";
 import './menuSidebar.css';
+import ModalProfile from "../modalProfile/modalProfile";
+import ArchiveProfile from "../archiveProfile/archiveProfile";
 
 const MenuSidebar = (props) => {
 
 
 
-    const [btnChangeInfo, setBtnChangeInfo] = useState(false);
+    const [btnChangeInfo, setBtnChangeInfo] = useState(false);   //  разблочивание инпутов для редактирования
 
-    const [profileModal, openProfileModal] = useState(false);
 
-    // useEffect(() => {
-    //     const id = props.userId;
-    //     console.log(id)
-    //     const submitModalProfile = (e) => {
-    //         // Данные для отправки на сервер
-    //         const data = {
-    //             id
-    //         };
-    //         // Отправка данных на сервер
-    //         axios.post('/api/profile', data)
-    //             .then(response => {
-    //                 console.log('Server response:', response.data);
-    //             })
-    //             .finally(() => {
-    //                 openProfileModal(false);
-    //             })
-    //             .catch(error => {
-    //                 console.error('There was an error sending the data!', error);
-    //             });
-    //     };
-    //
-    //     if (profileModal === true) {
-    //         submitModalProfile();
-    //     }
-    // }, [profileModal]);    //  отправка запроса для отрисовки модалки профиля
+
 
 
 
 
     const [open, setOpen] = useState(false);
-    const closeModalProfile = () => setOpen(false);
+    const [open2, setOpen2] = useState(false);
+
+
+
+
+    const closeModalProfile = () => {
+        setBtnChangeInfo(false);
+        setOpen(false);
+        setOpen2(false);
+    }
+
+    useEffect(() => {
+        document.body.addEventListener('click' , closeModalProfile);    //   при клике вне модалки
+    }, [open]);
+
+    useEffect(() => {
+        document.body.addEventListener('click' , closeModalProfile);    //   при клике вне модалки
+    }, [open2]);
 
 
     return (
         <div className="menu">
-            <button
+            <button className="btnProfile"
                 onClick={(e) => {
                     setOpen(!open);
-                    openProfileModal(!profileModal)
                 }}
             >Профиль
             </button>
             <button
                 onClick={(e) => {
-                    setOpen(!open);
-                    openProfileModal(!profileModal)
+                    setOpen2(!open2);
                 }}
             >Архив</button>
 
-            <Popup open={open} closeOnDocumentClick onClose={closeModalProfile}>
-                <div className="modal profileModal">
-                    <div className="closeModal" onClick={closeModalProfile}>
-                        &times;
-                    </div>
-                    <div className="headerModal">
-                        <div className="headerModalTitle">
-                            <h4>Профиль</h4>
-                        </div>
-                        <button
-                            className={btnChangeInfo ? 'noneBtnChange' : 'changeInfoBtn '}
-                                onClick={() => {
-                                    setBtnChangeInfo(!btnChangeInfo);
-                                }}
-                        >
-                            Изменить данные
-                        </button>
-                        <button className={btnChangeInfo ? 'changeInfoBtn' : 'noneBtnChange '}
-                                onClick={() => {
-                                    setBtnChangeInfo(!btnChangeInfo);
-                                }}
-                        >
-                            Сохранить данные
-                        </button>
-                        <div className="changeUserProfile">
-                            <form action="" id="userProfile">
-                                <div className="name">
-                                    <h4>Имя</h4>
-                                    <input type="text" className="firstname" value={props.firstname}
-                                           disabled={!btnChangeInfo}
-                                           onChange={(e) => {
-                                                props.setFirstName(e.target.value);
-                                           }}
-                                    />
-                                </div>
-                                <div className="lastname">
-                                    <h4>Фамилия</h4>
-                                    <input type="text" className="lastname" value={props.lastname}
-                                           disabled={!btnChangeInfo}
-                                           onChange={(e) => {
-                                               props.setLastNameLogin(e.target.value);
-                                           }}
-                                    />
-                                </div>
-                                <div className="patronymicLogin">
-                                    <h4>Отчество</h4>
-                                    <input type="text" className="patronymicLogin" value={props.patronymicLogin}
-                                           disabled={!btnChangeInfo}
-                                           onChange={(e) => {
-                                               props.setPatronymicLogin(e.target.value)
-                                           }}
-                                    />
-                                </div>
-                                <div className="organizationLogin">
-                                    <h4>Организация</h4>
-                                    <input type="text" className="organizationLogin" value={props.organizationLogin}
-                                           disabled={!btnChangeInfo}
-                                           onChange={(e) => {
-                                               props.setOrganizationLogin(e.target.value)
-                                           }}
-                                    />
-                                </div>
-                                <div className="mailLogin">
-                                    <h4>Маил</h4>
-                                    <input type="text" className="mailLogin" value={props.mailLogin}
-                                           disabled={!btnChangeInfo}
-                                           onChange={(e) => {
-                                               props.setMailLogin(e.target.value)
-                                           }}
-                                    />
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </Popup>
+            <ModalProfile
+                open={open}
+                closeModalProfile={closeModalProfile}
+                setBtnChangeInfo={setBtnChangeInfo}   //  разблочивание инпутов для редактирования
+                btnChangeInfo={btnChangeInfo}
+                firstname={props.firstname}   //  name
+                setFirstName={props.setFirstName}
+                lastname={props.lastname}    //   familiya
+                setLastNameLogin={props.setLastNameLogin}
+                patronymicLogin={props.patronymicLogin} //   otchestvo
+                setPatronymicLogin={props.setPatronymicLogin}
+                organizationLogin={props.organizationLogin}   //   organization
+                setOrganizationLogin={props.setOrganizationLogin}
+                mailLogin={props.mailLogin}  // mail
+                setMailLogin={props.setMailLogin}
+            />
+
+            <ArchiveProfile
+                setArchiveSession={props.setArchiveSession}
+                archiveSession={props.archiveSession}   //   все архивные сессии
+                open2={open2}
+                closeModalProfile={closeModalProfile}
+            />
+
 
         </div>
 

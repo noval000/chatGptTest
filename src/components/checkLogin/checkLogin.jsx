@@ -48,6 +48,8 @@ const CheckLogin = (props) => {
             {
                 props.loginOk === true &&
                 <Home
+                    setArchiveSession={props.setArchiveSession}
+                    archiveSession={props.archiveSession}   //   все архивные сессии
                     setOrganizationLogin={props.setOrganizationLogin}  //  организация пользователя
                     organizationLogin={props.organizationLogin}
                     patronymicLogin={props.patronymicLogin}     //  отчество

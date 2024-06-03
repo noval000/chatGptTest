@@ -5,9 +5,11 @@ import Registration from "../registration/registration";
 
 
 
+
 const Login = (props) => {
 
     const [session, setSession] = useState([]);   // все активные сессии
+    const [archiveSession, setArchiveSession] = useState([])   // все архивные сессии
 
     const [firstname, setFirstName] = useState('')  //  имя  для приветствия
     const [username, setUserName] = useState('');   //  логин пользователя
@@ -48,6 +50,7 @@ const Login = (props) => {
                 withCredentials: true,
 
             });
+
             console.log(response.data);
             setOrganizationLogin(response.data.organization);   //   оранизация
             setPatronymicLogin(response.data.patronymic);    //   отчество пользователя
@@ -57,9 +60,12 @@ const Login = (props) => {
             setResponseData(response.data);
             setLogin(response.data.loggedin);   //  true or false for validate
             setFirstName(response.data.first_name)   //  записываем имя для приветствия
-            setSession(response.data.llm_sessions.filter(el => el.status === 'active').sort((a, b) =>
+            setSession(response.data.llm_sessions.filter(el => el.status === 'active').sort((a, b) =>     //   фильтруем массив по активным сессиям
                 new Date(a.datetime_last_update).getTime() + new Date(b.datetime_last_update).getTime()
-            ));  //   фильтруем массив по активным сессиям
+            ));
+            setArchiveSession(response.data.llm_sessions.filter(el => el.status === 'deleted').sort((a, b) =>     //   фильтруем массив по архивным сессиям
+                new Date(a.datetime_last_update).getTime() + new Date(b.datetime_last_update).getTime()
+            ));
             // localStorage.setItem('login' , response.data.loggedin)  //  Закдываем в session storage авторизован или нет
 
         } catch (error) {
@@ -141,6 +147,8 @@ const Login = (props) => {
                     mailLogin={mailLogin}   //  маил пользователя
                     setMailLogin={setMailLogin}
                     userId={userId}   //  id пользователя
+                    setArchiveSession={setArchiveSession}
+                    archiveSession={archiveSession}   //   все архивные сессии
                     session={session}   //   все сессии
                     setSession={setSession}   //  смена сессий
                     setFirstName={setFirstName}
