@@ -6,7 +6,10 @@ const ModalProfile = (props) => {
 
         <Popup open={props.open} closeOnDocumentClick closeModalProfile={props.closeModalProfile}>
             <div className="modal profileModal">
-                <div className="closeModal" onClick={props.closeModalProfile}>
+                <div className="closeModal" onClick={() => {
+                    props.setOpen(false);
+                    props.setBtnChangeInfo(false);
+                }}>
                     &times;
                 </div>
                 <div className="headerModal">

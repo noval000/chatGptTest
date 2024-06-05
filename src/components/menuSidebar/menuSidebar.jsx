@@ -52,6 +52,7 @@ const MenuSidebar = (props) => {
 
             <ModalProfile
                 open={open}
+                setOpen={setOpen}
                 closeModalProfile={closeModalProfile}
                 setBtnChangeInfo={setBtnChangeInfo}   //  разблочивание инпутов для редактирования
                 btnChangeInfo={btnChangeInfo}
@@ -71,6 +72,7 @@ const MenuSidebar = (props) => {
                 setArchiveSession={props.setArchiveSession}
                 archiveSession={props.archiveSession}   //   все архивные сессии
                 open2={open2}
+                setOpen2={setOpen2}
                 closeModalProfile={closeModalProfile}
             />
 

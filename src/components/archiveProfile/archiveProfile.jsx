@@ -9,7 +9,9 @@ const ArchiveProfile = (props) => {
 
         <Popup open={props.open2} closeOnDocumentClick closeModalProfile={props.closeModalProfile}>
             <div className="modal archiveModal">
-                <div className="closeModal" onClick={props.closeModalProfile}>
+                <div className="closeModal" onClick={() => {
+                    props.setOpen2(false);
+                }}>
                     &times;
                 </div>
                 <div className="headerModal scrollModalSession">
