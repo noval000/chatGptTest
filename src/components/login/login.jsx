@@ -58,7 +58,7 @@ const Login = (props) => {
             setMailLogin(response.data.email);  //   mail user
             setUserid(response.data.id);     //  id user
             setResponseData(response.data);
-            setLogin(response.data.loggedin);   //  true or false for validate
+            setLogin(response.data.logged_in);   //  true or false for validate
             setFirstName(response.data.first_name)   //  записываем имя для приветствия
             setSession(response.data.llm_sessions.filter(el => el.status === 'active').sort((a, b) =>     //   фильтруем массив по активным сессиям
                 new Date(a.datetime_last_update).getTime() + new Date(b.datetime_last_update).getTime()
