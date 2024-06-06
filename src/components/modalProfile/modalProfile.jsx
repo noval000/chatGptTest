@@ -4,7 +4,7 @@ import Popup from "reactjs-popup";
 const ModalProfile = (props) => {
     return (
 
-        <Popup open={props.open} closeOnDocumentClick closeModalProfile={props.closeModalProfile}>
+        <Popup open={props.open} closeOnDocumentClick closeModalProfileOne={props.closeModalProfileOne}>
             <div className="modal profileModal">
                 <div className="closeModal" onClick={() => {
                     props.setOpen(false);

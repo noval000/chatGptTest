@@ -7,10 +7,12 @@ const ArchiveProfile = (props) => {
 
     return (
 
-        <Popup open={props.open2} closeOnDocumentClick closeModalProfile={props.closeModalProfile}>
+        <Popup setOpen2={props.setOpen2} open={props.open2} closeOnDocumentClick closeModalProfileTwo={props.closeModalProfileTwo}>
             <div className="modal archiveModal">
                 <div className="closeModal" onClick={() => {
-                    props.setOpen2(false);
+                    props.setOpen2(!props.open2);
+                    console.log(props.open2)
+                    console.log('ggg')
                 }}>
                     &times;
                 </div>

@@ -21,18 +21,21 @@ const MenuSidebar = (props) => {
 
 
 
-    const closeModalProfile = () => {
+    const closeModalProfileOne = () => {
         setBtnChangeInfo(false);
-        setOpen(false);
-        setOpen2(false);
+        setOpen(!open);
+    }
+    const closeModalProfileTwo = () => {
+        setBtnChangeInfo(false);
+        setOpen2(!open2);
     }
 
     useEffect(() => {
-        document.body.addEventListener('click' , closeModalProfile);    //   при клике вне модалки
+        document.body.addEventListener('click' , closeModalProfileOne);    //   при клике вне модалки
     }, [open]);
 
-    useEffect(() => {
-        document.body.addEventListener('click' , closeModalProfile);    //   при клике вне модалки
+    useEffect((e) => {
+        document.body.addEventListener('click' , closeModalProfileTwo);    //   при клике вне модалки
     }, [open2]);
 
 
@@ -53,7 +56,7 @@ const MenuSidebar = (props) => {
             <ModalProfile
                 open={open}
                 setOpen={setOpen}
-                closeModalProfile={closeModalProfile}
+                closeModalProfileOne={closeModalProfileOne}
                 setBtnChangeInfo={setBtnChangeInfo}   //  разблочивание инпутов для редактирования
                 btnChangeInfo={btnChangeInfo}
                 firstname={props.firstname}   //  name
@@ -73,7 +76,7 @@ const MenuSidebar = (props) => {
                 archiveSession={props.archiveSession}   //   все архивные сессии
                 open2={open2}
                 setOpen2={setOpen2}
-                closeModalProfile={closeModalProfile}
+                closeModalProfileTwo={closeModalProfileTwo}
             />
 
 
