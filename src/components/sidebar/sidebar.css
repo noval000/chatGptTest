@@ -13,7 +13,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 5px 10px;
-    margin: 10px 10px 10px 15px;
+    margin: 40px 10px 10px 15px;
     position: fixed;
     top: 0;
     width: 237px;
@@ -114,4 +114,17 @@
 
 .menu a:not(:last-child) {
     margin-bottom: 10px;
+}
+
+.blockShowMenu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 10px;
+    margin: 10px 10px 10px 15px;
+    position: fixed;
+    top: 0;
+    width: 237px;
+    transition: .5s all ease;
+    border-radius: 10px;
 }
