@@ -104,6 +104,9 @@ const Sidebar = (props) => {
     return (
         <div className="flexAndCenter">
             <section className="side">
+                <div className="blockShowMenu">
+                    <button className="btnShowMenu">скрыть</button>
+                </div>
                 <a href='#!' className="nameSidebar"
                    onClick={(e) => {
                        props.setLimSessionTitle('none');

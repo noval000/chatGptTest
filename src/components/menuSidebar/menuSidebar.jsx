@@ -44,7 +44,7 @@ const MenuSidebar = (props) => {
                 }}
             >Профиль
             </button>
-            <button
+            <button className="btnArchive"
                 onClick={(e) => {
                     setOpen2(!open2);
                 }}
