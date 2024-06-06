@@ -132,12 +132,15 @@ const Home = (props) => {
 
     useEffect(() => {
         const submitFirstChat = (e) => {
+            const llm_model = 'chatgpt';
+            const llm_query = valueChatGpt;
             setChangeSessionForSubmitGpt(true)
             // Данные для отправки на сервер
             const data = {
                 llm_session_title,
                 llm_session_id,
-                valueChatGpt
+                llm_model,
+                llm_query
             };
             // Отправка данных на сервер
             axios.post('/api/llm_session/new_query', data)
@@ -149,7 +152,7 @@ const Home = (props) => {
                         datetime_response: messageGptTest.datetime_response,
                         id: messageGptTest.id,
                         model: messageGptTest.model,
-                        query: valueChatGpt,
+                        query: llm_query,
                         response: messageGptTest.response,
                         session_id: messageGptTest.session_id,
                         task: messageGptTest.task,
