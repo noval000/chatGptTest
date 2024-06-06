@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import './menuSidebar.css';
 import ModalProfile from "../modalProfile/modalProfile";
 import ArchiveProfile from "../archiveProfile/archiveProfile";
