@@ -37,6 +37,8 @@ const Home = (props) => {
 
 
 
+    const [hideSidebar, setHideSidebar] = useState(false);   //   скрытие меню
+
 
     useEffect(() => {
         const submitFirstChat = (e) => {
@@ -271,6 +273,8 @@ const Home = (props) => {
     return (
         <div>
             <Sidebar
+                hideSidebar={hideSidebar}
+                setHideSidebar={setHideSidebar}   //   скрытие меню
                 setArchiveSession={props.setArchiveSession}
                 archiveSession={props.archiveSession}   //   все архивные сессии
                 setFirstName={props.setFirstName}
@@ -306,6 +310,8 @@ const Home = (props) => {
                 setLimSessionId={setLimSessionId}
             />
             <MainSectionForm
+                hideSidebar={hideSidebar}
+                setHideSidebar={setHideSidebar}   //   скрытие меню
                 setOpenTheeWindowNewSession={setOpenTheeWindowNewSession}    ///    для открытия 3 окон при отправке запроса с новой сессии
                 openTheeWindowNewSession={openTheeWindowNewSession}   ///    для открытия 3 окон при отправке запроса с новой сессии
                 changeSessionForSubmitAll={changeSessionForSubmitAll}    //   отслеживаем изменилось ли значение при отправке c главной

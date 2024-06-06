@@ -12,7 +12,8 @@ const FirstChat = (props) => {
 
 
     return (
-        <div className="oneChatContainer">
+        <div
+            className={!props.hideSidebar ? 'oneChatContainer showMin' : 'oneChatContainer showAll'}>
             <div className="titleOneChatContainer">
                 <img src={trizLogo} alt=""/>
                 <h5>Здравствуйте, {props.firstname}. Введите ваш запрос</h5>
@@ -33,12 +34,12 @@ const FirstChat = (props) => {
                                    form.addEventListener('submit', e => {
                                        // const llm_session_title = props.llm_session_title;
                                        // const llm_session_id = props.llm_session_id;
-                                       const inpGetValue = props.inpGetValue;
+                                       const all = props.inpGetValue;
                                        e.preventDefault();
                                        const data = {
                                            // llm_session_title,
                                            // llm_session_id,
-                                           inpGetValue,
+                                           all,
 
                                            // valueChatGpt
                                            // valueChatClaude,
@@ -66,7 +67,7 @@ const FirstChat = (props) => {
                                                    datetime_response: messageGpt.datetime_response,
                                                    id: messageGpt.id,
                                                    model: messageGpt.model,
-                                                   query: inpGetValue,
+                                                   query: all,
                                                    response: messageGpt.response,
                                                    session_id: messageGpt.session_id,
                                                    task: messageGpt.task,
@@ -77,7 +78,7 @@ const FirstChat = (props) => {
                                                    datetime_response: messageClaude.datetime_response,
                                                    id: messageClaude.id,
                                                    model: messageClaude.model,
-                                                   query: inpGetValue,
+                                                   query: all,
                                                    response: messageClaude.response,
                                                    session_id: messageClaude.session_id,
                                                    task: messageClaude.task,
@@ -88,7 +89,7 @@ const FirstChat = (props) => {
                                                    datetime_response: messageGigachat.datetime_response,
                                                    id: messageGigachat.id,
                                                    model: messageGigachat.model,
-                                                   query: inpGetValue,
+                                                   query: all,
                                                    response: messageGigachat.response,
                                                    session_id: messageGigachat.session_id,
                                                    task: messageGigachat.task,

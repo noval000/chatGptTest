@@ -68,3 +68,32 @@
     font-size: 10px;
     color: #696969;
 }
+
+.showAll {
+    animation-name: showAll;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+}
+.showMin {
+    animation-name: showMin;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes showAll {
+    0% {
+        width: calc(100% - 280px);
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes showMin {
+    0% {
+        width: 100%;
+    }
+    100% {
+        width: calc(100% - 280px);
+    }
+}

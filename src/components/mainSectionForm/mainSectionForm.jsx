@@ -18,6 +18,8 @@ const MainSectionForm = (props) => {
                 props.llm_session_id === '' &&
                 props.openTheeWindowNewSession === false &&
                 <FirstChat
+                    hideSidebar={props.hideSidebar}
+                    setHideSidebar={props.setHideSidebar}   //   скрытие меню
                     setLimSessionId={props.setLimSessionId}
                     llm_session_title={props.llm_session_title}  //   название сессии
                     llm_session_id={props.llm_session_id}  //  id session
@@ -44,6 +46,8 @@ const MainSectionForm = (props) => {
                 props.llm_session_id === 'none' &&
                 props.openTheeWindowNewSession === false &&
                 <FirstChat
+                    hideSidebar={props.hideSidebar}
+                    setHideSidebar={props.setHideSidebar}   //   скрытие меню
                     setLimSessionId={props.setLimSessionId}
                     llm_session_title={props.llm_session_title}  //   название сессии
                     llm_session_id={props.llm_session_id}  //  id session
@@ -78,7 +82,7 @@ const MainSectionForm = (props) => {
                 props.llm_session_title !== 'none' &&
                 props.llm_session_id !== 'none' &&
                 props.openTheeWindowNewSession === false &&
-                <div className="chat-container">
+                <div className={!props.hideSidebar ? 'chat-container showMin' : 'chat-container showAll'}>
                     <ColChatsGpt
                         setChangeSessionForSubmitAll={props.setChangeSessionForSubmitAll}
                         session={props.session}    // все сессии
@@ -135,7 +139,7 @@ const MainSectionForm = (props) => {
 
             {
                 props.openTheeWindowNewSession === true &&     //  при отправке нового запроса появляются эти колонки
-                <div className="chat-container">
+                <div className={!props.hideSidebar ? 'chat-container showMin' : 'chat-container showAll'}>
                     <ColChatsGpt
                         setChangeSessionForSubmitAll={props.setChangeSessionForSubmitAll}
                         session={props.session}    // все сессии
@@ -188,8 +192,6 @@ const MainSectionForm = (props) => {
                     />
                 </div>
             }
-
-
 
 
         </>

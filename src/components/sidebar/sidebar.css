@@ -13,7 +13,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 5px 10px;
-    margin: 40px 10px 10px 15px;
+    margin: 60px 10px 10px 15px;
     position: fixed;
     top: 0;
     width: 237px;
@@ -29,13 +29,14 @@
     transition: .5s all ease;
     padding: 5px;
     border-radius: 5px;
+    cursor: pointer;
 }
 .signIn:hover {
-    background: #cccccc;
+    background: #e0e0e0;
 }
 
 .sessions {
-    margin-top: 70px;
+    margin-top: 100px;
     padding: 0 10px 0 25px;
     height: 70vh;
     overflow: hidden scroll;
@@ -100,7 +101,7 @@
 }
 
 .menu {
-    padding: 20px 20px 0 35px;
+    padding: 20px 20px 0 20px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -127,4 +128,68 @@
     width: 237px;
     transition: .5s all ease;
     border-radius: 10px;
+}
+
+.btnShowMenu {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .5s all ease;
+    border-radius: 5px;
+}
+
+.btnShowMenu:hover {
+    background: #e8e8e8;
+}
+
+.hide {
+    animation-name: hideMenu;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+}
+
+.show {
+    animation-name: showMenu;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes hideMenu {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: -280px;
+    }
+}
+
+@keyframes showMenu {
+    0% {
+        left: -280px;
+    }
+    100% {
+        left: -0;
+    }
+}
+
+.btnShowMenuZ {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+}
+
+.btnHideSidebarNow {
+    border: none;
+    background: transparent;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btnHideSidebarNow:hover {
+    background: #e8e8e8;
 }
