@@ -40,7 +40,7 @@ const Home = (props) => {
 
     useEffect(() => {
         const submitFirstChat = (e) => {
-            const llm_model = 'chatgigachat';
+            const llm_model = 'gigachat';
             const llm_query = valueChatGigachat;
             setChangeSessionForSubmit(true)
             // Данные для отправки на сервер
@@ -90,7 +90,7 @@ const Home = (props) => {
     useEffect(() => {
 
         const submitFirstChat = (e) => {
-            const llm_model = 'chatclaude';
+            const llm_model = 'claude';
             const llm_query = valueChatClaude;
             setChangeSessionForSubmitClaude(true);
             // Данные для отправки на сервер
