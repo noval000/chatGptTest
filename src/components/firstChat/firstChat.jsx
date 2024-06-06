@@ -34,12 +34,14 @@ const FirstChat = (props) => {
                                    form.addEventListener('submit', e => {
                                        // const llm_session_title = props.llm_session_title;
                                        // const llm_session_id = props.llm_session_id;
-                                       const all = props.inpGetValue;
+                                       const llm_query = props.inpGetValue;
+                                       const llm_model = 'all';
                                        e.preventDefault();
                                        const data = {
                                            // llm_session_title,
                                            // llm_session_id,
-                                           all,
+                                           llm_model,
+                                           llm_query
 
                                            // valueChatGpt
                                            // valueChatClaude,
@@ -67,7 +69,7 @@ const FirstChat = (props) => {
                                                    datetime_response: messageGpt.datetime_response,
                                                    id: messageGpt.id,
                                                    model: messageGpt.model,
-                                                   query: all,
+                                                   query: llm_query,
                                                    response: messageGpt.response,
                                                    session_id: messageGpt.session_id,
                                                    task: messageGpt.task,
@@ -78,7 +80,7 @@ const FirstChat = (props) => {
                                                    datetime_response: messageClaude.datetime_response,
                                                    id: messageClaude.id,
                                                    model: messageClaude.model,
-                                                   query: all,
+                                                   query: llm_query,
                                                    response: messageClaude.response,
                                                    session_id: messageClaude.session_id,
                                                    task: messageClaude.task,
@@ -89,7 +91,7 @@ const FirstChat = (props) => {
                                                    datetime_response: messageGigachat.datetime_response,
                                                    id: messageGigachat.id,
                                                    model: messageGigachat.model,
-                                                   query: all,
+                                                   query: llm_query,
                                                    response: messageGigachat.response,
                                                    session_id: messageGigachat.session_id,
                                                    task: messageGigachat.task,
