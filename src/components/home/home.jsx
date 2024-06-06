@@ -40,12 +40,15 @@ const Home = (props) => {
 
     useEffect(() => {
         const submitFirstChat = (e) => {
+            const llm_model = 'chatgigachat';
+            const llm_query = valueChatGigachat;
             setChangeSessionForSubmit(true)
             // Данные для отправки на сервер
             const data = {
                 llm_session_title,
                 llm_session_id,
-                valueChatGigachat
+                llm_model,
+                llm_query
             };
             // Отправка данных на сервер
             axios.post('/api/llm_session/new_query', data)
@@ -57,7 +60,7 @@ const Home = (props) => {
                         datetime_response: messageGigachatTest.datetime_response,
                         id: messageGigachatTest.id,
                         model: messageGigachatTest.model,
-                        query: valueChatGigachat,
+                        query: llm_query,
                         response: messageGigachatTest.response,
                         session_id: messageGigachatTest.session_id,
                         task: messageGigachatTest.task,
@@ -85,13 +88,17 @@ const Home = (props) => {
     }, [changeSessionForSubmit]);    //  отправка запроса на ответ от чата gigachat
 
     useEffect(() => {
+
         const submitFirstChat = (e) => {
+            const llm_model = 'chatclaude';
+            const llm_query = valueChatClaude;
             setChangeSessionForSubmitClaude(true);
             // Данные для отправки на сервер
             const data = {
                 llm_session_title,
                 llm_session_id,
-                valueChatClaude
+                llm_model,
+                llm_query
             };
             // Отправка данных на сервер
             axios.post('/api/llm_session/new_query', data)
@@ -103,7 +110,7 @@ const Home = (props) => {
                         datetime_response: messageClaudeTest.datetime_response,
                         id: messageClaudeTest.id,
                         model: messageClaudeTest.model,
-                        query: valueChatClaude,
+                        query: llm_query,
                         response: messageClaudeTest.response,
                         session_id: messageClaudeTest.session_id,
                         task: messageClaudeTest.task,
