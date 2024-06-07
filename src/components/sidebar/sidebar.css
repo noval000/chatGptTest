@@ -148,16 +148,16 @@
 
 .hide {
     left: -280px;
-    animation-name: hideMenu;
-    animation-duration: .1ms;
-    animation-fill-mode: forwards;
+    /*animation-name: hideMenu;*/
+    /*animation-duration: .1ms;*/
+    /*animation-fill-mode: forwards;*/
 }
 
 .show {
     left: 0;
-    animation-name: showMenu;
-    animation-duration: .1ms;
-    animation-fill-mode: forwards;
+    /*animation-name: showMenu;*/
+    /*animation-duration: .1ms;*/
+    /*animation-fill-mode: forwards;*/
 }
 
 /*@keyframes hideMenu {*/
