@@ -27,13 +27,17 @@ const MenuSidebar = (props) => {
         setOpen2(false);
     }
 
-    if (open) {
-        document.body.addEventListener('click' , closeModalProfile);    //   при клике вне модалки
-    }
+    useEffect(() => {
+        if (open) {
+            document.body.addEventListener('click' , closeModalProfile);    //   при клике вне модалки
+        }
+    }, [open]);
 
-    if (open2) {
-        document.body.addEventListener('click' , closeModalProfile);    //   при клике вне модалки
-    }
+    useEffect(() => {
+        if (open2) {
+            document.body.addEventListener('click' , closeModalProfile);    //   при клике вне модалки
+        }
+    }, [open2]);
 
 
     return (
@@ -51,36 +55,32 @@ const MenuSidebar = (props) => {
             >Архив</button>
 
 
-            {
-                open &&
-                <ModalProfile
-                    open={open}
-                    setOpen={setOpen}
-                    closeModalProfile={closeModalProfile}
-                    setBtnChangeInfo={setBtnChangeInfo}   //  разблочивание инпутов для редактирования
-                    btnChangeInfo={btnChangeInfo}
-                    firstname={props.firstname}   //  name
-                    setFirstName={props.setFirstName}
-                    lastname={props.lastname}    //   familiya
-                    setLastNameLogin={props.setLastNameLogin}
-                    patronymicLogin={props.patronymicLogin} //   otchestvo
-                    setPatronymicLogin={props.setPatronymicLogin}
-                    organizationLogin={props.organizationLogin}   //   organization
-                    setOrganizationLogin={props.setOrganizationLogin}
-                    mailLogin={props.mailLogin}  // mail
-                    setMailLogin={props.setMailLogin}
-                />
-            }
-            {
-                open2 &&
-                <ArchiveProfile
-                    setArchiveSession={props.setArchiveSession}
-                    archiveSession={props.archiveSession}   //   все архивные сессии
-                    open2={open2}
-                    setOpen2={setOpen2}
-                    closeModalProfile={closeModalProfile}
-                />
-            }
+            <ModalProfile
+                open={open}
+                setOpen={setOpen}
+                closeModalProfile={closeModalProfile}
+                setBtnChangeInfo={setBtnChangeInfo}   //  разблочивание инпутов для редактирования
+                btnChangeInfo={btnChangeInfo}
+                firstname={props.firstname}   //  name
+                setFirstName={props.setFirstName}
+                lastname={props.lastname}    //   familiya
+                setLastNameLogin={props.setLastNameLogin}
+                patronymicLogin={props.patronymicLogin} //   otchestvo
+                setPatronymicLogin={props.setPatronymicLogin}
+                organizationLogin={props.organizationLogin}   //   organization
+                setOrganizationLogin={props.setOrganizationLogin}
+                mailLogin={props.mailLogin}  // mail
+                setMailLogin={props.setMailLogin}
+            />
+
+            <ArchiveProfile
+                setArchiveSession={props.setArchiveSession}
+                archiveSession={props.archiveSession}   //   все архивные сессии
+                open2={open2}
+                setOpen2={setOpen2}
+                closeModalProfile={closeModalProfile}
+            />
+
 
 
 

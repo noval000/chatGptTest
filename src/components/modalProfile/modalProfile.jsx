@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Popup from "reactjs-popup";
 
 const ModalProfile = (props) => {
+
+
     return (
 
         <Popup open={props.open} closeOnDocumentClick closeModalProfile={props.closeModalProfile}>
