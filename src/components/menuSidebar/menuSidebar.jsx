@@ -27,17 +27,13 @@ const MenuSidebar = (props) => {
         setOpen2(false);
     }
 
-    useEffect(() => {
-        if (open) {
-            document.body.addEventListener('click' , closeModalProfile);    //   при клике вне модалки
-        }
-    }, [open]);
+    if (open) {
+        document.body.addEventListener('click' , closeModalProfile);    //   при клике вне модалки
+    }
 
-    useEffect(() => {
-        if (open2) {
-            document.body.addEventListener('click' , closeModalProfile);    //   при клике вне модалки
-        }
-    }, [open2]);
+    if (open2) {
+        document.body.addEventListener('click' , closeModalProfile);    //   при клике вне модалки
+    }
 
 
     return (
