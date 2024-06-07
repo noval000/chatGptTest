@@ -28,11 +28,15 @@ const MenuSidebar = (props) => {
     }
 
     useEffect(() => {
-        document.body.addEventListener('click' , closeModalProfile);    //   при клике вне модалки
+        if (open) {
+            document.body.addEventListener('click' , closeModalProfile);    //   при клике вне модалки
+        }
     }, [open]);
 
     useEffect(() => {
-        document.body.addEventListener('click' , closeModalProfile);    //   при клике вне модалки
+        if (open2) {
+            document.body.addEventListener('click' , closeModalProfile);    //   при клике вне модалки
+        }
     }, [open2]);
 
 
