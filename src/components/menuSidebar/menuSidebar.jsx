@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './menuSidebar.css';
 import ModalProfile from "../modalProfile/modalProfile";
 import ArchiveProfile from "../archiveProfile/archiveProfile";
@@ -27,13 +27,13 @@ const MenuSidebar = (props) => {
         setOpen2(false);
     }
 
-    // useEffect(() => {
-    //     document.body.addEventListener('click' , closeModalProfile);    //   при клике вне модалки
-    // }, [open]);
-    //
-    // useEffect(() => {
-    //     document.body.addEventListener('click' , closeModalProfile);    //   при клике вне модалки
-    // }, [open2]);
+    useEffect(() => {
+        document.body.addEventListener('click' , closeModalProfile);    //   при клике вне модалки
+    }, [open]);
+
+    useEffect(() => {
+        document.body.addEventListener('click' , closeModalProfile);    //   при клике вне модалки
+    }, [open2]);
 
 
     return (
