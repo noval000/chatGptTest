@@ -16,7 +16,7 @@ const MenuSidebar = (props) => {
 
 
     const [open, setOpen] = useState(false);
-    const [open2, setOpen2] = useState(false);
+    // const [open2, setOpen2] = useState(false);
 
 
 
@@ -24,7 +24,7 @@ const MenuSidebar = (props) => {
     const closeModalProfile = () => {
         setBtnChangeInfo(false);
         setOpen(false);
-        setOpen2(false);
+        // setOpen2(false);
     }
 
     // useEffect(() => {
@@ -46,7 +46,7 @@ const MenuSidebar = (props) => {
             </button>
             <button className="btnArchive"
                 onClick={(e) => {
-                    setOpen2(!open2);
+                    setOpen(!open);
                 }}
             >Архив</button>
 
@@ -71,8 +71,8 @@ const MenuSidebar = (props) => {
             <ArchiveProfile
                 setArchiveSession={props.setArchiveSession}
                 archiveSession={props.archiveSession}   //   все архивные сессии
-                open2={open2}
-                setOpen2={setOpen2}
+                open={open}
+                setOpen={setOpen}
                 closeModalProfile={closeModalProfile}
             />
 
