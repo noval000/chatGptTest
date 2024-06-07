@@ -17,6 +17,7 @@
     border-radius: 50%;
     height: 40px;
     box-shadow: -2px 2px 2px #000;
+    z-index: 9;
 }
 
 .changeUserProfile {

@@ -1,89 +1,106 @@
 import React, {useState} from 'react';
 import Popup from "reactjs-popup";
+import './modalProfile.css';
 
 const ModalProfile = (props) => {
 
 
-    return (
+    const [open, setOpen] = useState(false);
 
-        <Popup open={props.open} closeOnDocumentClick closeModalProfile={props.closeModalProfile}>
-            <div className="modal profileModal">
-                <div className="closeModal" onClick={() => {
-                    props.setOpen(false)
-                }}>
-                    &times;
-                </div>
-                <div className="headerModal">
-                    <div className="headerModalTitle">
-                        <h4>Профиль</h4>
+    const [btnChangeInfo, setBtnChangeInfo] = useState(false);   //  разблочивание инпутов для редактирования
+    const closeModalProfile = () => {
+        setOpen(false)
+        setBtnChangeInfo(false);
+    }
+
+
+
+
+    return (
+        <>
+            <button className="btnProfile"
+                    onClick={(e) => {
+                        setOpen(o => !o)
+                    }}
+            >Профиль
+            </button>
+            <Popup open={open} closeOnDocumentClick closeModalProfile={closeModalProfile}>
+                <div className="modal profileModal">
+                    <div className="closeModal">
+                        &times;
                     </div>
-                    <button
-                        className={props.btnChangeInfo ? 'noneBtnChange' : 'changeInfoBtn '}
-                        onClick={() => {
-                            props.setBtnChangeInfo(!props.btnChangeInfo);
-                        }}
-                    >
-                        Изменить данные
-                    </button>
-                    <button className={props.btnChangeInfo ? 'changeInfoBtn' : 'noneBtnChange '}
+                    <div className="headerModal">
+                        <div className="headerModalTitle">
+                            <h4>Профиль</h4>
+                        </div>
+                        <button
+                            className={btnChangeInfo ? 'noneBtnChange' : 'changeInfoBtn'}
                             onClick={() => {
-                                props.setBtnChangeInfo(!props.btnChangeInfo);
+                                setBtnChangeInfo(!btnChangeInfo);
                             }}
-                    >
-                        Сохранить данные
-                    </button>
-                    <div className="changeUserProfile">
-                        <form action="" id="userProfile">
-                            <div className="name">
-                                <h4>Имя</h4>
-                                <input type="text" className="firstname" value={props.firstname}
-                                       disabled={!props.btnChangeInfo}
-                                       onChange={(e) => {
-                                           props.setFirstName(e.target.value);
-                                       }}
-                                />
-                            </div>
-                            <div className="lastname">
-                                <h4>Фамилия</h4>
-                                <input type="text" className="lastname" value={props.lastname}
-                                       disabled={!props.btnChangeInfo}
-                                       onChange={(e) => {
-                                           props.setLastNameLogin(e.target.value);
-                                       }}
-                                />
-                            </div>
-                            <div className="patronymicLogin">
-                                <h4>Отчество</h4>
-                                <input type="text" className="patronymicLogin" value={props.patronymicLogin}
-                                       disabled={!props.btnChangeInfo}
-                                       onChange={(e) => {
-                                           props.setPatronymicLogin(e.target.value)
-                                       }}
-                                />
-                            </div>
-                            <div className="organizationLogin">
-                                <h4>Организация</h4>
-                                <input type="text" className="organizationLogin" value={props.organizationLogin}
-                                       disabled={!props.btnChangeInfo}
-                                       onChange={(e) => {
-                                           props.setOrganizationLogin(e.target.value)
-                                       }}
-                                />
-                            </div>
-                            <div className="mailLogin">
-                                <h4>Маил</h4>
-                                <input type="text" className="mailLogin" value={props.mailLogin}
-                                       disabled={!props.btnChangeInfo}
-                                       onChange={(e) => {
-                                           props.setMailLogin(e.target.value)
-                                       }}
-                                />
-                            </div>
-                        </form>
+                        >
+                            Изменить данные
+                        </button>
+                        <button className={btnChangeInfo ? 'changeInfoBtn activeColor' : 'noneBtnChange'}
+                                onClick={() => {
+                                    setBtnChangeInfo(!btnChangeInfo);
+                                }}
+                        >
+                            Сохранить данные
+                        </button>
+                        <div className="changeUserProfile">
+                            <form action="" id="userProfile">
+                                <div className="name">
+                                    <h4>Имя</h4>
+                                    <input type="text" className="firstname" value={props.firstname || ''}
+                                           disabled={!btnChangeInfo}
+                                           onChange={(e) => {
+                                               props.setFirstName(e.target.value);
+                                           }}
+                                    />
+                                </div>
+                                <div className="lastname">
+                                    <h4>Фамилия</h4>
+                                    <input type="text" className="lastname" value={props.lastname || ''}
+                                           disabled={!btnChangeInfo}
+                                           onChange={(e) => {
+                                               props.setLastNameLogin(e.target.value);
+                                           }}
+                                    />
+                                </div>
+                                <div className="patronymicLogin">
+                                    <h4>Отчество</h4>
+                                    <input type="text" className="patronymicLogin" value={props.patronymicLogin || ''}
+                                           disabled={!btnChangeInfo}
+                                           onChange={(e) => {
+                                               props.setPatronymicLogin(e.target.value)
+                                           }}
+                                    />
+                                </div>
+                                <div className="organizationLogin">
+                                    <h4>Организация</h4>
+                                    <input type="text" className="organizationLogin" value={props.organizationLogin || ''}
+                                           disabled={!btnChangeInfo}
+                                           onChange={(e) => {
+                                               props.setOrganizationLogin(e.target.value)
+                                           }}
+                                    />
+                                </div>
+                                <div className="mailLogin">
+                                    <h4>Маил</h4>
+                                    <input type="text" className="mailLogin" value={props.mailLogin || ''}
+                                           disabled={!btnChangeInfo}
+                                           onChange={(e) => {
+                                               props.setMailLogin(e.target.value)
+                                           }}
+                                    />
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </Popup>
+            </Popup>
+        </>
     );
 };
 
