@@ -71,12 +71,12 @@
 
 .showAll {
     animation-name: showAll;
-    animation-duration: .5s;
+    animation-duration: .2s;
     animation-fill-mode: forwards;
 }
 .showMin {
     animation-name: showMin;
-    animation-duration: .5s;
+    animation-duration: .2s;
     animation-fill-mode: forwards;
 }
 
