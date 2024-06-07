@@ -101,7 +101,7 @@ const Sidebar = (props) => {
 
 
 
-    // const [Sidebar, setHideSidebar] = useState(false);   //   скрытие меню
+    const [Sidebar, setHideSidebar] = useState(false);   //   скрытие меню
 
     return (
         <div className="flexAndCenter">

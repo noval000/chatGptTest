@@ -108,7 +108,11 @@ const ColChatsGpt = (props) => {
                                         </div>
                                     </div>
                                     <div className="zapros">
-                                        <p>{el.response}</p>
+                                        <p>
+                                            {
+                                            el.response
+                                            }
+                                        </p>
                                     </div>
                                     <div className="allBtn d-flex align-items-start">
                                         <a href="#!" type="button" className="btnLike like btn btn-sm">

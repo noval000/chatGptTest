@@ -23,7 +23,8 @@ const ArchiveProfile = (props) => {
                     <div className="AllSession">
                         {
                             props.archiveSession.map(el => (
-                                <ul className="listsArchiveSession">
+                                <ul key={el.id}
+                                    className="listsArchiveSession">
                                     <li className="listArchiveSession">
                                         <div className="nameSess">
                                             {el.title}
@@ -37,7 +38,6 @@ const ArchiveProfile = (props) => {
                                                 + ':' + new Date(el.datetime_last_update).getMinutes()
                                             }
                                         </div>
-
                                     </li>
                                 </ul>
                             ))

@@ -148,13 +148,13 @@
 
 .hide {
     animation-name: hideMenu;
-    animation-duration: .5s;
+    animation-duration: .2s;
     animation-fill-mode: forwards;
 }
 
 .show {
     animation-name: showMenu;
-    animation-duration: .5s;
+    animation-duration: .2s;
     animation-fill-mode: forwards;
 }
 
