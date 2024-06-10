@@ -1,0 +1,11 @@
+.PageProfile {
+    display: flex;
+    width: calc(100% - 280px - 100px);
+    flex-direction: column;
+    float: right;
+    margin-right: 50px;
+}
+
+.changeUserProfile {
+    margin-top: 50px;
+}

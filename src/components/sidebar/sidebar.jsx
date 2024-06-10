@@ -165,6 +165,7 @@ const Sidebar = (props) => {
                               if (props.openTheeWindowNewSession === true) {
                                   props.setOpenTheeWindowNewSession(false);
                               }
+                              props.setPageProfile(false)   //    скрываем страницу профиля
                           }}
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
@@ -187,6 +188,7 @@ const Sidebar = (props) => {
                        if (props.openTheeWindowNewSession === true) {
                            props.setOpenTheeWindowNewSession(false);
                        }
+                       props.setPageProfile(false)   //    скрываем страницу профиля
                    }}
                 >
                     Помощник ТРИЗ
@@ -212,6 +214,7 @@ const Sidebar = (props) => {
                                 <a href="#!"
                                    className='linkActive'
                                    onClick={(e) => {
+                                       props.setPageProfile(false)   //    скрываем страницу профиля
                                        const hoverLink = document.querySelectorAll('.linkSession');
                                        hoverLink.forEach(el => {
                                            el.addEventListener('click', e => {
@@ -251,6 +254,8 @@ const Sidebar = (props) => {
                 </div>
 
                 <MenuSidebar
+                    pageProfile={props.pageProfile}   //     открытие страницы профиля
+                    setPageProfile={props.setPageProfile}
                     setArchiveSession={props.setArchiveSession}
                     archiveSession={props.archiveSession}   //   все архивные сессии
                     setFirstName={props.setFirstName}

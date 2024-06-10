@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import Sidebar from "../sidebar/sidebar";
 import MainSectionForm from "../mainSectionForm/mainSectionForm";
 import axios from "axios";
+import ModalProfile from "../modalProfile/modalProfile";
+import PageProfile from "../pageProfile/pageProfile";
 
 const Home = (props) => {
 
@@ -188,91 +190,20 @@ const Home = (props) => {
         console.log(sessionChatGpt)
     }, [changeSessionForSubmitGpt]);    //  отправка запроса на ответ от чата gpt
 
-    // useEffect(() => {
-    //     const submitFirstChat = (e) => {
-    //         // props.setSession([props.inpGetValue, ...props.session])
-    //         // e.preventDefault();
-    //         setChangeSessionForSubmitAll(true)
-    //         // Данные для отправки на сервер
-    //         const data = {
-    //             llm_session_title,
-    //             llm_session_id,
-    //             inpGetValue,
-    //             // valueChatGpt
-    //             // valueChatClaude,
-    //             // valueChatGigachat
-    //         };
-    //         // Отправка данных на сервер
-    //         axios.post('/api/llm_session/new_query', data)
-    //             .then(response => {
-    //                 console.log('Server response:', response.data);
-    //                 const messageGpt = response.data.filter(el => el.datetime_response === 'chatgpt');
-    //                 const messageClaude = response.data.filter(el => el.datetime_response === 'claude');
-    //                 const messageGigachat = response.data.filter(el => el.datetime_response === 'gigachat');
-    //                 const newMessageGpt = {
-    //                     datetime_query: messageGpt[0].datetime_query,
-    //                     datetime_response: messageGpt[0].datetime_response,
-    //                     id: messageGpt[0].id,
-    //                     model: messageGpt[0].model,
-    //                     query: inpGetValue,
-    //                     response: messageGpt[0].response,
-    //                     session_id: messageGpt[0].session_id,
-    //                     task: messageGpt[0].task,
-    //                     user_score: messageGpt[0].user_score
-    //                 };
-    //                 const newMessageClaude = {
-    //                     datetime_query: messageClaude[0].datetime_query,
-    //                     datetime_response: messageClaude[0].datetime_response,
-    //                     id: messageClaude[0].id,
-    //                     model: messageClaude[0].model,
-    //                     query: inpGetValue,
-    //                     response: messageClaude[0].response,
-    //                     session_id: messageClaude[0].session_id,
-    //                     task: messageClaude[0].task,
-    //                     user_score: messageClaude[0].user_score
-    //                 };
-    //                 const newMessageGigachat = {
-    //                     datetime_query: messageGigachat[0].datetime_query,
-    //                     datetime_response: messageGigachat[0].datetime_response,
-    //                     id: messageGigachat[0].id,
-    //                     model: messageGigachat[0].model,
-    //                     query: inpGetValue,
-    //                     response: messageGigachat[0].response,
-    //                     session_id: messageGigachat[0].session_id,
-    //                     task: messageGigachat[0].task,
-    //                     user_score: messageGigachat[0].user_score
-    //                 };
-    //                 setSessionChatGpt([...sessionChatGpt, newMessageGpt]);
-    //                 setSessionChatClaude([...sessionChatClaude, newMessageClaude]);
-    //                 setSessionChatGigachat([...sessionChatGigachat, newMessageGigachat]);
-    //             })
-    //             .finally(() => {
-    //                 setValue('');
-    //                 setValueChatGigachat('');
-    //                 setValueChatClaude('');
-    //                 setValueChatGpt('');
-    //                 setChangeSessionForSubmitGpt(false);
-    //             })
-    //             .catch(error => {
-    //                 console.error('There was an error sending the data!', error);
-    //             });
-    //     };
-    //
-    //     if (setChangeSessionForSubmitAll === true) {
-    //         submitFirstChat();
-    //     }
-    //     setValue('');
-    //     setValueChatGigachat('');
-    //     setValueChatClaude('');
-    //     setValueChatGpt('');
-    //     console.log(changeSessionForSubmit)
-    //     console.log(sessionChatGpt)
-    // }, [changeSessionForSubmitAll]);    //  отправка запроса на ответ в общий чат
+
+    const [pageProfile, setPageProfile] = useState(false);       //     открытие страницы профиля
+    const [btnChangeInfo, setBtnChangeInfo] = useState(false);   //  разблочивание инпутов для редактирования
+
+    // const [pageArchive, setPageArchive] = useState(false);
+
+
 
 
     return (
         <div>
             <Sidebar
+                pageProfile={pageProfile}   //     открытие страницы профиля
+                setPageProfile={setPageProfile}
                 hideSidebar={hideSidebar}
                 setHideSidebar={setHideSidebar}   //   скрытие меню
                 setArchiveSession={props.setArchiveSession}
@@ -309,42 +240,67 @@ const Home = (props) => {
                 llm_session_id={llm_session_id}  //  id session
                 setLimSessionId={setLimSessionId}
             />
-            <MainSectionForm
-                hideSidebar={hideSidebar}
-                setHideSidebar={setHideSidebar}   //   скрытие меню
-                setOpenTheeWindowNewSession={setOpenTheeWindowNewSession}    ///    для открытия 3 окон при отправке запроса с новой сессии
-                openTheeWindowNewSession={openTheeWindowNewSession}   ///    для открытия 3 окон при отправке запроса с новой сессии
-                changeSessionForSubmitAll={changeSessionForSubmitAll}    //   отслеживаем изменилось ли значение при отправке c главной
-                setChangeSessionForSubmitAll={setChangeSessionForSubmitAll}
-                changeSessionForSubmitClaude={changeSessionForSubmitClaude}   //   отслеживаем изменилось ли значение при отправке в claude
-                setChangeSessionForSubmitClaude={setChangeSessionForSubmitClaude}
-                changeSessionForSubmitGpt={changeSessionForSubmitGpt}   //   отслеживаем изменилось ли значение при отправке в gpt
-                setChangeSessionForSubmitGpt={setChangeSessionForSubmitGpt}
-                changeSessionForSubmit={changeSessionForSubmit}    //   отслеживаем изменилось ли значение при отправке в gigachat
-                setChangeSessionForSubmit={setChangeSessionForSubmit}
-                sessionChatGigachat={sessionChatGigachat}  //  все запросы в чат Gigachat
-                setSessionChatGigachat={setSessionChatGigachat}
-                valueChatGigachat={valueChatGigachat}    //  запрос в чат Gigachat
-                setValueChatGigachat={setValueChatGigachat}
-                valueChatClaude={valueChatClaude}      //  запрос в чат Claude
-                setValueChatClaude={setValueChatClaude}
-                sessionChatClaude={sessionChatClaude}      //  все запросы в чат Claude
-                setSessionChatClaude={setSessionChatClaude}
-                valueChatGpt={valueChatGpt}    //  запрос в чат гпт
-                setValueChatGpt={setValueChatGpt}
-                sessionChatGpt={sessionChatGpt}    //  все запросы в чат gpt
-                setSessionChatGpt={setSessionChatGpt}
-                llm_session_title={llm_session_title}  //   название сессии
-                setLimSessionTitle={setLimSessionTitle}
-                llm_session_id={llm_session_id}  //  id session
-                setLimSessionId={setLimSessionId}
-                firstname={props.firstname}  //   имя для приветствия
-                session={props.session}    // все сессии
-                setSession={props.setSession}    // изменение сессий
-                setValue={setValue}    //    первый запрос
-                inpGetValue={inpGetValue}
-                // submitFirstChat={submitFirstChat}
-            />
+            {
+                pageProfile === true &&
+                <PageProfile
+                    pageProfile={pageProfile}   //     открытие страницы профиля
+                    setPageProfile={setPageProfile}
+                    btnChangeInfo={btnChangeInfo}    //  разблочивание инпутов для редактирования
+                    setBtnChangeInfo={setBtnChangeInfo}
+                    setFirstName={props.setFirstName}  //   name
+                    firstname={props.firstname}
+                    lastname={props.lastname}       //   familiya
+                    setLastNameLogin={props.setLastNameLogin}
+                    patronymicLogin={props.patronymicLogin}    //     otchestvo
+                    setPatronymicLogin={props.setPatronymicLogin}
+                    organizationLogin={props.organizationLogin}    //  organiation
+                    setOrganizationLogin={props.setOrganizationLogin}
+                    mailLogin={props.mailLogin}   //    mail
+                    setMailLogin={props.setMailLogin}
+                />
+            }
+            {
+                pageProfile === false &&
+                <MainSectionForm
+                    pageProfile={pageProfile}   //     открытие страницы профиля
+                    setPageProfile={setPageProfile}
+                    hideSidebar={hideSidebar}
+                    setHideSidebar={setHideSidebar}   //   скрытие меню
+                    setOpenTheeWindowNewSession={setOpenTheeWindowNewSession}    ///    для открытия 3 окон при отправке запроса с новой сессии
+                    openTheeWindowNewSession={openTheeWindowNewSession}   ///    для открытия 3 окон при отправке запроса с новой сессии
+                    changeSessionForSubmitAll={changeSessionForSubmitAll}    //   отслеживаем изменилось ли значение при отправке c главной
+                    setChangeSessionForSubmitAll={setChangeSessionForSubmitAll}
+                    changeSessionForSubmitClaude={changeSessionForSubmitClaude}   //   отслеживаем изменилось ли значение при отправке в claude
+                    setChangeSessionForSubmitClaude={setChangeSessionForSubmitClaude}
+                    changeSessionForSubmitGpt={changeSessionForSubmitGpt}   //   отслеживаем изменилось ли значение при отправке в gpt
+                    setChangeSessionForSubmitGpt={setChangeSessionForSubmitGpt}
+                    changeSessionForSubmit={changeSessionForSubmit}    //   отслеживаем изменилось ли значение при отправке в gigachat
+                    setChangeSessionForSubmit={setChangeSessionForSubmit}
+                    sessionChatGigachat={sessionChatGigachat}  //  все запросы в чат Gigachat
+                    setSessionChatGigachat={setSessionChatGigachat}
+                    valueChatGigachat={valueChatGigachat}    //  запрос в чат Gigachat
+                    setValueChatGigachat={setValueChatGigachat}
+                    valueChatClaude={valueChatClaude}      //  запрос в чат Claude
+                    setValueChatClaude={setValueChatClaude}
+                    sessionChatClaude={sessionChatClaude}      //  все запросы в чат Claude
+                    setSessionChatClaude={setSessionChatClaude}
+                    valueChatGpt={valueChatGpt}    //  запрос в чат гпт
+                    setValueChatGpt={setValueChatGpt}
+                    sessionChatGpt={sessionChatGpt}    //  все запросы в чат gpt
+                    setSessionChatGpt={setSessionChatGpt}
+                    llm_session_title={llm_session_title}  //   название сессии
+                    setLimSessionTitle={setLimSessionTitle}
+                    llm_session_id={llm_session_id}  //  id session
+                    setLimSessionId={setLimSessionId}
+                    firstname={props.firstname}  //   имя для приветствия
+                    session={props.session}    // все сессии
+                    setSession={props.setSession}    // изменение сессий
+                    setValue={setValue}    //    первый запрос
+                    inpGetValue={inpGetValue}
+                    // submitFirstChat={submitFirstChat}
+                />
+            }
+
         </div>
     );
 };

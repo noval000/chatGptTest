@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import './menuSidebar.css';
 import ModalProfile from "../modalProfile/modalProfile";
 import ArchiveProfile from "../archiveProfile/archiveProfile";
@@ -27,6 +27,8 @@ const MenuSidebar = (props) => {
         <>
             <div className="menu">
                 <ModalProfile
+                    pageProfile={props.pageProfile}   //     открытие страницы профиля
+                    setPageProfile={props.setPageProfile}
                     firstname={props.firstname}   //  name
                     setFirstName={props.setFirstName}
                     lastname={props.lastname}    //   familiya
