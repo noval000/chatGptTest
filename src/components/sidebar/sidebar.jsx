@@ -256,7 +256,7 @@ const Sidebar = (props) => {
                     </div>
                     <form action="" id="changeName">
                         <div className="changeNameSession">
-                            Введите новое название сессии
+                            <h3>Введите новое название сессии</h3>
                         </div>
                         <input type="text" className="changeName" value={llm_session_title}
                                onChange={(e) => {
