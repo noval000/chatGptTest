@@ -1,5 +1,4 @@
-import React, {useState} from 'react';
-import Popup from "reactjs-popup";
+import React from 'react';
 import './modalProfile.css';
 
 const ModalProfile = (props) => {
@@ -20,8 +19,8 @@ const ModalProfile = (props) => {
         <>
             <button className="btnProfile"
                     onClick={(e) => {
-                        props.setPageProfile(true)
-                        console.log(props.pageProfile)
+                        props.setPageProfile(true);
+                        props.setPageArchive(false);
                         // setOpen(o => !o)
                     }}
             >Профиль

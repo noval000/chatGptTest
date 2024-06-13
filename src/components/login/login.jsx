@@ -21,6 +21,7 @@ const Login = (props) => {
     const [lastname, setLastNameLogin] = useState(''); //  фамилия пользователя
     const [patronymicLogin, setPatronymicLogin] = useState(''); //  отчество пользователя
     const [organizationLogin, setOrganizationLogin] = useState(''); //  организация пользователя
+    const [role, setRole] = useState(''); //  роль пользователя
 
 
     axios.defaults.withCredentials = true;
@@ -58,6 +59,7 @@ const Login = (props) => {
             setMailLogin(response.data.email);  //   mail user
             setUserid(response.data.id);     //  id user
             setResponseData(response.data);
+            setRole(response.data.role)   //  роль
             setLogin(response.data.logged_in);   //  true or false for validate
             setFirstName(response.data.first_name)   //  записываем имя для приветствия
             setSession(response.data.llm_sessions.filter(el => el.status === 'active').sort((a, b) =>     //   фильтруем массив по активным сессиям
@@ -139,6 +141,7 @@ const Login = (props) => {
             {
                 !openWindowRegistration &&
                 <CheckLogin
+                    role={role}  //  роль
                     setOrganizationLogin={setOrganizationLogin}  //  организация пользователя
                     organizationLogin={organizationLogin}
                     patronymicLogin={patronymicLogin}     //  отчество

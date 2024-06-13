@@ -166,6 +166,7 @@ const Sidebar = (props) => {
                                   props.setOpenTheeWindowNewSession(false);
                               }
                               props.setPageProfile(false)   //    скрываем страницу профиля
+                              props.setPageArchive(false)   //    скрываем страницу архива
                           }}
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
@@ -215,6 +216,7 @@ const Sidebar = (props) => {
                                    className='linkActive'
                                    onClick={(e) => {
                                        props.setPageProfile(false)   //    скрываем страницу профиля
+                                       props.setPageArchive(false)   //    скрываем страницу архива
                                        const hoverLink = document.querySelectorAll('.linkSession');
                                        hoverLink.forEach(el => {
                                            el.addEventListener('click', e => {
@@ -254,6 +256,8 @@ const Sidebar = (props) => {
                 </div>
 
                 <MenuSidebar
+                    pageArchive={props.pageArchive}       //     открытие страницы архива
+                    setPageArchive={props.setPageArchive}
                     pageProfile={props.pageProfile}   //     открытие страницы профиля
                     setPageProfile={props.setPageProfile}
                     setArchiveSession={props.setArchiveSession}

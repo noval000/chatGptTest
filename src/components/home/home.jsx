@@ -4,6 +4,7 @@ import MainSectionForm from "../mainSectionForm/mainSectionForm";
 import axios from "axios";
 import ModalProfile from "../modalProfile/modalProfile";
 import PageProfile from "../pageProfile/pageProfile";
+import PageArchive from "../pageArchive/pageArchive";
 
 const Home = (props) => {
 
@@ -194,6 +195,8 @@ const Home = (props) => {
     const [pageProfile, setPageProfile] = useState(false);       //     открытие страницы профиля
     const [btnChangeInfo, setBtnChangeInfo] = useState(false);   //  разблочивание инпутов для редактирования
 
+    const [pageArchive, setPageArchive] = useState(false);       //     открытие страницы архива
+
     // const [pageArchive, setPageArchive] = useState(false);
 
 
@@ -202,6 +205,8 @@ const Home = (props) => {
     return (
         <div>
             <Sidebar
+                pageArchive={pageArchive}       //     открытие страницы архива
+                setPageArchive={setPageArchive}
                 pageProfile={pageProfile}   //     открытие страницы профиля
                 setPageProfile={setPageProfile}
                 hideSidebar={hideSidebar}
@@ -243,6 +248,8 @@ const Home = (props) => {
             {
                 pageProfile === true &&
                 <PageProfile
+                    userId={props.userId}
+                    role={props.role}  //  роль
                     pageProfile={pageProfile}   //     открытие страницы профиля
                     setPageProfile={setPageProfile}
                     btnChangeInfo={btnChangeInfo}    //  разблочивание инпутов для редактирования
@@ -260,7 +267,15 @@ const Home = (props) => {
                 />
             }
             {
+                pageArchive === true &&
+                <PageArchive
+                    setArchiveSession={props.setArchiveSession}
+                    archiveSession={props.archiveSession}   //   все архивные сессии
+                />
+            }
+            {
                 pageProfile === false &&
+                pageArchive === false &&
                 <MainSectionForm
                     pageProfile={pageProfile}   //     открытие страницы профиля
                     setPageProfile={setPageProfile}

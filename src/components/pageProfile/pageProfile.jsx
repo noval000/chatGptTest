@@ -1,8 +1,62 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './pageProfile.css';
+import axios from "axios";
+
+
+
+
+
+
 
 
 const PageProfile = (props) => {
+
+
+    const [axiosChangeName, setAxiosChangeName] = useState(false);
+
+
+    useEffect(() => {
+        const submitFirstChat = (e) => {
+            const first_name = props.firstname;
+            const last_name = props.lastname;
+            const patronymic = props.patronymicLogin;
+            const organization = props.organizationLogin;
+            const email = props.mailLogin;
+            const id = props.userId;
+            const role = props.role;
+            console.log(                first_name,
+                last_name,
+                patronymic,
+                organization,
+                email,
+                id,
+                role)
+            // Данные для отправки на сервер
+            const data = {
+                first_name,
+                last_name,
+                patronymic,
+                organization,
+                email,
+                id,
+                role
+            };
+            // Отправка данных на сервер
+            axios.post('/api/profile/change_profile_settings', data)
+                .then(response => {
+                    console.log('Server response:', response.data);
+
+                })
+                .finally(() => {
+
+                })
+                .catch(error => {
+                    console.error('There was an error sending the data!', error);
+                });
+        };
+        submitFirstChat();
+    }, [axiosChangeName]);    //  отправка изменений профиля
+
     return (
         <div className="PageProfile">
             <div className="headerModalTitle">
@@ -19,6 +73,7 @@ const PageProfile = (props) => {
             <button className={props.btnChangeInfo ? 'changeInfoBtn activeColor' : 'noneBtnChange'}
                     onClick={() => {
                         props.setBtnChangeInfo(!props.btnChangeInfo);
+                        setAxiosChangeName(!axiosChangeName);
                     }}
             >
                 Сохранить данные

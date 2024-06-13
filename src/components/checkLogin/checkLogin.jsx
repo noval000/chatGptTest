@@ -48,6 +48,7 @@ const CheckLogin = (props) => {
             {
                 props.loginOk === true &&
                 <Home
+                    role={props.role}  //  роль
                     setArchiveSession={props.setArchiveSession}
                     archiveSession={props.archiveSession}   //   все архивные сессии
                     setOrganizationLogin={props.setOrganizationLogin}  //  организация пользователя

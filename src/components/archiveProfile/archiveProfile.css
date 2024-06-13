@@ -1,7 +1,10 @@
 .scrollModalSession {
-    overflow: hidden scroll;
-    max-height: 80vh;
+    overflow: scroll;
+    max-height: 90vh;
     position: relative;
+    width: calc(100% - 280px - 100px);
+    float: right;
+    margin-right: 50px;
 }
 
 .listArchiveSession {
@@ -22,7 +25,7 @@
 
 .fixedSession {
     position: fixed;
-    left: 50%;
-    transform: translate(-50%);
-    width: 36%;
+    width: calc(100% - 280px - 100px);
+    float: right;
+    margin-right: 50px;
 }
