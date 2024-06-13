@@ -157,12 +157,12 @@ const PageProfile = (props) => {
                                    setPassword(e.target.value)
                                }}
                         />
-                        <button className="btnPassword"
+                        <div className="btnPassword"
                         onClick={
                             console.log('change')
                         }>
                             Сохранить пароль
-                        </button>
+                        </div>
                     </div>
                 </form>
             </div>
