@@ -12,7 +12,7 @@ import axios from "axios";
 const PageProfile = (props) => {
 
 
-    // const [password, setPassword] = useState('');
+    const [password, setPassword] = useState('');
 
     const [axiosChangeName, setAxiosChangeName] = useState(false);       //      при изменении этого состояния отправляется форма (смена данных пользователя)
     // const [axiosChangePassword, setAxiosChangePassword] = useState(false);       //      при изменении этого состояния отправляется форма (смена данных пользователя)
@@ -153,9 +153,8 @@ const PageProfile = (props) => {
                     <div className="password">
                         <h4>Введите новый пароль</h4>
                         <input type="text" className="password" value=''
-                               disabled={!props.btnChangeInfo}
                                onChange={(e) => {
-                                   // setPassword(e.target.value)
+                                   setPassword(e.target.value)
                                }}
                         />
                         <button className="btnPassword">
