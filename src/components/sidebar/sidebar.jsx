@@ -11,9 +11,9 @@ const Sidebar = (props) => {
 
 
 
+    const [llm_session_title, setllm_session_title] = useState(props.llm_session_title);
 
 
-    let llm_session_title = props.llm_session_title;
     let llm_session_id = props.llm_session_id;
 
 
@@ -260,7 +260,7 @@ const Sidebar = (props) => {
                         </div>
                         <input type="text" className="changeName" value={llm_session_title}
                                onChange={(e) => {
-                                   llm_session_title = e.target.value
+                                   setllm_session_title(e.target.value)
                                    console.log(llm_session_title)
                                }}
                         />
