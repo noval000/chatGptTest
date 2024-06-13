@@ -4,6 +4,8 @@ import axios from "axios";
 
 const PageArchive = (props) => {
 
+    let idSession = '';
+    let titleSession = '';
 
     const [historyMessageSession, setHistoryMessageSession] = useState([]);
 
@@ -11,7 +13,8 @@ const PageArchive = (props) => {
         const submitFirstChat = (e) => {
             // Данные для отправки на сервер
             const data = {
-
+                idSession,
+                titleSession
             };
             // Отправка данных на сервер
             axios.post('/api/archive/', data)
@@ -42,6 +45,8 @@ const PageArchive = (props) => {
                                 setHistoryMessageSession(!historyMessageSession)
                                 console.log(el.title)
                                 console.log(el.id)
+                                idSession = el.id;
+                                titleSession = el.title;
                             }}
                             key={el.id}
                             className="listsArchiveSession">
