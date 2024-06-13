@@ -252,13 +252,18 @@ const Sidebar = (props) => {
                         &times;
                     </a>
                     <div className="headerModal">
-                        {llm_session_title}
+
                     </div>
                     <form action="" id="changeName">
                         <div className="changeNameSession">
                             Введите новое название сессии
                         </div>
-                        <input type="text" className="changeName"/>
+                        <input type="text" className="changeName" value={llm_session_title}
+                               onChange={(e) => {
+                                   llm_session_title = e.target.value
+                                   console.log(llm_session_title)
+                               }}
+                        />
                         <input type="submit" onClick={(e) => {
                             const formChangeName = e.target.closest('#changeName');
                             formChangeName.addEventListener('submit', e => {
