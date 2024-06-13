@@ -12,12 +12,12 @@ const PageArchive = (props) => {
     useEffect(() => {
         const submitFirstChat = (e) => {
             // Данные для отправки на сервер
-            const data = {
-                idSession,
-                titleSession
-            };
+            // const data = {
+            //     idSession,
+            //     titleSession
+            // };
             // Отправка данных на сервер
-            axios.post('/api/archive/', data)
+            axios.get('/api/archive/')
                 .then(response => {
                     console.log('Server response:', response.data);
 
