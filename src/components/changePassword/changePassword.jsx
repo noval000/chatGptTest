@@ -37,9 +37,9 @@ const ChangePassword = (props) => {
                        }}
                 />
                 <button
-                onClick={
+                onClick={() => {
                     setAxiosChangePassword(!axiosChangePassword)
-                }>Сменить пароль</button>
+                }}>Сменить пароль</button>
             </div>
 
     );
