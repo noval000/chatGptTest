@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import axios from "axios";
+import React, {useState} from 'react';
 
 const ChangePassword = (props) => {
 
@@ -30,7 +29,6 @@ const ChangePassword = (props) => {
     // }, [axiosChangePassword]);    //  отправка изменений профиля
 
     return (
-        <form action="">
             <div className="password">
                 <h4>Введите новый пароль</h4>
                 <input type="text" className="password" value={password}
@@ -43,7 +41,6 @@ const ChangePassword = (props) => {
                     setAxiosChangePassword(!axiosChangePassword)
                 }>Сменить пароль</button>
             </div>
-        </form>
 
     );
 };
