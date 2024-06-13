@@ -65,7 +65,7 @@ const FirstChat = (props) => {
                                                // const messageClaude = response.data.filter(el => el.datetime_response === 'claude');
                                                // const messageGigachat = response.data.filter(el => el.datetime_response === 'gigachat');
                                                const newMessageGpt = {
-                                                   datetime_query: messageGpt.datetime_query,
+                                                   // datetime_query: messageGpt.datetime_query,
                                                    datetime_response: messageGpt.datetime_response,
                                                    id: messageGpt.id,
                                                    model: messageGpt.model,
@@ -76,7 +76,7 @@ const FirstChat = (props) => {
                                                    user_score: messageGpt.user_score
                                                };
                                                const newMessageClaude = {
-                                                   datetime_query: messageClaude.datetime_query,
+                                                   // datetime_query: messageClaude.datetime_query,
                                                    datetime_response: messageClaude.datetime_response,
                                                    id: messageClaude.id,
                                                    model: messageClaude.model,
@@ -87,7 +87,7 @@ const FirstChat = (props) => {
                                                    user_score: messageClaude.user_score
                                                };
                                                const newMessageGigachat = {
-                                                   datetime_query: messageGigachat.datetime_query,
+                                                   // datetime_query: messageGigachat.datetime_query,
                                                    datetime_response: messageGigachat.datetime_response,
                                                    id: messageGigachat.id,
                                                    model: messageGigachat.model,
