@@ -14,7 +14,7 @@ const ChangePassword = (props) => {
                 password
             };
             // Отправка данных на сервер
-            axios.get('/api/profile/change_profile_settings', data)
+            axios.post('/api/profile/change_profile_settings', data)
                 .then(response => {
                     console.log('Server response:', response.data);
 
