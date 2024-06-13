@@ -66,36 +66,36 @@ const FirstChat = (props) => {
                                                // const messageGigachat = response.data.filter(el => el.datetime_response === 'gigachat');
                                                const newMessageGpt = {
                                                    // datetime_query: messageGpt.datetime_query,
-                                                   datetime_response: messageGpt.datetime_response,
-                                                   id: messageGpt.id,
-                                                   model: messageGpt.model,
-                                                   query: llm_query,
-                                                   response: messageGpt.response,
-                                                   session_id: messageGpt.session_id,
-                                                   task: messageGpt.task,
-                                                   user_score: messageGpt.user_score
+                                                   // datetime_response: messageGpt.datetime_response,
+                                                   // id: messageGpt.id,
+                                                   // model: messageGpt.model,
+                                                   // query: llm_query,
+                                                   // response: messageGpt.response,
+                                                   // session_id: messageGpt.session_id,
+                                                   // task: messageGpt.task,
+                                                   // user_score: messageGpt.user_score
                                                };
                                                const newMessageClaude = {
                                                    // datetime_query: messageClaude.datetime_query,
-                                                   datetime_response: messageClaude.datetime_response,
-                                                   id: messageClaude.id,
-                                                   model: messageClaude.model,
-                                                   query: llm_query,
-                                                   response: messageClaude.response,
-                                                   session_id: messageClaude.session_id,
-                                                   task: messageClaude.task,
-                                                   user_score: messageClaude.user_score
+                                                   // datetime_response: messageClaude.datetime_response,
+                                                   // id: messageClaude.id,
+                                                   // model: messageClaude.model,
+                                                   // query: llm_query,
+                                                   // response: messageClaude.response,
+                                                   // session_id: messageClaude.session_id,
+                                                   // task: messageClaude.task,
+                                                   // user_score: messageClaude.user_score
                                                };
                                                const newMessageGigachat = {
                                                    // datetime_query: messageGigachat.datetime_query,
-                                                   datetime_response: messageGigachat.datetime_response,
-                                                   id: messageGigachat.id,
-                                                   model: messageGigachat.model,
-                                                   query: llm_query,
-                                                   response: messageGigachat.response,
-                                                   session_id: messageGigachat.session_id,
-                                                   task: messageGigachat.task,
-                                                   user_score: messageGigachat.user_score
+                                                   // datetime_response: messageGigachat.datetime_response,
+                                                   // id: messageGigachat.id,
+                                                   // model: messageGigachat.model,
+                                                   // query: llm_query,
+                                                   // response: messageGigachat.response,
+                                                   // session_id: messageGigachat.session_id,
+                                                   // task: messageGigachat.task,
+                                                   // user_score: messageGigachat.user_score
                                                };
                                                props.setSessionChatGpt([...props.sessionChatGpt, newMessageGpt]);
                                                props.setSessionChatClaude([...props.sessionChatClaude, newMessageClaude]);
