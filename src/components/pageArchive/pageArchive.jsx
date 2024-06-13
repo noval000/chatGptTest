@@ -7,7 +7,7 @@ const PageArchive = (props) => {
     let idSession = '';
     let titleSession = '';
 
-    const [historyMessageSession, setHistoryMessageSession] = useState([]);
+    const [axiosHistoryMessageSession, setAxiosHistoryMessageSession] = useState(false);
 
     useEffect(() => {
         const submitFirstChat = (e) => {
@@ -30,7 +30,7 @@ const PageArchive = (props) => {
                 });
         };
         submitFirstChat();
-    }, [historyMessageSession]);    //  отправка запроса для отрисовки всех сессий
+    }, [axiosHistoryMessageSession]);    //  отправка запроса для отрисовки всех сессий
 
     return (
         <div className="headerModal scrollModalSession">
@@ -42,7 +42,7 @@ const PageArchive = (props) => {
                     props.archiveSession.map(el => (
                         <ul
                             onClick={() => {
-                                setHistoryMessageSession(!historyMessageSession)
+                                setAxiosHistoryMessageSession(!axiosHistoryMessageSession)
                                 console.log(el.title)
                                 console.log(el.id)
                                 idSession = el.id;
