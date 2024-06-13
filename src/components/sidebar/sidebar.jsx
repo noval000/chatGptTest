@@ -66,45 +66,10 @@ const Sidebar = (props) => {
     }, [llm_session_title, llm_session_id, props.llm_session_title, props.llm_session_id]);     //   отправка запроса при нажатии на название сессии
 
 
-    // useEffect(() => {
-    //     const submitSessionNew = async (e) => {
-    //         // e.preventDefault();
-    //
-    //
-    //         // данные для отправки на сервер
-    //
-    //         const data = {
-    //             llm_session_title,
-    //             llm_session_id
-    //         };
-    //
-    //         try {
-    //
-    //             // Отправка данных на сервер
-    //             const response = await axios.post('/api/llm_session/new_query', data, {
-    //                 headers: {
-    //                     'Content-Type': 'application/json'
-    //                 },
-    //                 credentials: "include",
-    //                 withCredentials: true,
-    //             });
-    //             console.log('server responce' , response.data);
-    //
-    //         } catch (error) {
-    //             console.error('error' , error)
-    //         }
-    //
-    //
-    //     }
-    //     submitSessionNew();
-    // }, [props.changeSessionForSubmitAll]);     //   отправка запроса при нажатии на новую сессии
-
-
    const [showTextHideMenu, setShowTextHideMenu] = useState(false);      //    всплывашка скрыть меню
    const [showTextHideMenu2, setShowTextHideMenu2] = useState(false);    //    всплывашка показать меню
 
 
-    // const [Sidebar, setHideSidebar] = useState(false);   //   скрытие меню
 
     return (
         <div className="flexAndCenter">
@@ -236,7 +201,9 @@ const Sidebar = (props) => {
                                     <button type="button"
                                             className='changeNameLink'
                                             onClick={(e) => {
-                                        setOpen(o => !o)
+                                                props.setLimSessionTitle(el.title);
+                                                props.setLimSessionId(el.id);
+                                                setOpen(o => !o)
                                     }}>
                                         <svg fill="#000000" height="15px" width="15px" version="1.1" id="Capa_1"
                                              xmlns="http://www.w3.org/2000/svg"
@@ -285,16 +252,22 @@ const Sidebar = (props) => {
                         &times;
                     </a>
                     <div className="headerModal">
-
+                        {llm_session_title}
                     </div>
                     <form action="" id="changeName">
-                        <input type="text" className="changeName" />
+                        <div className="changeNameSession">
+                            Введите новое название сессии
+                        </div>
+                        <input type="text" className="changeName"/>
                         <input type="submit" onClick={(e) => {
                             const formChangeName = e.target.closest('#changeName');
-                            formChangeName.addEventListener('submit' , e => {
+                            formChangeName.addEventListener('submit', e => {
                                 e.preventDefault();
                             })
                         }}/>
+                        <div className="changeStatusSession">
+                            <button>Убрать в архив</button>
+                        </div>
                     </form>
                 </div>
             </Popup>
