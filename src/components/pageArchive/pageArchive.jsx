@@ -1,7 +1,34 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './pageArchive.css';
+import axios from "axios";
 
 const PageArchive = (props) => {
+
+
+    const [historyMessageSession, setHistoryMessageSession] = useState([]);
+
+    useEffect(() => {
+        const submitFirstChat = (e) => {
+            // Данные для отправки на сервер
+            const data = {
+
+            };
+            // Отправка данных на сервер
+            axios.post('/api/archive/', data)
+                .then(response => {
+                    console.log('Server response:', response.data);
+
+                })
+                .finally(() => {
+
+                })
+                .catch(error => {
+                    console.error('There was an error sending the data!', error);
+                });
+        };
+        submitFirstChat();
+    }, [historyMessageSession]);    //  отправка запроса для отрисовки всех сессий
+
     return (
         <div className="headerModal scrollModalSession">
             <div className="headerModalTitle fixedSession">
@@ -10,7 +37,13 @@ const PageArchive = (props) => {
             <div className="AllSession">
                 {
                     props.archiveSession.map(el => (
-                        <ul key={el.id}
+                        <ul
+                            onClick={() => {
+                                setHistoryMessageSession(!historyMessageSession)
+                                console.log(el.title)
+                                console.log(el.id)
+                            }}
+                            key={el.id}
                             className="listsArchiveSession">
                             <li className="listArchiveSession">
                                 <div className="nameSess">
