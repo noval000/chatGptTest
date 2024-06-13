@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './pageProfile.css';
 import axios from "axios";
+import ChangePassword from "../changePassword/changePassword";
 
 
 
@@ -12,10 +13,9 @@ import axios from "axios";
 const PageProfile = (props) => {
 
 
-    const [password, setPassword] = useState('');
+
 
     const [axiosChangeName, setAxiosChangeName] = useState(false);       //      при изменении этого состояния отправляется форма (смена данных пользователя)
-    const [axiosChangePassword, setAxiosChangePassword] = useState(false);       //      при изменении этого состояния отправляется форма (смена данных пользователя)
 
 
     useEffect(() => {
@@ -60,27 +60,7 @@ const PageProfile = (props) => {
         submitFirstChat();
     }, [axiosChangeName]);    //  отправка изменений профиля
 
-    useEffect(() => {
-        const submitFirstChat = (e) => {
-            // Данные для отправки на сервер
-            const data = {
-                password
-            };
-            // Отправка данных на сервер
-            axios.post('/api/profile/change_profile_settings', data)
-                .then(response => {
-                    console.log('Server response:', response.data);
 
-                })
-                .finally(() => {
-
-                })
-                .catch(error => {
-                    console.error('There was an error sending the data!', error);
-                });
-        };
-        submitFirstChat();
-    }, [axiosChangePassword]);    //  отправка изменений профиля
 
     return (
         <div className="PageProfile">
@@ -151,20 +131,7 @@ const PageProfile = (props) => {
                         />
                     </div>
                 </form>
-                <div className="password">
-                    <h4>Введите новый пароль</h4>
-                    <input type="text" className="password" value={password}
-                           onChange={(e) => {
-                               setPassword(e.target.value)
-                           }}
-                    />
-                </div>
-                <button className="btnPassword"
-                        onClick={
-                            console.log('ll')
-                        }>
-                    Сохранить пароль
-                </button>
+                <ChangePassword />
             </div>
         </div>
     );
