@@ -25,7 +25,7 @@ const Sidebar = (props) => {
     const closeModal = () => setOpen(false);
 
 
-
+    const [axiosRenderThreeWindow, setAxiosRenderThreeWindow] = useState(false);
 
     useEffect(() => {
         const submitSession = async (e) => {
@@ -63,7 +63,7 @@ const Sidebar = (props) => {
 
             }
         submitSession();
-    }, [llm_session_title, llm_session_id, props.llm_session_title, props.llm_session_id]);     //   отправка запроса при нажатии на название сессии
+    }, [axiosRenderThreeWindow]);     //   отправка запроса при нажатии на название сессии
 
 
    const [showTextHideMenu, setShowTextHideMenu] = useState(false);      //    всплывашка скрыть меню
@@ -180,6 +180,7 @@ const Sidebar = (props) => {
                                 <a href="#!"
                                    className='linkActive'
                                    onClick={(e) => {
+                                       setAxiosRenderThreeWindow(!axiosRenderThreeWindow)
                                        props.setPageProfile(false)   //    скрываем страницу профиля
                                        props.setPageArchive(false)   //    скрываем страницу архива
                                        const hoverLink = document.querySelectorAll('.linkSession');
