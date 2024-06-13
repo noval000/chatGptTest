@@ -152,7 +152,7 @@ const PageProfile = (props) => {
                     </div>
                     <div className="password">
                         <h4>Введите новый пароль</h4>
-                        <input type="text" className="password" value=''
+                        <input type="text" className="password" value={password}
                                onChange={(e) => {
                                    setPassword(e.target.value)
                                }}
