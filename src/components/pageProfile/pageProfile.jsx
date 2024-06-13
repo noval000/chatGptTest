@@ -12,7 +12,10 @@ import axios from "axios";
 const PageProfile = (props) => {
 
 
-    const [axiosChangeName, setAxiosChangeName] = useState(false);
+    const [password, setPassword] = useState('');
+
+    const [axiosChangeName, setAxiosChangeName] = useState(false);       //      при изменении этого состояния отправляется форма (смена данных пользователя)
+    const [axiosChangePassword, setAxiosChangePassword] = useState(false);       //      при изменении этого состояния отправляется форма (смена данных пользователя)
 
 
     useEffect(() => {
@@ -56,6 +59,28 @@ const PageProfile = (props) => {
         };
         submitFirstChat();
     }, [axiosChangeName]);    //  отправка изменений профиля
+
+    useEffect(() => {
+        const submitFirstChat = (e) => {
+            // Данные для отправки на сервер
+            const data = {
+                password
+            };
+            // Отправка данных на сервер
+            axios.post('/api/profile/change_profile_settings', data)
+                .then(response => {
+                    console.log('Server response:', response.data);
+
+                })
+                .finally(() => {
+
+                })
+                .catch(error => {
+                    console.error('There was an error sending the data!', error);
+                });
+        };
+        submitFirstChat();
+    }, [axiosChangePassword]);    //  отправка изменений профиля
 
     return (
         <div className="PageProfile">
@@ -124,6 +149,21 @@ const PageProfile = (props) => {
                                    props.setMailLogin(e.target.value)
                                }}
                         />
+                    </div>
+                    <div className="password">
+                        <h4>Введите новый пароль</h4>
+                        <input type="text" className="password" value=''
+                               disabled={!props.btnChangeInfo}
+                               onChange={(e) => {
+                                   setPassword(e.target.value)
+                               }}
+                        />
+                        <button className="btnPassword"
+                        onClick={
+                            setAxiosChangePassword(!axiosChangePassword)
+                        }>
+                            Сохранить пароль
+                        </button>
                     </div>
                 </form>
             </div>
