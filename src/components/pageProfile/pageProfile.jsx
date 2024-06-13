@@ -160,7 +160,7 @@ const PageProfile = (props) => {
                     />
                     <button className="btnPassword"
                     onClick={
-                        setAxiosChangePassword(!axiosChangePassword)
+                        console.log('ll')
                     }>
                         Сохранить пароль
                     </button>
