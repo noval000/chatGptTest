@@ -50,7 +50,7 @@ const FirstChat = (props) => {
                                        axios.post('/api/llm_session/new_query', data)
                                            .then(response => {
                                                console.log('Server response:', response.data);
-                                               // props.llm_session_id = response.data.llm_sessions[0].id;
+                                               props.llm_session_id = response.data.llm_session.id;
                                                // console.log(props.llm_session_id);
                                                props.setSession(response.data.llm_sessions);
                                                // props.llm_session_id = response.data.id;
