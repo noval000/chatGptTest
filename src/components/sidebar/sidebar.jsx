@@ -13,7 +13,7 @@ const Sidebar = (props) => {
 
     // const [llm_session_title, setllm_session_title] = useState(props.llm_session_title);
 
-    let llm_session_title = props.llm_session_title
+    let llm_session_title = props.llm_session_title;
     let llm_session_id = props.llm_session_id;
 
 
@@ -147,7 +147,7 @@ const Sidebar = (props) => {
                         </svg>
                     </button>
                     <span className="signIn"
-                          onClick={() => {
+                          onClick={(e) => {
                               props.setPageProfile(false)   //    скрываем страницу профиля
                               props.setPageArchive(false)   //    скрываем страницу архива
                               props.setLimSessionTitle('none');
@@ -172,7 +172,7 @@ const Sidebar = (props) => {
                 </div>
                 <a href='#!' className="nameSidebar"
 
-                   onClick={() => {
+                   onClick={(e) => {
                        props.setPageProfile(false)   //    скрываем страницу профиля
                        props.setPageArchive(false)   //    скрываем страницу архива
                        props.setLimSessionTitle('none')

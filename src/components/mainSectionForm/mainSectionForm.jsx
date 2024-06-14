@@ -140,6 +140,7 @@ const MainSectionForm = (props) => {
             {
                 props.openTheeWindowNewSession === true &&     //  при отправке нового запроса появляются эти колонки
                 <div className={!props.hideSidebar ? 'chat-container showMin' : 'chat-container showAll'}>
+                    {console.log(props.sessionChatGpt)}
                     <ColChatsGpt
                         setChangeSessionForSubmitAll={props.setChangeSessionForSubmitAll}
                         session={props.session}    // все сессии
