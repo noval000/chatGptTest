@@ -42,7 +42,6 @@ const FirstChat = (props) => {
                                            // llm_session_id,
                                            llm_model,
                                            llm_query
-
                                            // valueChatGpt
                                            // valueChatClaude,
                                            // valueChatGigachat
