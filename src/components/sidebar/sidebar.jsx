@@ -147,7 +147,7 @@ const Sidebar = (props) => {
                         </svg>
                     </button>
                     <span className="signIn"
-                          onClick={(e) => {
+                          onClick={() => {
                               props.setLimSessionTitle('none');
                               props.setLimSessionId('none');
                               console.log(llm_session_title)
@@ -171,9 +171,9 @@ const Sidebar = (props) => {
                     </div>
                 </div>
                 <a href='#!' className="nameSidebar"
-                   onClick={(e) => {
-                       props.setLimSessionTitle('none');
-                       props.setLimSessionId('none');
+                   onClick={() => {
+                       props.setLimSessionTitle('none')
+                       props.setLimSessionId('none')
                        console.log(llm_session_title)
                        console.log(llm_session_id)
                        if (props.openTheeWindowNewSession === true) {
