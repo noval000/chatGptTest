@@ -60,6 +60,7 @@ const FirstChat = (props) => {
                                                const messageClaude = response.data.llm_responses[1];
                                                const messageGigachat = response.data.llm_responses[2];
                                                props.setLimSessionId(response.data.llm_session_id);
+                                               console.log(props.llm_session_id)
                                                console.log(response.data.llm_session_id)
                                                // const messageClaude = response.data.filter(el => el.datetime_response === 'claude');
                                                // const messageGigachat = response.data.filter(el => el.datetime_response === 'gigachat');
