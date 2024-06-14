@@ -52,7 +52,7 @@ const FirstChat = (props) => {
                                                console.log('Server response:', response.data);
                                                // props.setLimSessionId(response.data.llm_session_id)
                                                // console.log(props.llm_session_id);
-                                               props.setSession(...response.data.llm_sessions);
+                                               props.setSession(response.data.llm_sessions);
                                                // props.llm_session_id = response.data.id;
                                                // console.log(props.session)
                                                // const messageGpt = response.data.filter(el => el.datetime_response === 'chatgpt');
