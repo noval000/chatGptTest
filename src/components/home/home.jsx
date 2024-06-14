@@ -191,6 +191,93 @@ const Home = (props) => {
         console.log(sessionChatGpt)
     }, [changeSessionForSubmitGpt]);    //  отправка запроса на ответ от чата gpt
 
+    useEffect(() => {
+        const submitFirstChat = (e) => {
+            const llm_query = props.inpGetValue;
+            const llm_model = 'all';
+            e.preventDefault();
+            const data = {
+                // llm_session_title,
+                // llm_session_id,
+                llm_model,
+                llm_query
+                // valueChatGpt
+                // valueChatClaude,
+                // valueChatGigachat
+            };
+            // Отправка данных на сервер
+            axios.post('/api/llm_session/new_query', data)
+                .then(response => {
+                    console.log('Server response:', response.data);
+                    // props.setLimSessionId(response.data.llm_session_id)
+                    // console.log(props.llm_session_id);
+                    props.setSession(response.data.llm_sessions);
+                    // props.llm_session_id = response.data.id;
+                    // console.log(props.session)
+                    // const messageGpt = response.data.filter(el => el.datetime_response === 'chatgpt');
+                    const messageGpt = response.data.llm_responses[0];
+                    const messageClaude = response.data.llm_responses[1];
+                    const messageGigachat = response.data.llm_responses[2];
+                    props.setLimSessionId(response.data.llm_session_id);
+                    console.log(props.llm_session_id)
+                    console.log(response.data.llm_session_id)
+                    // const messageClaude = response.data.filter(el => el.datetime_response === 'claude');
+                    // const messageGigachat = response.data.filter(el => el.datetime_response === 'gigachat');
+                    const newMessageGpt = {
+                        datetime_query: messageGpt.datetime_query,
+                        datetime_response: messageGpt.datetime_response,
+                        id: messageGpt.id,
+                        model: messageGpt.model,
+                        query: llm_query,
+                        response: messageGpt.response,
+                        session_id: messageGpt.session_id,
+                        task: messageGpt.task,
+                        user_score: messageGpt.user_score
+                    };
+                    const newMessageClaude = {
+                        datetime_query: messageClaude.datetime_query,
+                        datetime_response: messageClaude.datetime_response,
+                        id: messageClaude.id,
+                        model: messageClaude.model,
+                        query: llm_query,
+                        response: messageClaude.response,
+                        session_id: messageClaude.session_id,
+                        task: messageClaude.task,
+                        user_score: messageClaude.user_score
+                    };
+                    const newMessageGigachat = {
+                        datetime_query: messageGigachat.datetime_query,
+                        datetime_response: messageGigachat.datetime_response,
+                        id: messageGigachat.id,
+                        model: messageGigachat.model,
+                        query: llm_query,
+                        response: messageGigachat.response,
+                        session_id: messageGigachat.session_id,
+                        task: messageGigachat.task,
+                        user_score: messageGigachat.user_score
+                    };
+                    props.setSessionChatGpt([...props.sessionChatGpt, newMessageGpt]);
+                    props.setSessionChatClaude([...props.sessionChatClaude, newMessageClaude]);
+                    props.setSessionChatGigachat([...props.sessionChatGigachat, newMessageGigachat]);
+                })
+                .finally(() => {
+                    props.setValue('');
+                    // props.setValueChatGigachat('');
+                    // props.setValueChatClaude('');
+                    // props.setValueChatGpt('');
+                    // setChangeSessionForSubmitGpt(false);
+                    setChangeSessionForSubmitAll(false)
+                })
+                .catch(error => {
+                    console.error('There was an error sending the data!', error);
+                });
+            if(setChangeSessionForSubmitAll(true)) {
+                submitFirstChat()
+                setOpenTheeWindowNewSession(true);
+            }
+        }
+    }, [changeSessionForSubmitAll]);    //  отправка запроса на ответ от общего чата
+
 
     const [pageProfile, setPageProfile] = useState(false);       //     открытие страницы профиля
     const [btnChangeInfo, setBtnChangeInfo] = useState(false);   //  разблочивание инпутов для редактирования
