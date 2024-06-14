@@ -154,8 +154,6 @@ const Sidebar = (props) => {
                               props.setLimSessionId('none');
                               if (props.openTheeWindowNewSession === true) {
                                   props.setOpenTheeWindowNewSession(false);
-                                  props.setLimSessionTitle('none');
-                                  props.setLimSessionId('none');
                               }
                               console.log(llm_session_title)
                               console.log(llm_session_id)
@@ -182,8 +180,6 @@ const Sidebar = (props) => {
 
                        if (props.openTheeWindowNewSession === true) {
                            props.setOpenTheeWindowNewSession(false);
-                           props.setLimSessionTitle('none');
-                           props.setLimSessionId('none');
                        }
                        console.log(llm_session_title)
                        console.log(llm_session_id)
