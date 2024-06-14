@@ -228,7 +228,7 @@ const Sidebar = (props) => {
                                     <button type="button"
                                             className='changeNameLink'
                                             onClick={(e) => {
-                                                // setllm_session_title(el.title);    //    для передачи названия сессии в инпут
+                                                props.setLimSessionTitle(el.title);    //    для передачи названия сессии в инпут
                                                 props.setLimSessionId(el.id);
                                                 setOpen(o => !o)
                                                 console.log(el.title);
