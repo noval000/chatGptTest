@@ -152,11 +152,13 @@ const Sidebar = (props) => {
                               props.setPageArchive(false)   //    скрываем страницу архива
                               props.setLimSessionTitle('none');
                               props.setLimSessionId('none');
-                              console.log(llm_session_title)
-                              console.log(llm_session_id)
                               if (props.openTheeWindowNewSession === true) {
                                   props.setOpenTheeWindowNewSession(false);
+                                  props.setLimSessionTitle('none');
+                                  props.setLimSessionId('none');
                               }
+                              console.log(llm_session_title)
+                              console.log(llm_session_id)
                           }}
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
@@ -177,11 +179,14 @@ const Sidebar = (props) => {
                        props.setPageArchive(false)   //    скрываем страницу архива
                        props.setLimSessionTitle('none')
                        props.setLimSessionId('none')
-                       console.log(llm_session_title)
-                       console.log(llm_session_id)
+
                        if (props.openTheeWindowNewSession === true) {
                            props.setOpenTheeWindowNewSession(false);
+                           props.setLimSessionTitle('none');
+                           props.setLimSessionId('none');
                        }
+                       console.log(llm_session_title)
+                       console.log(llm_session_id)
                    }}
                 >
                     Помощник ТРИЗ

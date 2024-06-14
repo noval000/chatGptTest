@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ColChatsGpt from "../colChatsGpt/colChatsGpt";
 import './mainSectionForm.css';
 import FirstChat from "../firstChat/firstChat";
@@ -8,7 +8,7 @@ import ColChatsGigachat from "../colChatsGigachat/colChatsGigachat";
 const MainSectionForm = (props) => {
 
 
-
+    const [hideFirstSearch, setHideFirstSearch] = useState(false);  //   загрузка после отправки первой сессии
 
 
     return (
@@ -18,6 +18,8 @@ const MainSectionForm = (props) => {
                 props.llm_session_id === '' &&
                 props.openTheeWindowNewSession === false &&
                 <FirstChat
+                    setHideFirstSearch={setHideFirstSearch}  //   загрузка после отправки первой сессии
+                    hideFirstSearch={hideFirstSearch}
                     hideSidebar={props.hideSidebar}
                     setHideSidebar={props.setHideSidebar}   //   скрытие меню
                     setLimSessionId={props.setLimSessionId}
@@ -46,6 +48,8 @@ const MainSectionForm = (props) => {
                 props.llm_session_id === 'none' &&
                 props.openTheeWindowNewSession === false &&
                 <FirstChat
+                    setHideFirstSearch={setHideFirstSearch}  //   загрузка после отправки первой сессии
+                    hideFirstSearch={hideFirstSearch}
                     hideSidebar={props.hideSidebar}
                     setHideSidebar={props.setHideSidebar}   //   скрытие меню
                     setLimSessionId={props.setLimSessionId}
@@ -137,10 +141,12 @@ const MainSectionForm = (props) => {
             }
 
 
+
+
             {
                 props.openTheeWindowNewSession === true &&     //  при отправке нового запроса появляются эти колонки
                 <div className={!props.hideSidebar ? 'chat-container showMin' : 'chat-container showAll'}>
-                    {console.log(props.sessionChatGpt)}
+                    {console.log(props.session)}
                     <ColChatsGpt
                         setChangeSessionForSubmitAll={props.setChangeSessionForSubmitAll}
                         session={props.session}    // все сессии

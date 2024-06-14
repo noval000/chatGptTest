@@ -9,8 +9,6 @@ const FirstChat = (props) => {
 
 
 
-
-
     return (
         <div
             className={!props.hideSidebar ? 'oneChatContainer showMin' : 'oneChatContainer showAll'}>
@@ -52,14 +50,14 @@ const FirstChat = (props) => {
                                                console.log('Server response:', response.data);
                                                // props.setLimSessionId(response.data.llm_session_id)
                                                // console.log(props.llm_session_id);
+                                               props.setLimSessionId(response.data.llm_session_id);
                                                props.setSession(response.data.llm_sessions);
                                                // props.llm_session_id = response.data.id;
                                                // console.log(props.session)
                                                // const messageGpt = response.data.filter(el => el.datetime_response === 'chatgpt');
-                                               const messageGpt = response.data.llm_responses[0];
-                                               const messageClaude = response.data.llm_responses[1];
-                                               const messageGigachat = response.data.llm_responses[2];
-                                               props.setLimSessionId(response.data.llm_session_id);
+                                               let messageGpt = response.data.llm_responses[0];
+                                               let messageClaude = response.data.llm_responses[1];
+                                               let messageGigachat = response.data.llm_responses[2];
                                                console.log(props.llm_session_id)
                                                console.log(response.data.llm_session_id)
                                                // const messageClaude = response.data.filter(el => el.datetime_response === 'claude');
@@ -97,9 +95,9 @@ const FirstChat = (props) => {
                                                    task: messageGigachat.task,
                                                    user_score: messageGigachat.user_score
                                                };
-                                               props.setSessionChatGpt([...props.sessionChatGpt, newMessageGpt]);
-                                               props.setSessionChatClaude([...props.sessionChatClaude, newMessageClaude]);
-                                               props.setSessionChatGigachat([...props.sessionChatGigachat, newMessageGigachat]);
+                                               props.setSessionChatGpt([newMessageGpt]);
+                                               props.setSessionChatClaude([newMessageClaude]);
+                                               props.setSessionChatGigachat([newMessageGigachat]);
                                            })
                                            .finally(() => {
                                                props.setValue('');
@@ -111,9 +109,10 @@ const FirstChat = (props) => {
                                            .catch(error => {
                                                console.error('There was an error sending the data!', error);
                                            });
+                                       props.setOpenTheeWindowNewSession(true);
                                        props.setChangeSessionForSubmitAll(true);
                                        console.log(props.openTheeWindowNewSession);
-                                       props.setOpenTheeWindowNewSession(true);
+
                                        console.log(props.openTheeWindowNewSession);
                                    })
                                }}
