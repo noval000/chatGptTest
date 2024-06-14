@@ -271,7 +271,7 @@ const Home = (props) => {
                 .catch(error => {
                     console.error('There was an error sending the data!', error);
                 });
-            if(setChangeSessionForSubmitAll(true)) {
+            if(changeSessionForSubmitAll === true) {
                 submitFirstChat()
                 setOpenTheeWindowNewSession(true);
             }
