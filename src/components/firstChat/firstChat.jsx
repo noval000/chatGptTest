@@ -33,6 +33,7 @@ const FirstChat = (props) => {
                                    const form = e.target.closest('#mainForm');
                                    form.addEventListener('submit', e => {
                                        props.setChangeSessionForSubmitAll(true);
+                                       console.log(props.changeSessionForSubmitAll)
                                        // const llm_session_title = props.llm_session_title;
                                        // const llm_session_id = props.llm_session_id;
                                        // const llm_query = props.inpGetValue;
