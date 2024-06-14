@@ -18,7 +18,6 @@ const Sidebar = (props) => {
 
 
 
-
     const [open, setOpen] = useState(false);
 
 
@@ -68,6 +67,32 @@ const Sidebar = (props) => {
 
    const [showTextHideMenu, setShowTextHideMenu] = useState(false);      //    всплывашка скрыть меню
    const [showTextHideMenu2, setShowTextHideMenu2] = useState(false);    //    всплывашка показать меню
+
+
+    const [axiosChangeNameSession, setAxiosChangeNameSession] = useState(false);
+
+    useEffect(() => {
+        const submitChangeName = (e) => {
+            // Данные для отправки на сервер
+            const data = {
+                llm_session_title,
+                llm_session_id
+            };
+            // Отправка данных на сервер
+            axios.post('/api/archive/', data)
+                .then(response => {
+                    console.log('Server response:', response.data);
+
+                })
+                .finally(() => {
+
+                })
+                .catch(error => {
+                    console.error('There was an error sending the data!', error);
+                });
+        };
+        submitChangeName();
+    }, [axiosChangeNameSession]);    //  отправка запроса для смены названия сессии
 
 
 
@@ -155,6 +180,7 @@ const Sidebar = (props) => {
                            props.setOpenTheeWindowNewSession(false);
                        }
                        props.setPageProfile(false)   //    скрываем страницу профиля
+                       props.setPageArchive(false)   //    скрываем страницу архива
                    }}
                 >
                     Помощник ТРИЗ
@@ -202,9 +228,11 @@ const Sidebar = (props) => {
                                     <button type="button"
                                             className='changeNameLink'
                                             onClick={(e) => {
-                                                props.setLimSessionTitle(el.title);
+                                                setllm_session_title(el.title);    //    для передачи названия сессии в инпут
                                                 props.setLimSessionId(el.id);
                                                 setOpen(o => !o)
+                                                console.log(el.title);
+                                                console.log(llm_session_title)
                                     }}>
                                         <svg fill="#000000" height="15px" width="15px" version="1.1" id="Capa_1"
                                              xmlns="http://www.w3.org/2000/svg"
@@ -259,22 +287,25 @@ const Sidebar = (props) => {
                         <div className="changeNameSession">
                             <h3>Введите новое название сессии</h3>
                         </div>
-                        <input type="text" className="changeName" value={llm_session_title}
-                               onChange={(e) => {
-                                   setllm_session_title(e.target.value)
-                                   console.log(llm_session_title)
-                               }}
-                        />
-                        <input type="submit" onClick={(e) => {
-                            const formChangeName = e.target.closest('#changeName');
-                            formChangeName.addEventListener('submit', e => {
-                                e.preventDefault();
-                            })
-                        }}/>
-                        <div className="changeStatusSession">
-                            <button>Убрать в архив</button>
+                        <div className="flexInputChangeName">
+                            <input type="text" className="changeName" value={llm_session_title}
+                                   onChange={(e) => {
+                                       setllm_session_title(e.target.value)
+                                       console.log(llm_session_title)
+                                   }}
+                            />
+                            <input type="submit" onClick={(e) => {
+                                setAxiosChangeNameSession(!axiosChangeNameSession)
+                                const formChangeName = e.target.closest('#changeName');
+                                formChangeName.addEventListener('submit', e => {
+                                    e.preventDefault();
+                                })
+                            }}/>
                         </div>
                     </form>
+                    <div className="changeStatusSession">
+                        <button>Убрать в архив</button>
+                    </div>
                 </div>
             </Popup>
         </div>

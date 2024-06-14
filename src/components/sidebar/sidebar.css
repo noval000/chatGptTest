@@ -320,3 +320,14 @@
         opacity: 0;
     }
 }
+
+#changeName {
+    height: 50vh;
+}
+
+.flexInputChangeName {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import "./firstChat.css";
 import trizLogo from "../images/imgIcon/triz_logo_big_blue.png";
 import axios from "axios";
