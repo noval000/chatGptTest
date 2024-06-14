@@ -11,9 +11,9 @@ const Sidebar = (props) => {
 
 
 
-    const [llm_session_title, setllm_session_title] = useState(props.llm_session_title);
+    // const [llm_session_title, setllm_session_title] = useState(props.llm_session_title);
 
-
+    let llm_session_title = props.llm_session_title
     let llm_session_id = props.llm_session_id;
 
 
@@ -228,7 +228,7 @@ const Sidebar = (props) => {
                                     <button type="button"
                                             className='changeNameLink'
                                             onClick={(e) => {
-                                                setllm_session_title(el.title);    //    для передачи названия сессии в инпут
+                                                // setllm_session_title(el.title);    //    для передачи названия сессии в инпут
                                                 props.setLimSessionId(el.id);
                                                 setOpen(o => !o)
                                                 console.log(el.title);
@@ -290,7 +290,7 @@ const Sidebar = (props) => {
                         <div className="flexInputChangeName">
                             <input type="text" className="changeName" value={llm_session_title}
                                    onChange={(e) => {
-                                       setllm_session_title(e.target.value)
+                                       // setllm_session_title(e.target.value)
                                        console.log(llm_session_title)
                                    }}
                             />
