@@ -31,7 +31,7 @@ const CheckLogin = (props) => {
                                        props.submitCheckLogin(e);
                                    })
                                    if (props.loginOk === true) {
-                                       console.log('ok')
+                                       console.log('ok');
                                        props.setLogin(!props.loginOk)
                                    }
                                }}

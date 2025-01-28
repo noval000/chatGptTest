@@ -14,7 +14,7 @@ const Login = (props) => {
     const [firstname, setFirstName] = useState('')  //  имя  для приветствия
     const [username, setUserName] = useState('');   //  логин пользователя
     const [password, setPassword] = useState('');   //  пароль пользователя
-    const [loginOk, setLogin] = useState(false);   //   верификация
+    const [loginOk, setLogin] = useState(true);   //   верификация  (поменять на false при бэке)
     const [responseData, setResponseData] = useState(null);  //  проверка ответ есть или нет
     const [userId, setUserid] = useState('');   //  id пользователя
     const [mailLogin, setMailLogin] = useState(''); //  маил пользователя

@@ -181,7 +181,6 @@ const Home = (props) => {
                     console.error('There was an error sending the data!', error);
                 });
         };
-
         if (changeSessionForSubmitGpt === true) {
             submitFirstChat();
         }
